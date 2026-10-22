@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Observatorio de Violencia Armada</title>
+<meta name="description" content="Observatorio territorial de terrorismo y violencia armada en Colombia desde el 7 de agosto de 2026. GESEG – Gestión de la Seguridad S.A.S.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;600;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f7fa;--surface:#fff;--ink:#0d1f3c;--ink2:#46556d;--line:#d6dde8;--brand:#0053bb;--accent:#4a9eff;--head:#0d1f3c;--alert:#8d1c1c;--chip:#e8eef7;--map-col:#dbe6f5;--map-nei:#eceff3;--map-line:#9fb3d1;
+--c-eln:#b23a2e;--c-dis:#1f6f8b;--c-clan:#6b7f2a;--c-acsn:#7a5c12;--c-ind:#5e4b8b;--c-nd:#8c96a6;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a172f;--surface:#112240;--ink:#e8eef9;--ink2:#a9b8d0;--line:#27406b;--brand:#4a9eff;--accent:#4a9eff;--head:#0d1f3c;--alert:#ff8d8d;--chip:#1a3157;--map-col:#1d3a6b;--map-nei:#13284a;--map-line:#4c6da3;--c-eln:#e0685a;--c-dis:#4fb3d2;--c-clan:#a3b85a;--c-acsn:#d1a93d;--c-ind:#a28fd6;--c-nd:#8c96a6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0a172f;--surface:#112240;--ink:#e8eef9;--ink2:#a9b8d0;--line:#27406b;--brand:#4a9eff;--accent:#4a9eff;--head:#0d1f3c;--alert:#ff8d8d;--chip:#1a3157;--map-col:#1d3a6b;--map-nei:#13284a;--map-line:#4c6da3;--c-eln:#e0685a;--c-dis:#4fb3d2;--c-clan:#a3b85a;--c-acsn:#d1a93d;--c-ind:#a28fd6;--c-nd:#8c96a6;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Source Serif 4",Georgia,serif;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+h1,h2,h3,.lf,th,button,select,input,label,.chip{font-family:"Libre Franklin",Arial,sans-serif}
+.mono,td.n,.kpi b{font-family:"IBM Plex Mono",Consolas,monospace}
+header.top{background:var(--head);color:#fff;margin:0 calc(-1*max(16px,env(safe-area-inset-left))) 0 calc(-1*max(16px,env(safe-area-inset-right)));padding:14px max(16px,env(safe-area-inset-left))}
+.hrow{max-width:1200px;margin:auto;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.hrow svg{height:38px;width:auto;color:#fff}
+.hrow h1{font-size:18px;margin:0;font-weight:700;line-height:1.25}
+.hrow small{opacity:.8;font-family:"Libre Franklin",Arial,sans-serif}
+button,select,input{font-size:14px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 8px;max-width:100%}
+button{cursor:pointer;font-weight:600}button:hover{border-color:var(--brand)}
+button:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.filters{position:static;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);margin:0 calc(-1*max(16px,env(safe-area-inset-left))) 0 calc(-1*max(16px,env(safe-area-inset-right)));padding:8px max(16px,env(safe-area-inset-left))}
+.frow{max-width:1200px;margin:auto;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end}
+@media(min-width:900px) and (min-height:720px){.filters{position:sticky;top:0}}
+.frow label{display:flex;flex-direction:column;font-size:11px;color:var(--ink2);text-transform:uppercase;letter-spacing:.04em;gap:2px}
+nav.tabs{max-width:1200px;margin:10px auto 0;display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
+nav.tabs a{white-space:nowrap;font:600 13px "Libre Franklin",Arial,sans-serif;color:var(--brand);text-decoration:none;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+main{max-width:1200px;margin:auto;padding-bottom:40px}
+section{margin-top:28px;scroll-margin-top:110px}
+section>h2{font-size:22px;margin:0 0 4px;color:var(--ink);border-left:5px solid var(--brand);padding-left:10px}
+.lead{color:var(--ink2);margin:0 0 12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.kpi b{display:block;font-size:26px;line-height:1.1;color:var(--brand)}
+.kpi.v b{color:var(--alert)}
+.kpi span{font:12px "Libre Franklin",Arial,sans-serif;color:var(--ink2)}
+.kpi em{display:block;font:11px "Libre Franklin",Arial,sans-serif;color:var(--ink2);font-style:normal}
+.note{border-left:4px solid var(--accent);background:var(--chip);padding:8px 12px;border-radius:0 8px 8px 0;font-size:14px;margin:10px 0}
+.warn{border-left-color:var(--alert)}
+.grid2{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:900px){.grid2{grid-template-columns:1fr 1fr}.maplay{display:grid;grid-template-columns:minmax(300px,5fr) 6fr;gap:12px}}
+.chartbox{position:relative;height:280px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink2);background:var(--chip);position:sticky;top:0;white-space:nowrap}
+th[data-k]{cursor:pointer}
+td.n{text-align:right;white-space:nowrap}
+.bar{display:inline-block;height:8px;background:var(--brand);border-radius:4px;vertical-align:middle}
+.chip{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;background:var(--chip);color:var(--ink);border:1px solid var(--line)}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:baseline}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font:12px "Libre Franklin",Arial,sans-serif;margin:6px 0}
+svg#map{width:100%;height:auto;max-height:640px;background:var(--surface);border:1px solid var(--line);border-radius:10px;display:block}
+svg#map .dot{cursor:pointer;stroke:var(--surface);stroke-width:.03;fill-opacity:.75}
+svg#map .dot:hover,svg#map .dot.sel{stroke:var(--ink);stroke-width:.06}
+.ficha h3{margin:0 0 6px;font-size:16px}
+.ficha dl{margin:0;display:grid;grid-template-columns:110px 1fr;gap:3px 10px;font-size:13.5px}
+.ficha dt{font:600 12px "Libre Franklin",Arial,sans-serif;color:var(--ink2)}.ficha dd{margin:0;overflow-wrap:anywhere}
+.tl h3{font-size:15px;margin:16px 0 6px;color:var(--brand)}
+.tli{border-left:3px solid var(--line);padding:2px 0 10px 12px;margin-left:4px}
+.tli .d{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink2)}
+.v{color:var(--alert)}
+a{color:var(--brand)}
+footer{margin:40px calc(-1*max(16px,env(safe-area-inset-left))) 0;background:var(--surface);border-top:1px solid var(--line);padding:18px max(16px,env(safe-area-inset-left));font-size:13px;color:var(--ink2)}
+footer .fr{max-width:1200px;margin:auto;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+footer svg{height:32px;color:var(--brand)}
+.seg button[aria-pressed="true"]{background:var(--brand);color:#fff;border-color:var(--brand)}
+.empty{padding:18px;color:var(--ink2);text-align:center}
+@media print{.filters,nav.tabs,button{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="hrow">
+<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">__LOGO__<div><h1>Observatorio territorial de terrorismo y violencia armada en Colombia</h1><small id="periodo"></small></div></div>
+<button id="themeBtn" type="button" aria-label="Cambiar tema claro u oscuro">Tema</button>
+</div></header>
+<div class="filters"><div class="frow" role="group" aria-label="Filtros">
+<label>Desde<input type="date" id="fDesde"></label>
+<label>Hasta<input type="date" id="fHasta"></label>
+<label>Departamento<select id="fDep"></select></label>
+<label>Municipio<select id="fMun"></select></label>
+<label>Modalidad<select id="fMod"></select></label>
+<label>Presunto responsable<select id="fGrp"></select></label>
+<label>Afectación<select id="fAfe"><option value="">Todas</option><option>Fuerza Pública</option><option>Población civil</option><option>Infraestructura</option></select></label>
+<button id="fClr" type="button">Limpiar filtros</button>
+<span class="lf" style="font-size:12px;color:var(--ink2)" id="fCount" aria-live="polite"></span>
+</div>
+<nav class="tabs" aria-label="Secciones"><a href="#s1">Tablero</a><a href="#s2">Mapa</a><a href="#s3">Evolución</a><a href="#s4">Línea de tiempo</a><a href="#s5">Responsables</a><a href="#s6">Territorio</a><a href="#s7">Daños</a><a href="#s8">Base de datos</a><a href="#s9">Fuentes</a></nav>
+</div>
+<main>
+<section id="s1"><h2>Tablero ejecutivo nacional</h2><p class="lead" id="s1lead"></p>
+<div class="kpis" id="kpis"></div>
+<div class="card" style="margin-top:12px"><h3 style="margin:0 0 6px;font-size:15px">Resumen ejecutivo</h3><div id="resumen"></div></div>
+<div class="note"><strong>Nota de lectura.</strong> La base es una muestra documentada con fuentes abiertas, no el universo de los hechos violentos del país. Las cifras agregadas oficiales (por ejemplo, el total de ataques con drones) se presentan aparte y no se suman a esta base. Los conteos por actor no equivalen a responsabilidad judicial.</div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Calidad de la atribución</h3><div class="chartbox" style="height:220px"><canvas id="chAtr" role="img" aria-label="Incidentes según tipo de atribución"></canvas></div><p class="lead" style="margin:6px 0 0;font-size:13px">A judicial · B oficial · C reivindicada · D hipótesis periodística o de terceros · E desconocida.</p></div>
+</section>
+
+<section id="s2"><h2>Mapa territorial</h2><p class="lead">Cada círculo es un incidente en el centroide municipal aproximado; el tamaño crece con las víctimas. Pulse o use Enter para abrir la ficha. No es cartografía oficial.</p>
+<div class="maplay"><div><svg id="map" viewBox="-79.4 -13 12.8 17.4" role="group" aria-label="Mapa de incidentes en Colombia"></svg><div class="legend" id="mapLeg"></div></div>
+<div class="card ficha" id="ficha" aria-live="polite"><p class="empty">Seleccione un incidente en el mapa.</p></div></div></section>
+
+<section id="s3"><h2>Evolución temporal</h2><p class="lead">Las semanas se cuentan desde el 7 de agosto de 2026.</p>
+<div class="seg" role="group" aria-label="Agrupación temporal" style="margin-bottom:10px"><button type="button" data-g="d" aria-pressed="false">Diaria</button> <button type="button" data-g="w" aria-pressed="true">Semanal</button> <button type="button" data-g="m" aria-pressed="false">Mensual</button></div>
+<div class="grid2"><div class="card"><h3 style="margin:0 0 6px;font-size:15px">Incidentes y acumulado</h3><div class="chartbox"><canvas id="chT1" role="img" aria-label="Incidentes por periodo y acumulado"></canvas></div></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Fallecidos y heridos</h3><div class="chartbox"><canvas id="chT2" role="img" aria-label="Fallecidos y heridos por periodo"></canvas></div></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Incidentes por modalidad</h3><div class="chartbox"><canvas id="chT3" role="img" aria-label="Incidentes por modalidad y periodo"></canvas></div></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Comparación mensual</h3><div class="chartbox"><canvas id="chT4" role="img" aria-label="Comparación mensual"></canvas></div><p class="lead" style="margin:6px 0 0;font-size:13px">Agosto cuenta desde el día 7; octubre llega al corte.</p></div></div>
+<div class="note warn">Las variaciones entre periodos pueden reflejar la cobertura de las fuentes y el momento de la búsqueda, no solo cambios en la violencia.</div></section>
+
+<section id="s4"><h2>Línea de tiempo</h2><p class="lead">Agrupada por mes; los registros siguen el orden cronológico.</p><div class="tl" id="tl"></div></section>
+
+<section id="s5"><h2>Presuntos responsables</h2><p class="lead">Se agrupa según lo que mencionan las fuentes; la atribución no se infiere por presencia territorial ni por modalidad.</p>
+<div class="card"><div class="chartbox"><canvas id="chR" role="img" aria-label="Incidentes por actor según tipo de atribución"></canvas></div></div>
+<div class="card tw"><table id="tR"></table></div>
+<div class="card tw"><h3 style="margin:0 0 6px;font-size:15px">Actor por modalidad</h3><table id="tM"></table></div>
+<div class="note warn">Los conteos no equivalen a responsabilidad judicial. Una atribución oficial o periodística no es una condena.</div></section>
+
+<section id="s6"><h2>Afectación territorial</h2><p class="lead">Descripción de hechos registrados; no es una clasificación de seguridad de los territorios.</p>
+<div class="card tw"><table id="tD"></table></div><div class="card tw"><h3 style="margin:0 0 6px;font-size:15px">Municipios</h3><table id="tMu"></table></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Lectura por regiones</h3><div id="regiones"></div></div></section>
+
+<section id="s7"><h2>Consolidado de daños</h2>
+<div class="card tw"><table id="tDH"></table></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Daño social e institucional</h3><div class="tw"><table id="tDS"></table></div></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Daño material e infraestructura</h3><div class="tw"><table id="tDM"></table></div></div>
+<div class="note">No hay cuantificación económica: ninguna fuente consultada ofrece una metodología de valoración. Una recompensa no es un daño.</div></section>
+
+<section id="s8"><h2>Base de datos</h2><p class="lead">Ordene pulsando un encabezado. El botón copia los registros filtrados en CSV.</p>
+<p><button id="csvBtn" type="button">Copiar CSV</button> <a class="lf" href="Observatorio_Violencia_Armada_Colombia_2026.xlsx" download style="font-size:13px">Descargar Excel</a> <span id="csvMsg" class="lf" style="font-size:12px;color:var(--ink2)" aria-live="polite"></span></p>
+<div class="card tw" style="max-height:560px;overflow:auto"><table id="tB"></table></div><textarea id="csvTa" aria-label="CSV para copia manual" style="display:none;width:100%;height:160px"></textarea></section>
+
+<section id="s9"><h2>Fuentes y limitaciones</h2>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Limitaciones metodológicas</h3><ul>
+<li>La base se construye con fuentes abiertas; no es un registro oficial ni exhaustivo.</li>
+<li>Las cifras de víctimas son el balance más reciente hallado; pueden actualizarse con nuevos balances.</li>
+<li>Las coordenadas son centroides municipales aproximados, no ubicaciones exactas.</li>
+<li>Se excluyen combates, atentados frustrados, hechos fuera del periodo o del territorio y hechos de fecha no verificable.</li>
+<li>La clasificación como «presunto acto terrorista» es analítica y provisional; no es una calificación jurídica.</li>
+<li>No se publican nombres de víctimas ni detalles tácticos.</li>
+<li>Los registros con una sola fuente o con estado preliminar se cuentan como información incompleta.</li></ul></div>
+<div class="card tw"><h3 style="margin:0 0 6px;font-size:15px">Contexto agregado (no se suma a la base)</h3><table id="tCtx"></table></div>
+<div class="card tw"><h3 style="margin:0 0 6px;font-size:15px">Hechos excluidos y pendientes</h3><table id="tEx"></table></div>
+<div class="card tw"><h3 style="margin:0 0 6px;font-size:15px">Fuentes por registro</h3><table id="tSrc"></table></div></section>
+</main>
+<footer><div class="fr">__LOGO__<div>GESEG – Gestión de la Seguridad S.A.S. · Del dato a la decisión · Observatorio elaborado con fuentes abiertas; no es producto de inteligencia ni de contrainteligencia. Revisión independiente pendiente de asignación.</div></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const DATA=__DATA__;
+const GEO=__GEO__;
+const START="2026-08-07", END=DATA.updated;
+const EV=DATA.events;
+const GR=["ELN","Disidencias FARC","Clan del Golfo / EGC","ACSN","Autor individual (capturado)","No determinado"];
+const GC={"ELN":"--c-eln","Disidencias FARC":"--c-dis","Clan del Golfo / EGC":"--c-clan","ACSN":"--c-acsn","Autor individual (capturado)":"--c-ind","No determinado":"--c-nd"};
+const MODS=["Dron con explosivos","Vehículo con explosivos","Explosivo / IED","Granada / artefacto lanzado","Paro armado","Homicidio selectivo","Ataque armado"];
+const ATR={A:"Judicial",B:"Oficial",C:"Reivindicada",D:"Hipótesis periodística o de terceros",E:"Desconocida"};
+const MES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const gcol=g=>css(GC[g]||"--c-nd");
+const M=e=>e.m_civ+e.m_fp, H=e=>e.h_civ+e.h_fp;
+const fmtF=d=>{const[y,m,dd]=d.split("-");return `${+dd} de ${MES[+m-1]} de ${y}`};
+const sum=(a,f)=>a.reduce((s,e)=>s+f(e),0);
+const uniq=a=>[...new Set(a)];
+const incompleto=e=>e.fuentes.length===1||e.estado!=="Confirmado";
+function afect(e){const o=e.objetivo.toLowerCase(),r=[];
+ if(o.includes("fuerza pública")||e.m_fp+e.h_fp>0)r.push("Fuerza Pública");
+ if(o.includes("civil")||e.m_civ+e.h_civ>0||o.includes("población")||o.includes("transporte"))r.push("Población civil");
+ if(o.includes("infraestructura")||o.includes("institucional")||o.includes("vial")||o.includes("minera"))r.push("Infraestructura");
+ return r.length?r:["Sin dato"];}
+const F={desde:START,hasta:END,dep:"",mun:"",mod:"",grp:"",afe:""};
+let GRAN="w", SEL=null, SORT={k:"fecha",d:1}, charts={};
+function filtered(){return EV.filter(e=>e.fecha>=F.desde&&e.fecha<=F.hasta&&(!F.dep||e.depto===F.dep)&&(!F.mun||e.mpio===F.mun)&&(!F.mod||e.mod===F.mod)&&(!F.grp||e.grupo===F.grp)&&(!F.afe||afect(e).includes(F.afe)));}
+function opts(sel,vals,all){sel.innerHTML=`<option value="">${all}</option>`+vals.map(v=>`<option>${esc(v)}</option>`).join("");}
+function initFilters(){
+ $("fDesde").min=$("fHasta").min=START;$("fDesde").max=$("fHasta").max=END;$("fDesde").value=START;$("fHasta").value=END;
+ opts($("fDep"),uniq(EV.map(e=>e.depto)).sort(),"Todos");opts($("fMun"),uniq(EV.map(e=>e.mpio)).sort(),"Todos");
+ opts($("fMod"),MODS,"Todas");opts($("fGrp"),GR,"Todos");
+ $("fDesde").onchange=e=>{F.desde=e.target.value||START;render()};$("fHasta").onchange=e=>{F.hasta=e.target.value||END;render()};
+ $("fDep").onchange=e=>{F.dep=e.target.value;F.mun="";muns();render()};$("fMun").onchange=e=>{F.mun=e.target.value;render()};
+ $("fMod").onchange=e=>{F.mod=e.target.value;render()};$("fGrp").onchange=e=>{F.grp=e.target.value;render()};$("fAfe").onchange=e=>{F.afe=e.target.value;render()};
+ $("fClr").onclick=()=>{Object.assign(F,{desde:START,hasta:END,dep:"",mun:"",mod:"",grp:"",afe:""});$("fDesde").value=START;$("fHasta").value=END;["fDep","fMod","fGrp","fAfe"].forEach(i=>$(i).value="");muns();render()};
+ document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{GRAN=b.dataset.g;document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));render()});
+}
+function muns(){const l=uniq(EV.filter(e=>!F.dep||e.depto===F.dep).map(e=>e.mpio)).sort();opts($("fMun"),l,"Todos");$("fMun").value=F.mun;}
+function tbl(el,head,rows,empty){el.innerHTML=rows.length?`<thead><tr>${head.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody>`:`<tbody><tr><td class="empty">${empty||"Sin registros con los filtros actuales."}</td></tr></tbody>`;}
+const td=(v,n)=>`<td${n?' class="n"':""}>${v}</td>`;
+const link=(u,t)=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${t}</a>`;
+const dom=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch(e){return u}};
+const links=e=>e.fuentes.map((u,i)=>link(u,`[${i+1}] ${esc(dom(u))}`)).join(" ");
+function mkChart(id,cfg){if(typeof Chart==="undefined"){const c=$(id);c.parentNode.innerHTML='<p class="empty">El gráfico requiere Chart.js (sin conexión no está disponible).</p>';return}
+ if(charts[id])charts[id].destroy();const c=$(id);if(!c)return;
+ Chart.defaults.font.family='"Libre Franklin",Arial,sans-serif';Chart.defaults.color=css("--ink2");
+ cfg.options=Object.assign({responsive:true,maintainAspectRatio:false},cfg.options||{});
+ const sc=cfg.options.scales||{};for(const k in sc){sc[k].grid=Object.assign({color:css("--line")},sc[k].grid||{});}
+ charts[id]=new Chart(c,cfg);}
+/* ---- periodos ---- */
+function bucketKey(f){const d=new Date(f+"T00:00:00Z");
+ if(GRAN==="d")return f;
+ if(GRAN==="m")return f.slice(0,7);
+ const s=new Date(START+"T00:00:00Z");const w=Math.floor((d-s)/(7*864e5));return "w"+String(w+1).padStart(2,"0");}
+function allBuckets(){const out=[];const s=new Date(START+"T00:00:00Z"),e=new Date(END+"T00:00:00Z");
+ for(let d=new Date(s);d<=e;d=new Date(d.getTime()+864e5)){const k=bucketKey(d.toISOString().slice(0,10));if(!out.includes(k))out.push(k);}return out;}
+function bLabel(k){if(GRAN==="d"){return k.slice(5)}if(GRAN==="m"){const[y,m]=k.split("-");return MES[+m-1]+(m==="08"?" (desde el 7)":"")}
+ const n=+k.slice(1);const s=new Date(START+"T00:00:00Z");const a=new Date(s.getTime()+(n-1)*7*864e5);return "S"+n+" · "+a.toISOString().slice(5,10);}
+/* ---- paneles ---- */
+function pKpis(D){
+ const mu=sum(D,M),he=sum(D,H),muF=sum(D,e=>e.m_fp),muC=sum(D,e=>e.m_civ),heF=sum(D,e=>e.h_fp),heC=sum(D,e=>e.h_civ);
+ const g=x=>D.filter(e=>e.grupo===x).length,n=D.length||1;
+ const otros=D.filter(e=>!["ELN","Disidencias FARC","No determinado"].includes(e.grupo)).length;
+ const nd=D.filter(e=>e.atrib==="E").length;
+ const dan=D.filter(e=>e.danos&&!/^no (informados|descritos)/i.test(e.danos)).length;
+ const inc=D.filter(incompleto).length;
+ const k=[
+ [D.length,"Incidentes","",0],[mu,"Fallecidos",`${muF} Fuerza Pública · ${muC} civiles`,1],[he,"Heridos",`${heF} Fuerza Pública · ${heC} civiles`,1],
+ [muC+heC,"Civiles afectados","fallecidos y heridos",1],[uniq(D.map(e=>e.depto)).length,"Departamentos","",0],[uniq(D.map(e=>e.depto+"|"+e.mpio)).length,"Municipios","",0],
+ [g("ELN"),"Atribuidos al ELN","presunto; ver tipo de atribución",0],[g("Disidencias FARC"),"Atribuidos a disidencias","presunto",0],[otros,"Otros actores","ACSN, Clan del Golfo, individuales",0],
+ [(100*nd/n).toFixed(0)+" %","Autoría desconocida",`${nd} de ${D.length}`,0],[dan,"Con daño material documentado","",0],[(100*inc/n).toFixed(0)+" %","Información incompleta","fuente única o estado preliminar",0]];
+ $("kpis").innerHTML=k.map(([v,l,s,r])=>`<div class="kpi${r?" v":""}"><b>${v}</b><span>${l}</span>${s?`<em>${s}</em>`:""}</div>`).join("");
+ $("s1lead").textContent=`Corte: ${fmtF(END)}. Periodo: desde el 7 de agosto de 2026 (00:00, UTC−5).`;
+ if(!D.length){$("resumen").innerHTML='<p class="empty">Sin registros con los filtros actuales.</p>';return}
+ const dep=Object.entries(D.reduce((a,e)=>(a[e.depto]=(a[e.depto]||0)+1,a),{})).sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>`${x[0]} (${x[1]})`).join(", ");
+ const dron=D.filter(e=>e.mod==="Dron con explosivos").length,veh=D.filter(e=>e.mod==="Vehículo con explosivos").length;
+ const fp=D.filter(e=>afect(e).includes("Fuerza Pública")).length;
+ const mx=D.slice().sort((a,b)=>(M(b)*3+H(b))-(M(a)*3+H(a)))[0];
+ $("resumen").innerHTML=`<p>Entre el 7 de agosto y el ${fmtF(END)} la base documenta <b>${D.length}</b> incidentes con <b>${mu}</b> fallecidos y <b>${he}</b> heridos en <b>${uniq(D.map(e=>e.depto)).length}</b> departamentos. Los departamentos con más registros son ${dep}.</p>
+ <p>${dron} registros (${(100*dron/D.length).toFixed(0)} %) corresponden a drones con explosivos y ${veh} a vehículos con explosivos. ${fp} registros afectan a la Fuerza Pública. En ${nd} (${(100*nd/D.length).toFixed(0)} %) la autoría no está determinada y en ${D.filter(e=>e.atrib==="B").length} existe atribución oficial, que no equivale a decisión judicial.</p>
+ <p>El hecho con mayor número de víctimas en la selección es <a href="#s2" data-id="${mx.id}" class="jump">${esc(mx.mpio)} (${mx.fecha})</a>: ${M(mx)} fallecidos y ${H(mx)} heridos según el balance más reciente.</p>`;
+ document.querySelectorAll(".jump").forEach(a=>a.onclick=()=>{SEL=a.dataset.id;pMap(filtered())});
+ const cnt=["A","B","C","D","E"].map(a=>D.filter(e=>e.atrib===a).length);
+ mkChart("chAtr",{type:"bar",data:{labels:["A judicial","B oficial","C reivindicada","D hipótesis","E desconocida"],datasets:[{label:"Incidentes",data:cnt,backgroundColor:css("--brand")}]},options:{indexAxis:"y",plugins:{legend:{display:false}},scales:{x:{beginAtZero:true,ticks:{precision:0}}}}});
+}
+function pMap(D){
+ const sv=$("map");let h="";
+ GEO.forEach(g=>{const col=g.c==="COL";h+=g.p.map(r=>`<path d="M${r.map(([x,y])=>x+","+(-y)).join("L")}Z" fill="${css(col?"--map-col":"--map-nei")}" stroke="${css("--map-line")}" stroke-width="${col?.05:.03}"/>`).join("");});
+ const ds=D.slice().sort((a,b)=>(M(b)*3+H(b))-(M(a)*3+H(a)));
+ h+=ds.map(e=>{const r=.14+Math.sqrt(3*M(e)+H(e))*.07;return `<circle class="dot${e.id===SEL?" sel":""}" data-id="${e.id}" cx="${e.lon}" cy="${-e.lat}" r="${r.toFixed(3)}" fill="${gcol(e.grupo)}" tabindex="0" role="button" aria-label="${esc(e.mpio)}, ${e.fecha}, ${esc(e.mod)}"><title>${esc(e.mpio)} · ${e.fecha} · ${esc(e.mod)}</title></circle>`}).join("");
+ sv.innerHTML=h;
+ sv.querySelectorAll(".dot").forEach(c=>{const f=()=>{SEL=c.dataset.id;pMap(filtered());ficha()};c.onclick=f;c.onkeydown=ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();f()}}});
+ $("mapLeg").innerHTML=GR.map(g=>`<span><i class="sw" style="background:${gcol(g)}"></i>${g}</span>`).join("")+'<span>Tamaño: fallecidos y heridos</span>';
+ ficha();
+}
+function ficha(){const e=EV.find(x=>x.id===SEL);const el=$("ficha");
+ if(!e){el.innerHTML='<p class="empty">Seleccione un incidente en el mapa.</p>';return}
+ const r=(k,v)=>`<dt>${k}</dt><dd>${v}</dd>`;
+ el.innerHTML=`<h3>${e.id} · ${esc(e.mpio)}, ${esc(e.depto)}</h3><dl>${r("Fecha",`${fmtF(e.fecha)} · ${esc(e.hora)}`)}${r("Lugar",esc(e.lugar))}${r("Modalidad",esc(e.mod))}${r("Hecho",esc(e.tipo))}${r("Clase",esc(e.clase))}
+ ${r("Objetivo",esc(e.objetivo))}${r("Presunto autor",`${esc(e.autor)} <span class="chip">${e.atrib} · ${ATR[e.atrib]}</span>`)}${r("Evidencia",esc(e.evidencia))}
+ ${r("Víctimas",`<span class="v"><b>${M(e)}</b> fallecidos (${e.m_fp} FP, ${e.m_civ} civiles) · <b>${H(e)}</b> heridos (${e.h_fp} FP, ${e.h_civ} civiles)</span><br>${esc(e.h_nota)}`)}
+ ${r("Daños",esc(e.danos))}${r("Servicios",esc(e.servicios))}${r("Económico",esc(e.eco))}${r("Estado",esc(e.estado)+" · verificado "+e.actualizacion)}
+ ${r("Coordenada",esc(e.prec_coord))}${r("Fuentes",links(e))}</dl>`;}
+function pTime(D){
+ const keys=allBuckets();const by=k=>D.filter(e=>bucketKey(e.fecha)===k);
+ const lab=keys.map(bLabel),inc=keys.map(k=>by(k).length);let c=0;const acc=inc.map(v=>c+=v);
+ mkChart("chT1",{type:"bar",data:{labels:lab,datasets:[{label:"Incidentes",data:inc,backgroundColor:css("--brand"),order:2},{type:"line",label:"Acumulado",data:acc,borderColor:css("--alert"),backgroundColor:css("--alert"),yAxisID:"y2",tension:.2,pointRadius:2,order:1}]},options:{scales:{y:{beginAtZero:true,ticks:{precision:0}},y2:{position:"right",beginAtZero:true,grid:{drawOnChartArea:false},ticks:{precision:0}},x:{ticks:{maxRotation:60,autoSkip:true}}}}});
+ mkChart("chT2",{type:"bar",data:{labels:lab,datasets:[{label:"Fallecidos",data:keys.map(k=>sum(by(k),M)),backgroundColor:css("--alert")},{label:"Heridos",data:keys.map(k=>sum(by(k),H)),backgroundColor:css("--accent")}]},options:{scales:{y:{beginAtZero:true,ticks:{precision:0}},x:{ticks:{maxRotation:60,autoSkip:true}}}}});
+ const pal=["--c-eln","--c-dis","--c-clan","--c-acsn","--c-ind","--c-nd","--brand"];
+ mkChart("chT3",{type:"bar",data:{labels:lab,datasets:MODS.map((m,i)=>({label:m,data:keys.map(k=>by(k).filter(e=>e.mod===m).length),backgroundColor:css(pal[i])}))},options:{scales:{x:{stacked:true,ticks:{maxRotation:60,autoSkip:true}},y:{stacked:true,beginAtZero:true,ticks:{precision:0}}},plugins:{legend:{labels:{boxWidth:10}}}}});
+ const ms=uniq(EV.map(e=>e.fecha.slice(0,7))).sort();
+ mkChart("chT4",{type:"bar",data:{labels:ms.map(m=>MES[+m.slice(5)-1]+(m==="2026-08"?" (desde el 7)":"")),datasets:[{label:"Incidentes",data:ms.map(m=>D.filter(e=>e.fecha.startsWith(m)).length),backgroundColor:css("--brand")},{label:"Fallecidos",data:ms.map(m=>sum(D.filter(e=>e.fecha.startsWith(m)),M)),backgroundColor:css("--alert")},{label:"Heridos",data:ms.map(m=>sum(D.filter(e=>e.fecha.startsWith(m)),H)),backgroundColor:css("--accent")}]},options:{scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
+}
+function pTL(D){const el=$("tl");if(!D.length){el.innerHTML='<p class="empty">Sin registros con los filtros actuales.</p>';return}
+ const s=D.slice().sort((a,b)=>a.fecha.localeCompare(b.fecha)||a.id.localeCompare(b.id));let cur="",h="";
+ s.forEach(e=>{const m=e.fecha.slice(0,7);if(m!==cur){cur=m;h+=`<h3>${MES[+m.slice(5)-1][0].toUpperCase()+MES[+m.slice(5)-1].slice(1)} de ${m.slice(0,4)}</h3>`}
+ h+=`<div class="tli"><div class="d">${e.fecha} · ${e.id}</div><b>${esc(e.depto)} → ${esc(e.mpio)}</b>: ${esc(e.tipo)}.<br>Presunto autor: ${esc(e.autor)} <span class="chip">${e.atrib}</span> · Víctimas: <span class="v">${M(e)} fallecidos, ${H(e)} heridos</span> · Daños: ${esc(e.danos)}<br>Estado: ${esc(e.estado)} · ${links(e)}</div>`});
+ el.innerHTML=h;}
+function pResp(D){
+ const gs=GR.filter(g=>D.some(e=>e.grupo===g));
+ const at=["A","B","C","D","E"],ac=["--c-dis","--brand","--c-clan","--c-acsn","--c-nd"];
+ mkChart("chR",{type:"bar",data:{labels:gs,datasets:at.map((a,i)=>({label:`${a} ${ATR[a]}`,data:gs.map(g=>D.filter(e=>e.grupo===g&&e.atrib===a).length),backgroundColor:css(ac[i])}))},options:{scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true,ticks:{precision:0}}}}});
+ tbl($("tR"),["Actor","Incidentes","Fallecidos","Heridos","A","B","C","D","E","Departamentos"],gs.map(g=>{const x=D.filter(e=>e.grupo===g);return `<tr>${td(`<i class="sw" style="background:${gcol(g)}"></i>${g}`)}${td(x.length,1)}${td(sum(x,M),1)}${td(sum(x,H),1)}${at.map(a=>td(x.filter(e=>e.atrib===a).length,1)).join("")}${td(uniq(x.map(e=>e.depto)).join(", "))}</tr>`}));
+ const ms=MODS.filter(m=>D.some(e=>e.mod===m));
+ tbl($("tM"),["Actor",...ms,"Total"],gs.map(g=>`<tr>${td(g)}${ms.map(m=>td(D.filter(e=>e.grupo===g&&e.mod===m).length||"·",1)).join("")}${td(D.filter(e=>e.grupo===g).length,1)}</tr>`));}
+function pTerr(D){
+ const ds=uniq(D.map(e=>e.depto)),mx=Math.max(1,...ds.map(d=>D.filter(e=>e.depto===d).length));
+ const r=ds.map(d=>{const x=D.filter(e=>e.depto===d);return [d,x.length,x]}).sort((a,b)=>b[1]-a[1]);
+ tbl($("tD"),["Departamento","Incidentes","","Fallecidos","Heridos","Tipos de afectación","% no esclarecido"],r.map(([d,n,x])=>`<tr>${td(esc(d))}${td(n,1)}${td(`<span class="bar" style="width:${Math.round(110*n/mx)}px"></span>`)}${td(sum(x,M),1)}${td(sum(x,H),1)}${td(uniq(x.flatMap(afect)).join(", "))}${td((100*x.filter(e=>e.atrib==="E").length/n).toFixed(0)+" %",1)}</tr>`));
+ const ms=uniq(D.map(e=>e.depto+"|"+e.mpio)).map(k=>{const[d,m]=k.split("|");return [d,m,D.filter(e=>e.depto===d&&e.mpio===m)]}).sort((a,b)=>b[2].length-a[2].length||a[1].localeCompare(b[1]));
+ tbl($("tMu"),["Municipio","Departamento","Incidentes","Fallecidos","Heridos","Modalidades"],ms.map(([d,m,x])=>`<tr>${td(esc(m))}${td(esc(d))}${td(x.length,1)}${td(sum(x,M),1)}${td(sum(x,H),1)}${td(uniq(x.map(e=>e.mod)).join(", "))}</tr>`));
+ const RG={"Catatumbo y nororiente":["Norte de Santander"],"Sur del Cesar y Caribe":["Cesar","La Guajira","Magdalena"],"Suroccidente (Cauca, Valle del Cauca)":["Cauca","Valle del Cauca"],"Pacífico (Chocó)":["Chocó"],"Surcolombiana (Huila)":["Huila"],"Arauca":["Arauca"],"Nariño":["Nariño"]};
+ const out=Object.entries(RG).map(([n,l])=>{const x=D.filter(e=>l.includes(e.depto));if(!x.length)return "";const md=Object.entries(x.reduce((a,e)=>(a[e.mod]=(a[e.mod]||0)+1,a),{})).sort((a,b)=>b[1]-a[1])[0][0];
+  return `<p><b>${n}.</b> ${x.length} registros en ${uniq(x.map(e=>e.mpio)).length} municipios; ${sum(x,M)} fallecidos y ${sum(x,H)} heridos. Modalidad más frecuente: ${md.toLowerCase()}. En ${x.filter(e=>e.atrib==="E").length} la autoría no está determinada.</p>`}).join("");
+ $("regiones").innerHTML=out||'<p class="empty">Sin registros con los filtros actuales.</p>';}
+function pDanos(D){
+ const mu=sum(D,M),he=sum(D,H);
+ tbl($("tDH"),["Concepto","Fallecidos","Heridos","Nota"],[
+  `<tr>${td("Daño humano (balance más reciente)")}${td(mu,1)}${td(he,1)}${td(`${sum(D,e=>e.m_fp)} FP y ${sum(D,e=>e.m_civ)} civiles fallecidos; ${sum(D,e=>e.h_fp)} FP y ${sum(D,e=>e.h_civ)} civiles heridos`)}</tr>`]);
+ const sv=D.filter(e=>e.servicios&&e.servicios!=="No documentado");
+ tbl($("tDS"),["Id","Municipio","Servicio o población afectada"],sv.map(e=>`<tr>${td(e.id)}${td(esc(e.mpio))}${td(esc(e.servicios))}</tr>`),"No hay afectaciones de servicios documentadas con los filtros actuales.");
+ const dm=D.filter(e=>e.danos&&!/^no (informados|descritos)/i.test(e.danos));
+ tbl($("tDM"),["Id","Municipio","Daño documentado","Valor económico"],dm.map(e=>`<tr>${td(e.id)}${td(esc(e.mpio))}${td(esc(e.danos))}${td(esc(e.eco))}</tr>`),"Sin daños materiales documentados con los filtros actuales.");}
+const COLS=[["fecha","Fecha"],["id","Id"],["depto","Departamento"],["mpio","Municipio"],["lugar","Lugar"],["mod","Modalidad"],["grupo","Presunto responsable"],["atrib","Atrib."],["m_civ","M civ"],["m_fp","M FP"],["h_civ","H civ"],["h_fp","H FP"],["estado","Estado"],["danos","Daños"]];
+function pBase(D){
+ const s=D.slice().sort((a,b)=>{const x=a[SORT.k],y=b[SORT.k];return (typeof x==="number"?x-y:String(x).localeCompare(String(y)))*SORT.d||a.id.localeCompare(b.id)});
+ const t=$("tB");tbl(t,COLS.map(([k,l])=>`<span data-k="${k}">${l}${SORT.k===k?(SORT.d>0?" ▲":" ▼"):""}</span>`),s.map(e=>`<tr>${COLS.map(([k])=>td(esc(e[k]),typeof e[k]==="number")).join("")}</tr>`));
+ t.querySelectorAll("th").forEach((th,i)=>{th.setAttribute("data-k",COLS[i][0]);th.tabIndex=0;const f=()=>{const k=COLS[i][0];SORT=SORT.k===k?{k,d:-SORT.d}:{k,d:1};pBase(filtered())};th.onclick=f;th.onkeydown=ev=>{if(ev.key==="Enter")f()}});}
+function csvText(D){const f=["id","fecha","hora","depto","mpio","lugar","lat","lon","prec_coord","tipo","mod","objetivo","clase","autor","grupo","atrib","evidencia","m_civ","m_fp","h_civ","h_fp","h_nota","danos","eco","desplaz","servicios","estado","fuentes","actualizacion"];
+ const q=v=>'"'+String(Array.isArray(v)?v.join(" | "):v).replace(/"/g,'""')+'"';return [f.join(","),...D.map(e=>f.map(k=>q(e[k])).join(","))].join("\n");}
+function pFuentes(){
+ tbl($("tCtx"),["Fuente","Cifra agregada descrita","Enlace"],DATA.context.map(c=>`<tr>${td(esc(c[0]))}${td(esc(c[1]))}${td(link(c[2],esc(dom(c[2]))))}</tr>`));
+ tbl($("tEx"),["Fecha","Departamento","Municipio","Hecho reportado","Justificación"],DATA.excluded.map(x=>`<tr>${x.map(v=>td(esc(v))).join("")}</tr>`));
+ tbl($("tSrc"),["Id","Fuentes"],filtered().map(e=>`<tr>${td(e.id)}${td(e.fuentes.map(u=>link(u,esc(u))).join("<br>"))}</tr>`));}
+function render(){const D=filtered();
+ $("periodo").textContent=`Desde el 7 de agosto de 2026 · corte ${fmtF(END)}`;
+ $("fCount").textContent=`${D.length} de ${EV.length} incidentes`;
+ pKpis(D);pMap(D);pTime(D);pTL(D);pResp(D);pTerr(D);pDanos(D);pBase(D);pFuentes();}
+/* ---- copia CSV ---- */
+$("csvBtn").onclick=async()=>{const t=csvText(filtered());const ta=$("csvTa");
+ try{await navigator.clipboard.writeText(t);$("csvMsg").textContent="CSV copiado.";ta.style.display="none"}
+ catch(e){ta.style.display="block";ta.value=t;ta.focus();ta.select();$("csvMsg").textContent="Seleccione y copie el texto."}};
+/* ---- tema ---- */
+$("themeBtn").onclick=()=>{const r=document.documentElement;const dark=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);r.setAttribute("data-theme",dark?"light":"dark")};
+new MutationObserver(()=>render()).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+matchMedia("(prefers-color-scheme:dark)").addEventListener("change",()=>render());
+initFilters();render();
+</script>
+</body>
+</html>
