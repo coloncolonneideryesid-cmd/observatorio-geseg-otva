@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-21",
+ "updated": "2026-10-22",
  "events": [
   {
    "id": "CO-2026-001",
@@ -1053,6 +1053,41 @@
     "https://www.defensoria.gov.co/-/enfrentamientos-armados-en-la-subregion-del-san-juan-en-el-departamento-de-choco-generan-desplazamiento-y-confinamiento"
    ],
    "actualizacion": "2026-10-21"
+  },
+  {
+   "fecha": "2026-10-13",
+   "hora": "15:20",
+   "depto": "Valle del Cauca",
+   "mpio": "Dagua",
+   "lugar": "Corregimiento El Queremal, subestación de Policía",
+   "lat": 3.65,
+   "lon": -76.69,
+   "prec_coord": "Municipal aproximada",
+   "tipo": "Ataque con dos artefactos explosivos lanzados desde drones contra una subestación de Policía, con civiles heridos",
+   "mod": "Dron con explosivos",
+   "objetivo": "Fuerza Pública",
+   "clase": "Presunto acto terrorista (clasificación analítica provisional)",
+   "autor": "No atribuido formalmente: las autoridades señalan a la estructura Jaime Martínez como riesgo en la zona, pero indican que la responsabilidad requiere investigación",
+   "grupo": "No determinado",
+   "atrib": "E",
+   "evidencia": "Las fuentes consultadas no recogen una atribución oficial de este ataque; la mención a disidencias proviene de información de prensa.",
+   "m_civ": 0,
+   "m_fp": 0,
+   "h_civ": 4,
+   "h_fp": 0,
+   "h_nota": "Cuatro civiles heridos según el primer balance (esquirlas y aturdimiento); el balance podría no ser definitivo.",
+   "danos": "Daños estructurales en la subestación de Policía; el segundo artefacto detonó cerca de un establecimiento comercial.",
+   "eco": "No cuantificado",
+   "desplaz": "No documentado",
+   "servicios": "No documentado",
+   "estado": "Preliminar",
+   "discrepancia": "",
+   "fuentes": [
+    "https://www.diariodelsur.com.co/noticias/ataque-con-explosivos-en-dagua-deja-cuatro-civiles-heridos",
+    "https://www.semana.com/nacion/articulo/ataque-con-explosivos-aereos-contra-la-policia-en-dagua-enciende-las-alarmas-en-el-valle-del-cauca/202608/"
+   ],
+   "actualizacion": "2026-10-22",
+   "id": "CO-2026-031"
   }
  ],
  "excluded": [
