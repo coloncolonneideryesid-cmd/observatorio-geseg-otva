@@ -8,9 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;600;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5f7fa;--surface:#fff;--ink:#0d1f3c;--ink2:#46556d;--line:#d6dde8;--brand:#0053bb;--accent:#4a9eff;--head:#0d1f3c;--alert:#8d1c1c;--chip:#e8eef7;--map-col:#dbe6f5;--map-nei:#eceff3;--map-line:#9fb3d1;
+:root{--bg:#f5f7fa;--surface:#fff;--ink:#0d1f3c;--ink2:#46556d;--line:#d6dde8;--brand:#0053bb;--accent:#4a9eff;--head:#0d1f3c;--alert:#8d1c1c;--chip:#e8eef7;--map-col:#cfe0f7;--map-nei:#f0f3f7;--map-line:#8fb0dd;
 --c-eln:#b23a2e;--c-dis:#1f6f8b;--c-clan:#6b7f2a;--c-acsn:#7a5c12;--c-ind:#5e4b8b;--c-nd:#8c96a6;color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a172f;--surface:#112240;--ink:#e8eef9;--ink2:#a9b8d0;--line:#27406b;--brand:#4a9eff;--accent:#4a9eff;--head:#0d1f3c;--alert:#ff8d8d;--chip:#1a3157;--map-col:#1d3a6b;--map-nei:#13284a;--map-line:#4c6da3;--c-eln:#e0685a;--c-dis:#4fb3d2;--c-clan:#a3b85a;--c-acsn:#d1a93d;--c-ind:#a28fd6;--c-nd:#8c96a6;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#0a172f;--surface:#112240;--ink:#e8eef9;--ink2:#a9b8d0;--line:#27406b;--brand:#4a9eff;--accent:#4a9eff;--head:#0d1f3c;--alert:#ff8d8d;--chip:#1a3157;--map-col:#1d3a6b;--map-nei:#13284a;--map-line:#4c6da3;--c-eln:#e0685a;--c-dis:#4fb3d2;--c-clan:#a3b85a;--c-acsn:#d1a93d;--c-ind:#a28fd6;--c-nd:#8c96a6;color-scheme:dark}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -316,7 +315,7 @@ $("csvBtn").onclick=async()=>{const t=csvText(filtered());const ta=$("csvTa");
  try{await navigator.clipboard.writeText(t);$("csvMsg").textContent="CSV copiado.";ta.style.display="none"}
  catch(e){ta.style.display="block";ta.value=t;ta.focus();ta.select();$("csvMsg").textContent="Seleccione y copie el texto."}};
 /* ---- tema ---- */
-$("themeBtn").onclick=()=>{const r=document.documentElement;const dark=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);r.setAttribute("data-theme",dark?"light":"dark")};
+$("themeBtn").onclick=()=>{const r=document.documentElement;r.setAttribute("data-theme",r.getAttribute("data-theme")==="dark"?"light":"dark")};
 new MutationObserver(()=>render()).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",()=>render());
 initFilters();render();
