@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-24",
+ "updated": "2026-10-25",
  "events": [
   {
    "id": "CO-2026-001",
@@ -1137,15 +1137,15 @@
    "mod": "Dron con explosivos",
    "objetivo": "Fuerza Pública",
    "clase": "Presunto acto terrorista (clasificación analítica provisional)",
-   "autor": "No atribuido formalmente: móviles y responsables en verificación",
-   "grupo": "No determinado",
-   "atrib": "E",
-   "evidencia": "La fuente consultada no recoge una atribución oficial; las autoridades adelantan verificaciones.",
+   "autor": "Estructura 30 «Jhonier Toro Arenas», Bloque Occidental «Jacobo Arenas» de las disidencias de las Farc (atribución preliminar de las autoridades)",
+   "grupo": "Disidencias FARC",
+   "atrib": "B",
+   "evidencia": "Según información preliminar de las autoridades, el ataque lo habrían cometido integrantes de esa estructura; es una hipótesis oficial, no una conclusión confirmada.",
    "m_civ": 0,
    "m_fp": 1,
    "h_civ": 0,
    "h_fp": 4,
-   "h_nota": "Un infante de Marina muerto y cuatro uniformados heridos según el reporte preliminar; los heridos fueron trasladados a Cali.",
+   "h_nota": "Un infante de Marina muerto y cuatro uniformados heridos (tres infantes de Marina profesionales y un suboficial), evacuados a Cali.",
    "danos": "Daños en la lancha utilizada por la unidad.",
    "eco": "No cuantificado",
    "desplaz": "No documentado",
@@ -1153,9 +1153,10 @@
    "estado": "Preliminar",
    "discrepancia": "",
    "fuentes": [
-    "https://www.elpais.com.co/judicial/un-infante-de-marina-murio-y-cuatro-militares-resultaron-heridos-tras-ataque-con-explosivos-en-zona-rural-de-guapi-2343.html"
+    "https://www.elpais.com.co/judicial/un-infante-de-marina-murio-y-cuatro-militares-resultaron-heridos-tras-ataque-con-explosivos-en-zona-rural-de-guapi-2343.html",
+    "https://www.eluniversal.com.co/sucesos/2026/10/24/edwin-andres-vargas-el-infante-de-marina-que-murio-en-ataque-con-dron/"
    ],
-   "actualizacion": "2026-10-24",
+   "actualizacion": "2026-10-25",
    "id": "CO-2026-033"
   },
   {
