@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-29",
+ "updated": "2026-10-30",
  "events": [
   {
    "id": "CO-2026-001",
@@ -1228,6 +1228,41 @@
    ],
    "id": "CO-2026-035",
    "actualizacion": "2026-10-29"
+  },
+  {
+   "fecha": "2026-10-29",
+   "hora": "Mañana",
+   "depto": "Norte de Santander",
+   "mpio": "El Tarra",
+   "lugar": "Sector Kilómetro 90, zona rural",
+   "lat": 8.58,
+   "lon": -73.1,
+   "prec_coord": "Municipal aproximada",
+   "tipo": "Ataque con un dron cargado con explosivos que dejó civiles heridos, en medio de enfrentamientos entre el ELN y el Frente 33 de las disidencias",
+   "mod": "Dron con explosivos",
+   "objetivo": "Población civil",
+   "clase": "Incierto — autoría y finalidad no establecidas",
+   "autor": "No atribuido: las fuentes consultadas no atribuyen el ataque a ningún grupo",
+   "grupo": "No determinado",
+   "atrib": "E",
+   "evidencia": "Las fuentes consultadas no recogen una atribución oficial del ataque con dron; el Ejército halló, a pocos kilómetros una bandera con explosivos alusiva al ELN, sin vincularla formalmente con este hecho.",
+   "m_civ": 0,
+   "m_fp": 0,
+   "h_civ": 3,
+   "h_fp": 0,
+   "h_nota": "Tres civiles heridos (un adulto mayor y dos jóvenes), según información preliminar.",
+   "danos": "No informados.",
+   "eco": "No cuantificado",
+   "desplaz": "No documentado",
+   "servicios": "No documentado",
+   "estado": "Preliminar",
+   "discrepancia": "",
+   "fuentes": [
+    "https://360radio.com.co/dron-explisivos-tarra-catatumbo235911-2/235911/",
+    "https://www.eluniversal.com.co/colombia/2026/10/29/norte-de-santander-frustran-atentado-cerca-del-sitio-donde-exploto-un-dron/"
+   ],
+   "id": "CO-2026-036",
+   "actualizacion": "2026-10-30"
   }
  ],
  "excluded": [
@@ -1391,6 +1426,13 @@
    "Cúcuta",
    "Homicidio de un precandidato a la Alcaldía (baleado en la noche)",
    "Sin vínculo documentado con terrorismo o violencia armada organizada; autoría no establecida."
+  ],
+  [
+   "2026-10-29",
+   "Norte de Santander",
+   "El Tarra",
+   "Bandera con explosivos hallada y destruida por el Ejército en la vía rural (atentado frustrado)",
+   "Atentado frustrado sin detonación."
   ]
  ],
  "context": [
