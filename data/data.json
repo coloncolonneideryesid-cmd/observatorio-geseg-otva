@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30",
+ "updated": "2026-11-01",
  "events": [
   {
    "id": "CO-2026-001",
@@ -1263,6 +1263,42 @@
    ],
    "id": "CO-2026-036",
    "actualizacion": "2026-10-30"
+  },
+  {
+   "fecha": "2026-10-31",
+   "hora": "23:49",
+   "depto": "Huila",
+   "mpio": "Algeciras",
+   "lugar": "Zona urbana, barrio Centro, durante labores de registro y control de la Policía",
+   "lat": 2.52,
+   "lon": -75.32,
+   "prec_coord": "Municipal aproximada",
+   "tipo": "Explosión de una motocicleta acondicionada con explosivos contra una patrulla de la Policía y personas en un establecimiento comercial",
+   "mod": "Explosivo / IED",
+   "objetivo": "Fuerza Pública",
+   "clase": "Presunto acto terrorista",
+   "autor": "No atribuido: las autoridades no han revelado quién instaló el artefacto",
+   "grupo": "No determinado",
+   "atrib": "E",
+   "evidencia": "La Policía no ha identificado a los responsables; un reporte citado por la prensa advierte presencia de un frente disidente en la zona, sin que se confirme su autoría.",
+   "m_civ": 0,
+   "m_fp": 1,
+   "h_civ": 4,
+   "h_fp": 2,
+   "h_nota": "Un patrullero muerto y seis heridos (dos policías y cuatro civiles), según el balance de la Presidencia y la Procuraduría.",
+   "danos": "Daños a una patrulla policial.",
+   "eco": "No cuantificado",
+   "desplaz": "No documentado",
+   "servicios": "No documentado",
+   "estado": "Preliminar",
+   "discrepancia": "",
+   "fuentes": [
+    "https://diariodelhuila.com/algeciras-huila-sacudida-por-atentado-con-explosivos-que-mato-a-un-policia-y-dejo-seis-heridos/",
+    "https://www.infobae.com/colombia/2026/11/01/abelardo-de-la-espriella-condeno-el-atentado-con-explosivos-que-dejo-un-policia-muerto-en-algeciras-huila-los-vamos-a-perseguir/",
+    "https://www.elnuevodia.com/noticias/mundo/notas/ataque-explosivo-deja-un-policia-muerto-y-6-heridos-en-colombia-en-medio-de-escalada-violenta/"
+   ],
+   "id": "CO-2026-037",
+   "actualizacion": "2026-11-01"
   }
  ],
  "excluded": [
