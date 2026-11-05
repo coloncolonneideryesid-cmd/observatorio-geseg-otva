@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03",
+ "updated": "2026-11-05",
  "events": [
   {
    "id": "CO-2026-001",
@@ -1370,6 +1370,74 @@
    ],
    "id": "CO-2026-039",
    "actualizacion": "2026-11-03"
+  },
+  {
+   "prec_coord": "Municipal aproximada",
+   "atrib": "E",
+   "grupo": "No determinado",
+   "eco": "No cuantificado",
+   "desplaz": "No documentado",
+   "servicios": "No documentado",
+   "discrepancia": "",
+   "m_fp": 0,
+   "h_fp": 0,
+   "fecha": "2026-11-03",
+   "hora": "Mañana",
+   "depto": "Nariño",
+   "mpio": "Taminango",
+   "lugar": "Corregimiento de Remolino, vía Panamericana",
+   "lat": 1.57,
+   "lon": -77.32,
+   "tipo": "Ataque con explosivos lanzados desde drones contra una estación de Policía",
+   "mod": "Dron con explosivos",
+   "objetivo": "Fuerza Pública",
+   "clase": "Presunto acto terrorista",
+   "autor": "No atribuido oficialmente: información preliminar de autoridades departamentales apunta a disidencias de las Farc, sin identificar estructura",
+   "evidencia": "Infobae recoge una atribución preliminar a disidencias, sin funcionario identificado ni estructura nombrada; se mantiene sin atribución.",
+   "m_civ": 0,
+   "h_civ": 0,
+   "h_nota": "No se reportan heridos.",
+   "danos": "Daños al vehículo asignado a la estación.",
+   "estado": "Preliminar",
+   "fuentes": [
+    "https://www.infobae.com/colombia/2026/11/03/disidencias-de-las-farc-atacaron-con-drones-una-estacion-de-policia-en-narino-no-se-reportan-heridos/"
+   ],
+   "id": "CO-2026-040",
+   "actualizacion": "2026-11-05"
+  },
+  {
+   "prec_coord": "Municipal aproximada",
+   "atrib": "E",
+   "grupo": "No determinado",
+   "eco": "No cuantificado",
+   "desplaz": "No documentado",
+   "servicios": "No documentado",
+   "discrepancia": "",
+   "m_fp": 0,
+   "h_fp": 0,
+   "fecha": "2026-11-04",
+   "hora": "Mañana",
+   "depto": "Cauca",
+   "mpio": "Patía",
+   "lugar": "Corregimiento de El Estrecho, cerca de una estación de Policía",
+   "lat": 2.05,
+   "lon": -77.0,
+   "tipo": "Detonación de un camión con explosivos a unos 100 metros de una estación de Policía",
+   "mod": "Vehículo con explosivos",
+   "objetivo": "Fuerza Pública y población civil",
+   "clase": "Presunto acto terrorista",
+   "autor": "No atribuido: las autoridades no han identificado a los responsables",
+   "evidencia": "El Presidente habla de los responsables de un acto terrorista sin nombrar grupo; la nota menciona la presencia de varios grupos en la zona solo como contexto.",
+   "m_civ": 1,
+   "h_civ": 2,
+   "h_nota": "Un muerto y dos mujeres heridas, según el reporte inicial.",
+   "danos": "Camión destruido y daños a un autobús por la onda expansiva.",
+   "estado": "Preliminar",
+   "fuentes": [
+    "https://www.eluniversal.com.co/colombia/2026/11/04/de-la-espriella-condeno-atentado-en-el-cauca-y-ordeno-buscar-a-los-responsables/"
+   ],
+   "id": "CO-2026-041",
+   "actualizacion": "2026-11-05"
   }
  ],
  "excluded": [
@@ -1540,6 +1608,13 @@
    "El Tarra",
    "Bandera con explosivos hallada y destruida por el Ejército en la vía rural (atentado frustrado)",
    "Atentado frustrado sin detonación."
+  ],
+  [
+   "2026-11-03",
+   "Cesar",
+   "Chimichagua",
+   "Ataque con drones contra la estación de Policía de Las Vegas, sin heridos y con daños materiales",
+   "Una sola fuente leída; información incompleta."
   ]
  ],
  "context": [
