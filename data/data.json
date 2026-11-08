@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-05",
+ "updated": "2026-11-08",
  "events": [
   {
    "id": "CO-2026-001",
@@ -1438,6 +1438,41 @@
    ],
    "id": "CO-2026-041",
    "actualizacion": "2026-11-05"
+  },
+  {
+   "prec_coord": "Municipal aproximada",
+   "atrib": "E",
+   "grupo": "No determinado",
+   "eco": "No cuantificado",
+   "desplaz": "No documentado",
+   "servicios": "No documentado",
+   "discrepancia": "",
+   "m_fp": 3,
+   "h_fp": 16,
+   "fecha": "2026-11-07",
+   "hora": "Sin dato",
+   "depto": "Bolívar",
+   "mpio": "Santa Rosa del Sur",
+   "lugar": "Cantón militar",
+   "lat": 7.96,
+   "lon": -74.05,
+   "tipo": "Ataque con drones cargados de explosivos contra el cantón militar",
+   "mod": "Dron con explosivos",
+   "objetivo": "Fuerza Pública",
+   "clase": "Presunto acto terrorista",
+   "autor": "No atribuido: ninguna organización se ha atribuido el hecho; el Ministerio de Defensa planteó como hipótesis (\"sería\") una represalia del ELN",
+   "evidencia": "La atribución al ELN es una hipótesis del Ministerio de Defensa expresada en condicional; no hay identificación oficial confirmada del autor.",
+   "m_civ": 0,
+   "h_civ": 0,
+   "h_nota": "Tres militares muertos y 16 heridos de gravedad, según el Ministerio de Defensa; otros 31 afectados sin precisar.",
+   "danos": "No documentados",
+   "estado": "Preliminar",
+   "fuentes": [
+    "https://www.infobae.com/colombia/2026/11/07/defensoria-del-pueblo-reacciono-al-ataque-con-explosivos-en-santa-rosa-del-sur-que-ya-deja-3-muertos-estos-hechos-no-son-aislados/",
+    "https://www.elheraldo.co/colombia/2026/11/08/estos-son-los-soldados-que-murieron-en-el-ataque-con-explosivos-en-el-canton-militar-de-santa-rosa-sur-de-bolivar/"
+   ],
+   "id": "CO-2026-042",
+   "actualizacion": "2026-11-08"
   }
  ],
  "excluded": [
