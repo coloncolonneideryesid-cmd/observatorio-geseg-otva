@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08",
+ "updated": "2026-11-12",
  "events": [
   {
    "id": "CO-2026-001",
@@ -1473,6 +1473,42 @@
    ],
    "id": "CO-2026-042",
    "actualizacion": "2026-11-08"
+  },
+  {
+   "fecha": "2026-11-11",
+   "hora": "Noche",
+   "depto": "Casanare",
+   "mpio": "Hato Corozal",
+   "lugar": "Cerca de una estación de servicio, durante labores de registro y control de la Policía",
+   "lat": 6.15,
+   "lon": -71.76,
+   "prec_coord": "Municipal aproximada",
+   "tipo": "Ataque a disparos contra dos policías en motocicleta",
+   "mod": "Ataque armado",
+   "objetivo": "Fuerza Pública",
+   "clase": "Ataque armado contra Fuerza Pública (clasificación analítica provisional)",
+   "autor": "No atribuido: las autoridades no han identificado a los responsables",
+   "grupo": "No determinado",
+   "atrib": "E",
+   "evidencia": "Ninguna autoridad ha identificado a los responsables; el Presidente y el Gobernador condenaron el ataque sin nombrar grupo.",
+   "m_civ": 0,
+   "m_fp": 1,
+   "h_civ": 1,
+   "h_fp": 1,
+   "h_nota": "Un patrullero muerto, un subintendente herido en estado crítico y una ciudadana lesionada, según el Gobernador de Casanare.",
+   "danos": "No documentados",
+   "eco": "No cuantificado",
+   "desplaz": "No documentado",
+   "servicios": "No documentado",
+   "estado": "Preliminar",
+   "discrepancia": "",
+   "fuentes": [
+    "https://www.infobae.com/colombia/2026/11/12/ataque-armado-en-casanare-dejo-un-policia-muerto-y-otro-herido-abelardo-de-la-espriella-ordeno-operativos/",
+    "https://herqles.com/2026/11/12/ataque-armado-policia-muerto-hato-corozal-casanare/",
+    "https://infobae.com/america/agencias/2026/11/12/un-ataque-contra-la-policia-deja-un-muerto-y-un-herido-en-el-este-de-colombia"
+   ],
+   "id": "CO-2026-043",
+   "actualizacion": "2026-11-12"
   }
  ],
  "excluded": [
