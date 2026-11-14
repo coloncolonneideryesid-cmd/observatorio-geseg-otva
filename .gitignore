@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .DS_Store
 briefing/
+# Material interno: nunca al repositorio público (decisión de Neider, 14-nov-2026)
+equipo_rojo/
+fuentes_abiertas/
+OTVA_fuentes_abiertas.zip

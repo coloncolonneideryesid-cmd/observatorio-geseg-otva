@@ -14,7 +14,21 @@ SNAP = PLATFORM / "fixtures" / "v0_snapshot_78d8e27.json"
 XLSX = "Observatorio_Violencia_Armada_Colombia_2026.xlsx"
 
 
+# Desde el 14-nov-2026 «clase» es lista controlada en src/validate.py. La instantánea congelada (corte 8-nov) conserva
+# variantes de escritura anteriores; se normalizan igual en ambas entradas para que la equivalencia siga midiendo lo mismo.
+CLASE_CANON = {"Presunto acto terrorista": "Presunto acto terrorista (clasificación analítica provisional)",
+               "Incierto — autoría y finalidad no establecidas": "Incierto – autoría y finalidad no establecidas"}
+
+
+def canon_clase(data_text: str) -> str:
+    d = json.loads(data_text)
+    for e in d.get("events", []):
+        e["clase"] = CLASE_CANON.get(e.get("clase"), e.get("clase"))
+    return json.dumps(d, ensure_ascii=False, indent=1)
+
+
 def stage(tmp: Path, data_text: str) -> Path:
+    data_text = canon_clase(data_text)
     for d in ("src", "assets", "briefing"):
         if (ROOT / d).exists():
             shutil.copytree(ROOT / d, tmp / d)

@@ -18,11 +18,11 @@ Instrumento técnico y documentado con fuentes abiertas. Registra presuntos acto
 | `src/recalc_check.py` | Recalcula el Excel con una instancia propia de Excel (Windows) y cuenta errores |
 | `src/build_data.py` | Carga inicial de los 30 registros (documenta cómo se redactó cada uno) |
 | `dist/` | Salidas: `observatorio.html` y `Observatorio_Violencia_Armada_Colombia_2026.xlsx` |
-| `fuentes_abiertas/` | Directorio de fuentes abiertas del OTVA (extraído de `OTVA_fuentes_abiertas.zip`, que se conserva): 197 fuentes, verificador y reportes de calidad. Guía: `fuentes_abiertas/README_FUENTES_OTVA.md`. `build_html.py` lee `fuentes_maestras.json` y alimenta la sección «Red de fuentes» del tablero (solo campos descriptivos: no publica palabras clave, parámetros de consulta ni observaciones). Si el zip se actualiza, se vuelve a extraer aquí y se reconstruye el tablero |
-| `src/recolectar_rss.py` | Consulta los canales RSS verificados del directorio, filtra desde el corte por términos de violencia armada, agrupa duplicados y deja candidatos en `%TEMP%\otva_rss\` (fuera del repositorio). Son pistas: cada nota se lee completa antes de registrar. Lo usa `otva-diario` (paso 1 bis) |
+| `fuentes_abiertas/` | **Solo local; fuera del repositorio público desde el 14-nov-2026 (contiene palabras clave y parámetros de monitoreo).** Directorio de fuentes abiertas del OTVA (extraído de `OTVA_fuentes_abiertas.zip`, que se conserva): 197 fuentes, verificador y reportes de calidad. Guía: `fuentes_abiertas/README_FUENTES_OTVA.md`. `build_html.py` lee `fuentes_maestras.json` y alimenta la sección «Red de fuentes» del tablero (solo campos descriptivos: no publica palabras clave, parámetros de consulta ni observaciones). Si el zip se actualiza, se vuelve a extraer aquí y se reconstruye el tablero |
+| `src/recolectar_rss.py` | Consulta los canales RSS verificados del directorio, filtra desde el corte por términos de violencia armada, agrupa duplicados y deja candidatos en `%TEMP%\otva_rss\` (fuera del repositorio). Son pistas: cada nota se lee completa antes de registrar. Lo usa la tarea `otva-diario-2` (paso 1 bis) |
 | `src/briefing.py` | Briefing de situación en PDF (2 páginas) a partir de `data.json`; salida en `briefing/` (fuera de git, no se publica) |
 | `platform/` | OTVA v1: diseño (Fase 0), núcleo de datos, ciclo de casos y observatorio local (FastAPI + React). Rama `v1`; uso interno |
-| `equipo_rojo/` | Paquetes y memos del equipo rojo sobre productos con conclusiones del OTVA (p. ej., ER-0023) |
+| `equipo_rojo/` | **Solo local; fuera del repositorio público desde el 14-nov-2026.** Paquetes y memos del equipo rojo sobre productos con conclusiones del OTVA (p. ej., ER-0023) |
 
 ## Cómo agregar un evento
 1. Lea la nota completa de cada fuente (mínimo dos independientes si existen; una sola fuente queda como información incompleta).
@@ -43,7 +43,7 @@ python src/recalc_check.py    # 0 errores de fórmula; compare 2–3 indicadores
 **Publicación:** no se publica sin aprobación expresa de Neider. El HTML es autocontenido (solo carga Chart.js 4.4.1 desde cdnjs y las fuentes de Google Fonts); basta copiarlo a cualquier alojamiento estático. El Excel se entrega como archivo.
 
 ## Publicación diaria (GitHub + Vercel)
-El repositorio se conecta a Vercel (framework «Other», sin comando de build, directorio de salida `dist`). Cada `git push` a `main` redespliega el tablero. La tarea programada `otva-diario` actualiza la base, reconstruye `dist/` y hace el push (ver `LEEME.md` de la línea).
+El repositorio se conecta a Vercel (framework «Other», sin comando de build, directorio de salida `dist`). Cada `git push` a `main` redespliega el tablero. La tarea programada `otva-diario-2` (6:10 a. m.; antes `otva-diario`) actualiza la base, reconstruye `dist/` y hace el push (ver `LEEME.md` de la línea).
 
 ## Ciclo (diario)
 Corte anterior = `updated` → candidatos de los RSS de la red de fuentes (`src/recolectar_rss.py`) → búsqueda de hechos nuevos → actualización de balances de los registros existentes → agregar registros y actualizar `updated` → validar → construir → resumen (hechos nuevos, totales, hechos más graves, correcciones, vacíos). Si no hubo hechos verificables, se dice y no se regeneran los productos. Los textos de periodo, el límite de los filtros y los periodos de los gráficos salen de `updated`; no hay fechas fijas que editar en la plantilla.
