@@ -91,7 +91,7 @@ footer svg{height:32px;color:var(--brand)}
 <button id="fClr" type="button">Limpiar filtros</button>
 <span class="lf" style="font-size:12px;color:var(--ink2)" id="fCount" aria-live="polite"></span>
 </div>
-<nav class="tabs" aria-label="Secciones"><a href="#s1">Tablero</a><a href="#s2">Mapa</a><a href="#s3">Evolución</a><a href="#s4">Línea de tiempo</a><a href="#s5">Responsables</a><a href="#s6">Territorio</a><a href="#s7">Daños</a><a href="#s8">Base de datos</a><a href="#s9">Fuentes</a></nav>
+<nav class="tabs" aria-label="Secciones"><a href="#s1">Tablero</a><a href="#s2">Mapa</a><a href="#s3">Evolución</a><a href="#s4">Línea de tiempo</a><a href="#s5">Responsables</a><a href="#s6">Territorio</a><a href="#s7">Daños</a><a href="#s8">Base de datos</a><a href="#sRF">Red de fuentes</a><a href="#s9">Fuentes</a></nav>
 </div>
 <main>
 <section id="s1"><h2>Tablero ejecutivo nacional</h2><p class="lead" id="s1lead"></p>
@@ -110,7 +110,7 @@ footer svg{height:32px;color:var(--brand)}
 <div class="grid2"><div class="card"><h3 style="margin:0 0 6px;font-size:15px">Incidentes y acumulado</h3><div class="chartbox"><canvas id="chT1" role="img" aria-label="Incidentes por periodo y acumulado"></canvas></div></div>
 <div class="card"><h3 style="margin:0 0 6px;font-size:15px">Fallecidos y heridos</h3><div class="chartbox"><canvas id="chT2" role="img" aria-label="Fallecidos y heridos por periodo"></canvas></div></div>
 <div class="card"><h3 style="margin:0 0 6px;font-size:15px">Incidentes por modalidad</h3><div class="chartbox"><canvas id="chT3" role="img" aria-label="Incidentes por modalidad y periodo"></canvas></div></div>
-<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Comparación mensual</h3><div class="chartbox"><canvas id="chT4" role="img" aria-label="Comparación mensual"></canvas></div><p class="lead" style="margin:6px 0 0;font-size:13px">Agosto cuenta desde el día 7; octubre llega al corte.</p></div></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Comparación mensual</h3><div class="chartbox"><canvas id="chT4" role="img" aria-label="Comparación mensual"></canvas></div><p class="lead" style="margin:6px 0 0;font-size:13px" id="t4nota"></p></div></div>
 <div class="note warn">Las variaciones entre periodos pueden reflejar la cobertura de las fuentes y el momento de la búsqueda, no solo cambios en la violencia.</div></section>
 
 <section id="s4"><h2>Línea de tiempo</h2><p class="lead">Agrupada por mes; los registros siguen el orden cronológico.</p><div class="tl" id="tl"></div></section>
@@ -135,6 +135,19 @@ footer svg{height:32px;color:var(--brand)}
 <p><button id="csvBtn" type="button">Copiar CSV</button> <a class="lf" href="Observatorio_Violencia_Armada_Colombia_2026.xlsx" download style="font-size:13px">Descargar Excel</a> <span id="csvMsg" class="lf" style="font-size:12px;color:var(--ink2)" aria-live="polite"></span></p>
 <div class="card tw" style="max-height:560px;overflow:auto"><table id="tB"></table></div><textarea id="csvTa" aria-label="CSV para copia manual" style="display:none;width:100%;height:160px"></textarea></section>
 
+<section id="sRF"><h2>Red de fuentes abiertas</h2><p class="lead" id="rfLead">Directorio de fuentes que el Observatorio consulta para identificar y contrastar los hechos. Una fuente verificada respondió en la comprobación técnica desde su dominio registrado; eso no certifica su titularidad institucional ni la veracidad de su contenido.</p>
+<div id="rfBody">
+<div class="kpis" id="rfKpis"></div>
+<div class="grid2" style="margin-top:12px"><div class="card"><h3 style="margin:0 0 6px;font-size:15px">Fuentes por categoría</h3><div class="chartbox"><canvas id="chRF1" role="img" aria-label="Fuentes por categoría y estado de verificación"></canvas></div></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Nivel de las fuentes verificadas</h3><div class="chartbox"><canvas id="chRF2" role="img" aria-label="Fuentes verificadas por nivel de confiabilidad"></canvas></div><p class="lead" style="margin:6px 0 0;font-size:13px">N1 primaria (comunicados oficiales y organismos) · N2 secundaria (medios con redacción propia) · N3 digital verificada · N4 complementaria (solo contraste).</p></div></div>
+<div class="card tw"><h3 style="margin:0 0 6px;font-size:15px">Cobertura territorial de fuentes frente a los hechos</h3><p class="lead" style="font-size:13px">Responde a los filtros. Cuenta las fuentes verificadas con sede en el departamento (gobernación, alcaldías, medios regionales); las fuentes nacionales cubren todo el país. «Cobertura baja»: tres o más hechos y dos o menos fuentes propias.</p><table id="tRFdep"></table></div>
+<div class="card"><h3 style="margin:0 0 6px;font-size:15px">Procedencia de las citas de la base</h3><div id="rfCitas"></div><div class="tw"><table id="tRFcit"></table></div></div>
+<div class="card tw"><h3 style="margin:0 0 6px;font-size:15px">Directorio de fuentes verificadas</h3>
+<div class="frow" style="margin:0 0 8px;max-width:none"><label>Buscar<input type="search" id="rfQ" placeholder="Nombre, departamento o tipo"></label><label>Categoría<select id="rfCat"></select></label><label>Cobertura<select id="rfNiv"></select></label><span class="lf" style="font-size:12px;color:var(--ink2)" id="rfCount" aria-live="polite"></span></div>
+<div style="max-height:520px;overflow:auto"><table id="tRF"></table></div></div>
+<div class="card tw"><h3 style="margin:0 0 6px;font-size:15px">Fuentes pendientes de verificación</h3><table id="tRFpen"></table></div>
+</div></section>
+
 <section id="s9"><h2>Fuentes y limitaciones</h2>
 <div class="card"><h3 style="margin:0 0 6px;font-size:15px">Limitaciones metodológicas</h3><ul>
 <li>La base se construye con fuentes abiertas; no es un registro oficial ni exhaustivo.</li>
@@ -154,6 +167,7 @@ footer svg{height:32px;color:var(--brand)}
 <script>
 const DATA=__DATA__;
 const GEO=__GEO__;
+const RF=__FUENTES__;
 const START="2026-08-07", END=DATA.updated;
 const EV=DATA.events;
 const GR=["ELN","Disidencias FARC","Clan del Golfo / EGC","ACSN","Autor individual (capturado)","No determinado"];
@@ -170,6 +184,10 @@ const fmtF=d=>{const[y,m,dd]=d.split("-");return `${+dd} de ${MES[+m-1]} de ${y}
 const sum=(a,f)=>a.reduce((s,e)=>s+f(e),0);
 const uniq=a=>[...new Set(a)];
 const incompleto=e=>e.fuentes.length===1||e.estado!=="Confirmado";
+/* daño material documentado: excluye las fórmulas de «sin dato» usadas en la base */
+const conDano=e=>!!e.danos&&!/^(no (informad|descrit|documentad|cuantificad|se (reportan|informan|describen|documentan))|sin dato)/i.test(e.danos.trim());
+const finMes=d=>{const[y,m]=d.split("-").map(Number);return new Date(Date.UTC(y,m,0)).getUTCDate()};
+const mesLab=m=>MES[+m.slice(5)-1]+(m===START.slice(0,7)?` (desde el ${+START.slice(8)})`:"")+(m===END.slice(0,7)&&+END.slice(8)<finMes(END)?` (hasta el ${+END.slice(8)})`:"");
 function afect(e){const o=e.objetivo.toLowerCase(),r=[];
  if(o.includes("fuerza pública")||e.m_fp+e.h_fp>0)r.push("Fuerza Pública");
  if(o.includes("civil")||e.m_civ+e.h_civ>0||o.includes("población")||o.includes("transporte"))r.push("Población civil");
@@ -208,7 +226,7 @@ function bucketKey(f){const d=new Date(f+"T00:00:00Z");
  const s=new Date(START+"T00:00:00Z");const w=Math.floor((d-s)/(7*864e5));return "w"+String(w+1).padStart(2,"0");}
 function allBuckets(){const out=[];const s=new Date(START+"T00:00:00Z"),e=new Date(END+"T00:00:00Z");
  for(let d=new Date(s);d<=e;d=new Date(d.getTime()+864e5)){const k=bucketKey(d.toISOString().slice(0,10));if(!out.includes(k))out.push(k);}return out;}
-function bLabel(k){if(GRAN==="d"){return k.slice(5)}if(GRAN==="m"){const[y,m]=k.split("-");return MES[+m-1]+(m==="08"?" (desde el 7)":"")}
+function bLabel(k){if(GRAN==="d"){return k.slice(5)}if(GRAN==="m"){return mesLab(k)}
  const n=+k.slice(1);const s=new Date(START+"T00:00:00Z");const a=new Date(s.getTime()+(n-1)*7*864e5);return "S"+n+" · "+a.toISOString().slice(5,10);}
 /* ---- paneles ---- */
 function pKpis(D){
@@ -216,7 +234,7 @@ function pKpis(D){
  const g=x=>D.filter(e=>e.grupo===x).length,n=D.length||1;
  const otros=D.filter(e=>!["ELN","Disidencias FARC","No determinado"].includes(e.grupo)).length;
  const nd=D.filter(e=>e.atrib==="E").length;
- const dan=D.filter(e=>e.danos&&!/^no (informados|descritos)/i.test(e.danos)).length;
+ const dan=D.filter(conDano).length;
  const inc=D.filter(incompleto).length;
  const k=[
  [D.length,"Incidentes","",0],[mu,"Fallecidos",`${muF} Fuerza Pública · ${muC} civiles`,1],[he,"Heridos",`${heF} Fuerza Pública · ${heC} civiles`,1],
@@ -263,7 +281,9 @@ function pTime(D){
  const pal=["--c-eln","--c-dis","--c-clan","--c-acsn","--c-ind","--c-nd","--brand"];
  mkChart("chT3",{type:"bar",data:{labels:lab,datasets:MODS.map((m,i)=>({label:m,data:keys.map(k=>by(k).filter(e=>e.mod===m).length),backgroundColor:css(pal[i])}))},options:{scales:{x:{stacked:true,ticks:{maxRotation:60,autoSkip:true}},y:{stacked:true,beginAtZero:true,ticks:{precision:0}}},plugins:{legend:{labels:{boxWidth:10}}}}});
  const ms=uniq(EV.map(e=>e.fecha.slice(0,7))).sort();
- mkChart("chT4",{type:"bar",data:{labels:ms.map(m=>MES[+m.slice(5)-1]+(m==="2026-08"?" (desde el 7)":"")),datasets:[{label:"Incidentes",data:ms.map(m=>D.filter(e=>e.fecha.startsWith(m)).length),backgroundColor:css("--brand")},{label:"Fallecidos",data:ms.map(m=>sum(D.filter(e=>e.fecha.startsWith(m)),M)),backgroundColor:css("--alert")},{label:"Heridos",data:ms.map(m=>sum(D.filter(e=>e.fecha.startsWith(m)),H)),backgroundColor:css("--accent")}]},options:{scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
+ const ult=END.slice(0,7),parcial=+END.slice(8)<finMes(END);
+ $("t4nota").textContent=`${MES[+START.slice(5,7)-1][0].toUpperCase()+MES[+START.slice(5,7)-1].slice(1)} cuenta desde el día ${+START.slice(8)}`+(parcial?`; ${MES[+ult.slice(5)-1]} llega al corte (${fmtF(END)})`:"")+". Los meses parciales no son comparables con los completos.";
+ mkChart("chT4",{type:"bar",data:{labels:ms.map(mesLab),datasets:[{label:"Incidentes",data:ms.map(m=>D.filter(e=>e.fecha.startsWith(m)).length),backgroundColor:css("--brand")},{label:"Fallecidos",data:ms.map(m=>sum(D.filter(e=>e.fecha.startsWith(m)),M)),backgroundColor:css("--alert")},{label:"Heridos",data:ms.map(m=>sum(D.filter(e=>e.fecha.startsWith(m)),H)),backgroundColor:css("--accent")}]},options:{scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
 }
 function pTL(D){const el=$("tl");if(!D.length){el.innerHTML='<p class="empty">Sin registros con los filtros actuales.</p>';return}
  const s=D.slice().sort((a,b)=>a.fecha.localeCompare(b.fecha)||a.id.localeCompare(b.id));let cur="",h="";
@@ -284,6 +304,8 @@ function pTerr(D){
  const ms=uniq(D.map(e=>e.depto+"|"+e.mpio)).map(k=>{const[d,m]=k.split("|");return [d,m,D.filter(e=>e.depto===d&&e.mpio===m)]}).sort((a,b)=>b[2].length-a[2].length||a[1].localeCompare(b[1]));
  tbl($("tMu"),["Municipio","Departamento","Incidentes","Fallecidos","Heridos","Modalidades"],ms.map(([d,m,x])=>`<tr>${td(esc(m))}${td(esc(d))}${td(x.length,1)}${td(sum(x,M),1)}${td(sum(x,H),1)}${td(uniq(x.map(e=>e.mod)).join(", "))}</tr>`));
  const RG={"Catatumbo y nororiente":["Norte de Santander"],"Sur del Cesar y Caribe":["Cesar","La Guajira","Magdalena"],"Suroccidente (Cauca, Valle del Cauca)":["Cauca","Valle del Cauca"],"Pacífico (Chocó)":["Chocó"],"Surcolombiana (Huila)":["Huila"],"Arauca":["Arauca"],"Nariño":["Nariño"]};
+ /* los departamentos sin región asignada se leen por separado, para que ningún registro quede fuera */
+ const asig=Object.values(RG).flat();uniq(D.map(e=>e.depto)).filter(d=>!asig.includes(d)).sort().forEach(d=>RG[d]=[d]);
  const out=Object.entries(RG).map(([n,l])=>{const x=D.filter(e=>l.includes(e.depto));if(!x.length)return "";const md=Object.entries(x.reduce((a,e)=>(a[e.mod]=(a[e.mod]||0)+1,a),{})).sort((a,b)=>b[1]-a[1])[0][0];
   return `<p><b>${n}.</b> ${x.length} registros en ${uniq(x.map(e=>e.mpio)).length} municipios; ${sum(x,M)} fallecidos y ${sum(x,H)} heridos. Modalidad más frecuente: ${md.toLowerCase()}. En ${x.filter(e=>e.atrib==="E").length} la autoría no está determinada.</p>`}).join("");
  $("regiones").innerHTML=out||'<p class="empty">Sin registros con los filtros actuales.</p>';}
@@ -293,7 +315,7 @@ function pDanos(D){
   `<tr>${td("Daño humano (balance más reciente)")}${td(mu,1)}${td(he,1)}${td(`${sum(D,e=>e.m_fp)} FP y ${sum(D,e=>e.m_civ)} civiles fallecidos; ${sum(D,e=>e.h_fp)} FP y ${sum(D,e=>e.h_civ)} civiles heridos`)}</tr>`]);
  const sv=D.filter(e=>e.servicios&&e.servicios!=="No documentado");
  tbl($("tDS"),["Id","Municipio","Servicio o población afectada"],sv.map(e=>`<tr>${td(e.id)}${td(esc(e.mpio))}${td(esc(e.servicios))}</tr>`),"No hay afectaciones de servicios documentadas con los filtros actuales.");
- const dm=D.filter(e=>e.danos&&!/^no (informados|descritos)/i.test(e.danos));
+ const dm=D.filter(conDano);
  tbl($("tDM"),["Id","Municipio","Daño documentado","Valor económico"],dm.map(e=>`<tr>${td(e.id)}${td(esc(e.mpio))}${td(esc(e.danos))}${td(esc(e.eco))}</tr>`),"Sin daños materiales documentados con los filtros actuales.");}
 const COLS=[["fecha","Fecha"],["id","Id"],["depto","Departamento"],["mpio","Municipio"],["lugar","Lugar"],["mod","Modalidad"],["grupo","Presunto responsable"],["atrib","Atrib."],["m_civ","M civ"],["m_fp","M FP"],["h_civ","H civ"],["h_fp","H FP"],["estado","Estado"],["danos","Daños"]];
 function pBase(D){
@@ -306,10 +328,52 @@ function pFuentes(){
  tbl($("tCtx"),["Fuente","Cifra agregada descrita","Enlace"],DATA.context.map(c=>`<tr>${td(esc(c[0]))}${td(esc(c[1]))}${td(link(c[2],esc(dom(c[2]))))}</tr>`));
  tbl($("tEx"),["Fecha","Departamento","Municipio","Hecho reportado","Justificación"],DATA.excluded.map(x=>`<tr>${x.map(v=>td(esc(v))).join("")}</tr>`));
  tbl($("tSrc"),["Id","Fuentes"],filtered().map(e=>`<tr>${td(e.id)}${td(e.fuentes.map(u=>link(u,esc(u))).join("<br>"))}</tr>`));}
+/* ---- red de fuentes abiertas (fuentes_abiertas/fuentes_maestras.json) ---- */
+const RCAT={institucional:"Institucional",gubernamental:"Gubernamental",periodistica:"Periodística",red_social:"Red social",organismo_internacional:"Organismo internacional",centro_investigacion:"Centro de investigación"};
+const RNIV={nacional:"Nacional",departamental:"Departamental",regional:"Regional",municipal:"Municipal",internacional:"Internacional"};
+const RCONF={N1:"N1 primaria",N2:"N2 secundaria",N3:"N3 digital verificada",N4:"N4 complementaria"};
+const RMOT={bloqueado_o_restringido:"El sitio bloquea o restringe la consulta automática",sin_respuesta:"El sitio no respondió",error_servidor:"Error del servidor del sitio","sin comprobación técnica":"Sin comprobación técnica (cuentas de redes sociales y registros sin URL)"};
+const norm=s=>String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().trim();
+const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"").toLowerCase()}catch(e){return ""}};
+const sameSite=(a,b)=>a&&b&&(a===b||a.endsWith("."+b)||b.endsWith("."+a));
+let RFQ="",RFC="",RFN="";
+function rfInit(){if(!RF){$("rfBody").innerHTML='<p class="empty">El directorio de fuentes no está disponible en esta edición.</p>';return}
+ const act=RF.fuentes.filter(f=>f.est==="activa");
+ opts($("rfCat"),uniq(act.map(f=>f.cat)).sort().map(c=>RCAT[c]||c),"Todas");opts($("rfNiv"),Object.keys(RNIV).filter(n=>act.some(f=>f.niv===n)).map(n=>RNIV[n]),"Todas");
+ $("rfQ").oninput=e=>{RFQ=norm(e.target.value);rfDir()};
+ $("rfCat").onchange=e=>{RFC=Object.keys(RCAT).find(k=>RCAT[k]===e.target.value)||e.target.value;rfDir()};
+ $("rfNiv").onchange=e=>{RFN=Object.keys(RNIV).find(k=>RNIV[k]===e.target.value)||e.target.value;rfDir()};}
+function rfDir(){const act=RF.fuentes.filter(f=>f.est==="activa"&&(!RFC||f.cat===RFC)&&(!RFN||f.niv===RFN)&&(!RFQ||norm([f.n,f.dep,f.reg,f.sub,RCAT[f.cat]].join(" ")).includes(RFQ))).sort((a,b)=>a.conf.localeCompare(b.conf)||a.n.localeCompare(b.n));
+ $("rfCount").textContent=`${act.length} fuentes`;
+ tbl($("tRF"),["Fuente","Categoría","Cobertura","Departamento","Nivel","Consulta","Verificada"],act.map(f=>`<tr>${td(f.url?link(f.url,esc(f.n)):esc(f.n))}${td(esc(RCAT[f.cat]||f.cat))}${td(esc(RNIV[f.niv]||f.niv))}${td(esc(f.dep||"—"))}${td(`<span class="chip">${esc(f.conf)}</span>`)}${td(f.rss?"RSS":f.api?"API":"Sitio web")}${td(f.ver,1)}</tr>`),"Ninguna fuente coincide con la búsqueda.");}
+function pRed(D){if(!RF)return;const F0=RF.fuentes,act=F0.filter(f=>f.est==="activa"),pen=F0.filter(f=>f.est!=="activa");
+ const maq=act.filter(f=>f.rss||f.api).length,n1=act.filter(f=>f.conf==="N1").length;
+ const deps=uniq(act.filter(f=>f.dep&&["departamental","municipal","regional"].includes(f.niv)).map(f=>norm(f.dep)));
+ $("rfLead").firstChild.textContent=`Directorio de fuentes que el Observatorio consulta para identificar y contrastar los hechos (actualizado el ${RF.generado?fmtF(RF.generado):"—"}). Una fuente verificada respondió en la comprobación técnica desde su dominio registrado; eso no certifica su titularidad institucional ni la veracidad de su contenido.`;
+ const k=[[F0.length,"Fuentes identificadas",""],[act.length,"Verificadas","respondieron en la última comprobación"],[maq,"Consultables por máquina","RSS o API pública comprobada"],[n1,"Fuentes primarias (N1)","entre las verificadas"],[deps.length,"Departamentos con fuente propia","de 33 (incluye Bogotá)"],[pen.length,"Pendientes de verificación","no cuentan como verificadas"]];
+ $("rfKpis").innerHTML=k.map(([v,l,s])=>`<div class="kpi"><b>${v}</b><span>${l}</span>${s?`<em>${s}</em>`:""}</div>`).join("");
+ const cats=Object.keys(RCAT).filter(c=>F0.some(f=>f.cat===c));
+ mkChart("chRF1",{type:"bar",data:{labels:cats.map(c=>RCAT[c]),datasets:[{label:"Verificadas",data:cats.map(c=>act.filter(f=>f.cat===c).length),backgroundColor:css("--brand")},{label:"Pendientes",data:cats.map(c=>pen.filter(f=>f.cat===c).length),backgroundColor:css("--c-nd")}]},options:{indexAxis:"y",scales:{x:{stacked:true,beginAtZero:true,ticks:{precision:0}},y:{stacked:true}}}});
+ const cf=["N1","N2","N3","N4"];
+ mkChart("chRF2",{type:"bar",data:{labels:cf.map(c=>RCONF[c]),datasets:[{label:"Fuentes verificadas",data:cf.map(c=>act.filter(f=>f.conf===c).length),backgroundColor:[css("--brand"),css("--accent"),css("--c-dis"),css("--c-nd")]}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{precision:0}}}}});
+ /* cobertura frente a hechos (responde a filtros) */
+ const ds=uniq(D.map(e=>e.depto));
+ const rows=ds.map(d=>{const x=D.filter(e=>e.depto===d),fs=act.filter(f=>norm(f.dep)===norm(d)&&f.niv!=="nacional");return [d,x.length,fs]}).sort((a,b)=>b[1]-a[1]||a[2].length-b[2].length);
+ tbl($("tRFdep"),["Departamento","Hechos","Fuentes verificadas propias","Tipos","Lectura"],rows.map(([d,n,fs])=>`<tr>${td(esc(d))}${td(n,1)}${td(fs.length,1)}${td(esc(uniq(fs.map(f=>RCAT[f.cat]||f.cat)).join(", ")||"—"))}${td(n>=3&&fs.length<=2?'<span class="chip" style="border-color:var(--alert);color:var(--alert)">Cobertura baja</span>':"Adecuada para el volumen")}</tr>`));
+ /* procedencia de citas: dominios de las fuentes de cada registro frente al directorio */
+ const doms=F0.map(f=>host(f.url)).filter(Boolean);
+ const cit=D.flatMap(e=>e.fuentes.map(host)).filter(Boolean);
+ const en=cit.filter(h=>doms.some(d=>sameSite(h,d))).length;
+ const fuera=Object.entries(cit.filter(h=>!doms.some(d=>sameSite(h,d))).reduce((a,h)=>(a[h]=(a[h]||0)+1,a),{})).sort((a,b)=>b[1]-a[1]);
+ $("rfCitas").innerHTML=cit.length?`<p>De las <b>${cit.length}</b> citas de los registros seleccionados, <b>${en}</b> (${(100*en/cit.length).toFixed(0)} %) provienen de medios o entidades del directorio. Los dominios citados que aún no están en el directorio son candidatos para incorporarse a la red:</p>`:'<p class="empty">Sin registros con los filtros actuales.</p>';
+ tbl($("tRFcit"),["Dominio citado fuera del directorio","Citas"],fuera.slice(0,15).map(([h,c])=>`<tr>${td(esc(h))}${td(c,1)}</tr>`),"Todas las citas provienen de fuentes del directorio.");
+ const mot=Object.entries(pen.reduce((a,f)=>(a[f.mot]=(a[f.mot]||[]).concat(f),a),{})).sort((a,b)=>b[1].length-a[1].length);
+ tbl($("tRFpen"),["Motivo","Fuentes","Ejemplos"],mot.map(([m,l])=>`<tr>${td(esc(RMOT[m]||m))}${td(l.length,1)}${td(esc(l.slice(0,4).map(f=>f.n.replace(/ - X$/," (X)")).join(" · "))+(l.length>4?" …":""))}</tr>`));
+ rfDir();}
 function render(){const D=filtered();
  $("periodo").textContent=`Desde el 7 de agosto de 2026 · corte ${fmtF(END)}`;
  $("fCount").textContent=`${D.length} de ${EV.length} incidentes`;
- pKpis(D);pMap(D);pTime(D);pTL(D);pResp(D);pTerr(D);pDanos(D);pBase(D);pFuentes();}
+ pKpis(D);pMap(D);pTime(D);pTL(D);pResp(D);pTerr(D);pDanos(D);pBase(D);pRed(D);pFuentes();}
 /* ---- copia CSV ---- */
 $("csvBtn").onclick=async()=>{const t=csvText(filtered());const ta=$("csvTa");
  try{await navigator.clipboard.writeText(t);$("csvMsg").textContent="CSV copiado.";ta.style.display="none"}
@@ -318,7 +382,7 @@ $("csvBtn").onclick=async()=>{const t=csvText(filtered());const ta=$("csvTa");
 $("themeBtn").onclick=()=>{const r=document.documentElement;r.setAttribute("data-theme",r.getAttribute("data-theme")==="dark"?"light":"dark")};
 new MutationObserver(()=>render()).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 matchMedia("(prefers-color-scheme:dark)").addEventListener("change",()=>render());
-initFilters();render();
+initFilters();rfInit();render();
 </script>
 </body>
 </html>

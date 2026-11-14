@@ -1,0 +1,897 @@
+{
+  "metadata": {
+    "producto": "07 OTVA",
+    "archivo": "categorias_monitoreo.json",
+    "version_esquema": "1.0.0",
+    "generado": "2026-11-13",
+    "descripcion": "Taxonomia de eventos, actores, tipos de informacion, niveles de corroboracion y normalizacion geografica.",
+    "nota": "Los nombres y alias de actores son terminos de busqueda en fuentes abiertas; no constituyen atribucion de hechos."
+  },
+  "temas": [
+    {
+      "codigo": "terrorismo",
+      "nombre": "Terrorismo",
+      "descripcion": "Actos con artefactos explosivos o ataques indiscriminados que buscan generar terror.",
+      "subtipos": [
+        "atentado_explosivo",
+        "carro_bomba",
+        "moto_bomba",
+        "ataque_con_drones",
+        "artefacto_explosivo_improvisado",
+        "atentado_frustrado"
+      ],
+      "palabras_clave": [
+        "atentado",
+        "explosivo",
+        "carro bomba",
+        "moto bomba",
+        "dron",
+        "granada",
+        "artefacto explosivo"
+      ]
+    },
+    {
+      "codigo": "violencia_armada",
+      "nombre": "Violencia armada",
+      "descripcion": "Acciones violentas de actores armados organizados.",
+      "subtipos": [],
+      "palabras_clave": [
+        "violencia armada",
+        "ataque armado"
+      ]
+    },
+    {
+      "codigo": "enfrentamientos_armados",
+      "nombre": "Enfrentamientos armados",
+      "descripcion": "Combates entre Fuerza Publica y grupos armados o entre grupos.",
+      "subtipos": [
+        "combate_fuerza_publica_grupo",
+        "disputa_entre_grupos",
+        "hostigamiento"
+      ],
+      "palabras_clave": [
+        "combates",
+        "enfrentamientos",
+        "hostigamiento"
+      ]
+    },
+    {
+      "codigo": "grupos_armados_organizados",
+      "nombre": "Accion de grupos armados organizados",
+      "descripcion": "Acciones atribuidas a GAO, GAO-r y GDO.",
+      "subtipos": [],
+      "palabras_clave": [
+        "GAO",
+        "disidencias",
+        "grupo armado"
+      ]
+    },
+    {
+      "codigo": "crimen_organizado",
+      "nombre": "Actividad de organizaciones criminales",
+      "descripcion": "Estructuras criminales urbanas y transnacionales.",
+      "subtipos": [],
+      "palabras_clave": [
+        "banda criminal",
+        "estructura criminal"
+      ]
+    },
+    {
+      "codigo": "ataques_fuerza_publica",
+      "nombre": "Ataques contra la Fuerza Publica",
+      "descripcion": "Ataques a policias, militares, estaciones y bases.",
+      "subtipos": [
+        "plan_pistola",
+        "ataque_estacion_policia",
+        "ataque_base_militar",
+        "asonada",
+        "retencion_de_uniformados"
+      ],
+      "palabras_clave": [
+        "plan pistola",
+        "policia asesinado",
+        "soldado",
+        "estacion de policia"
+      ]
+    },
+    {
+      "codigo": "afectacion_poblacion_civil",
+      "nombre": "Afectaciones a la poblacion civil",
+      "descripcion": "Danos a civiles derivados de la violencia armada.",
+      "subtipos": [],
+      "palabras_clave": [
+        "civiles",
+        "poblacion civil",
+        "heridos"
+      ]
+    },
+    {
+      "codigo": "masacres",
+      "nombre": "Masacres",
+      "descripcion": "Homicidio de tres o mas personas en un mismo hecho.",
+      "subtipos": [],
+      "palabras_clave": [
+        "masacre",
+        "triple homicidio"
+      ]
+    },
+    {
+      "codigo": "homicidios_violencia_organizada",
+      "nombre": "Homicidios relacionados con violencia organizada",
+      "descripcion": "Homicidios atribuibles a actores armados o criminales.",
+      "subtipos": [
+        "sicariato",
+        "homicidio_selectivo"
+      ],
+      "palabras_clave": [
+        "sicariato",
+        "asesinado",
+        "homicidio"
+      ]
+    },
+    {
+      "codigo": "lideres_sociales",
+      "nombre": "Agresiones a lideres sociales y firmantes de paz",
+      "descripcion": "Homicidios, amenazas y atentados contra liderazgos.",
+      "subtipos": [],
+      "palabras_clave": [
+        "lider social",
+        "firmante de paz",
+        "defensor de DDHH"
+      ]
+    },
+    {
+      "codigo": "secuestro",
+      "nombre": "Secuestro",
+      "descripcion": "Secuestro extorsivo, simple y retenciones.",
+      "subtipos": [
+        "secuestro_extorsivo",
+        "secuestro_simple",
+        "retencion_ilegal"
+      ],
+      "palabras_clave": [
+        "secuestro",
+        "secuestrado",
+        "plagio",
+        "liberacion"
+      ]
+    },
+    {
+      "codigo": "extorsion",
+      "nombre": "Extorsion",
+      "descripcion": "Cobros ilegales, vacunas y extorsion carcelaria.",
+      "subtipos": [
+        "extorsion_presencial",
+        "extorsion_telefonica",
+        "extorsion_carcelaria"
+      ],
+      "palabras_clave": [
+        "extorsion",
+        "vacuna",
+        "cobro ilegal"
+      ]
+    },
+    {
+      "codigo": "amenazas",
+      "nombre": "Amenazas",
+      "descripcion": "Panfletos, amenazas colectivas e individuales publicas.",
+      "subtipos": [
+        "panfleto",
+        "paro_armado"
+      ],
+      "palabras_clave": [
+        "amenaza",
+        "panfleto",
+        "paro armado"
+      ]
+    },
+    {
+      "codigo": "desplazamiento_forzado",
+      "nombre": "Desplazamiento forzado",
+      "descripcion": "Desplazamientos individuales y masivos.",
+      "subtipos": [
+        "desplazamiento_masivo",
+        "desplazamiento_individual"
+      ],
+      "palabras_clave": [
+        "desplazamiento",
+        "desplazados"
+      ]
+    },
+    {
+      "codigo": "confinamiento",
+      "nombre": "Confinamiento",
+      "descripcion": "Restricciones a la movilidad impuestas a comunidades.",
+      "subtipos": [],
+      "palabras_clave": [
+        "confinamiento",
+        "confinadas"
+      ]
+    },
+    {
+      "codigo": "reclutamiento_forzado",
+      "nombre": "Reclutamiento y uso de menores",
+      "descripcion": "Reclutamiento, uso y utilizacion de ninos, ninas y adolescentes.",
+      "subtipos": [],
+      "palabras_clave": [
+        "reclutamiento",
+        "menores reclutados"
+      ]
+    },
+    {
+      "codigo": "minas_antipersonal",
+      "nombre": "Minas antipersonal y MUSE",
+      "descripcion": "Victimas y contaminacion por minas y municion sin explotar.",
+      "subtipos": [],
+      "palabras_clave": [
+        "mina antipersonal",
+        "MAP",
+        "MUSE"
+      ]
+    },
+    {
+      "codigo": "desaparicion_forzada",
+      "nombre": "Desaparicion forzada",
+      "descripcion": "Desapariciones atribuidas a actores armados.",
+      "subtipos": [],
+      "palabras_clave": [
+        "desaparecido",
+        "desaparicion forzada",
+        "fosa"
+      ]
+    },
+    {
+      "codigo": "infraestructura_estrategica",
+      "nombre": "Afectaciones a infraestructura estrategica",
+      "descripcion": "Ataques a oleoductos, torres de energia, vias, telecomunicaciones.",
+      "subtipos": [
+        "voladura_oleoducto",
+        "ataque_torre_energia",
+        "bloqueo_vial",
+        "ataque_peaje"
+      ],
+      "palabras_clave": [
+        "oleoducto",
+        "voladura",
+        "torre de energia",
+        "infraestructura"
+      ]
+    },
+    {
+      "codigo": "orden_publico",
+      "nombre": "Dinamicas de seguridad y orden publico",
+      "descripcion": "Situacion general de seguridad, consejos de seguridad, medidas.",
+      "subtipos": [],
+      "palabras_clave": [
+        "orden publico",
+        "consejo de seguridad",
+        "toque de queda"
+      ]
+    },
+    {
+      "codigo": "pronunciamientos_oficiales",
+      "nombre": "Pronunciamientos oficiales y decisiones gubernamentales",
+      "descripcion": "Comunicados, decretos, alocuciones y decisiones.",
+      "subtipos": [],
+      "palabras_clave": [
+        "comunicado",
+        "decreto",
+        "alocucion",
+        "resolucion"
+      ]
+    },
+    {
+      "codigo": "politica_seguridad",
+      "nombre": "Politica de seguridad y defensa",
+      "descripcion": "Debate y decisiones de politica publica de seguridad.",
+      "subtipos": [],
+      "palabras_clave": [
+        "politica de seguridad",
+        "paz total",
+        "defensa"
+      ]
+    },
+    {
+      "codigo": "alertas_tempranas",
+      "nombre": "Alertas y advertencias",
+      "descripcion": "Alertas tempranas y advertencias nacionales e internacionales.",
+      "subtipos": [],
+      "palabras_clave": [
+        "alerta temprana",
+        "informe de riesgo",
+        "advertencia"
+      ]
+    },
+    {
+      "codigo": "victimas",
+      "nombre": "Victimas del conflicto",
+      "descripcion": "Registro, atencion y reparacion de victimas.",
+      "subtipos": [],
+      "palabras_clave": [
+        "victimas",
+        "RUV",
+        "reparacion"
+      ]
+    },
+    {
+      "codigo": "despojo_tierras",
+      "nombre": "Despojo y restitucion de tierras",
+      "descripcion": "Despojo y procesos de restitucion.",
+      "subtipos": [],
+      "palabras_clave": [
+        "despojo",
+        "restitucion de tierras"
+      ]
+    },
+    {
+      "codigo": "narcotrafico",
+      "nombre": "Narcotrafico y economias ilegales",
+      "descripcion": "Cultivos de uso ilicito, laboratorios, rutas y mineria ilegal.",
+      "subtipos": [
+        "mineria_ilegal",
+        "cultivos_ilicitos",
+        "laboratorio"
+      ],
+      "palabras_clave": [
+        "cocaina",
+        "laboratorio",
+        "mineria ilegal",
+        "incautacion"
+      ]
+    },
+    {
+      "codigo": "crimen_transnacional",
+      "nombre": "Crimen transnacional y frontera",
+      "descripcion": "Dinamicas fronterizas y estructuras transnacionales.",
+      "subtipos": [],
+      "palabras_clave": [
+        "frontera",
+        "transnacional",
+        "Venezuela",
+        "Ecuador"
+      ]
+    }
+  ],
+  "actores_armados": [
+    {
+      "codigo": "ELN",
+      "nombre": "Ejercito de Liberacion Nacional",
+      "tipo": "guerrilla",
+      "alias_busqueda": [
+        "ELN",
+        "Ejercito de Liberacion Nacional"
+      ]
+    },
+    {
+      "codigo": "EGC",
+      "nombre": "Ejercito Gaitanista de Colombia (Clan del Golfo / AGC)",
+      "tipo": "grupo_armado_organizado",
+      "alias_busqueda": [
+        "Clan del Golfo",
+        "EGC",
+        "AGC",
+        "Autodefensas Gaitanistas",
+        "Ejercito Gaitanista"
+      ]
+    },
+    {
+      "codigo": "EMC",
+      "nombre": "Estado Mayor Central (disidencias de las FARC-EP)",
+      "tipo": "disidencia_farc",
+      "alias_busqueda": [
+        "EMC",
+        "Estado Mayor Central",
+        "disidencias",
+        "Ivan Mordisco"
+      ]
+    },
+    {
+      "codigo": "EMBF",
+      "nombre": "Estado Mayor de Bloques y Frentes",
+      "tipo": "disidencia_farc",
+      "alias_busqueda": [
+        "EMBF",
+        "Estado Mayor de Bloques y Frentes",
+        "Calarca"
+      ]
+    },
+    {
+      "codigo": "SM",
+      "nombre": "Segunda Marquetalia y escisiones",
+      "tipo": "disidencia_farc",
+      "alias_busqueda": [
+        "Segunda Marquetalia",
+        "CNEB",
+        "Coordinadora Nacional Ejercito Bolivariano"
+      ]
+    },
+    {
+      "codigo": "ACSN",
+      "nombre": "Autodefensas Conquistadoras de la Sierra Nevada",
+      "tipo": "grupo_armado_organizado",
+      "alias_busqueda": [
+        "ACSN",
+        "Los Pachenca",
+        "Autodefensas Conquistadoras"
+      ]
+    },
+    {
+      "codigo": "CDF",
+      "nombre": "Comandos de la Frontera",
+      "tipo": "grupo_armado_organizado",
+      "alias_busqueda": [
+        "Comandos de la Frontera",
+        "CDF"
+      ]
+    },
+    {
+      "codigo": "FRONTERA_ESTRUCTURAS_URBANAS",
+      "nombre": "Estructuras criminales urbanas",
+      "tipo": "estructura_criminal",
+      "alias_busqueda": [
+        "Los Shottas",
+        "Los Espartanos",
+        "La Oficina",
+        "Los Costenos",
+        "Los Pepes",
+        "Los Lobos"
+      ]
+    },
+    {
+      "codigo": "TDA",
+      "nombre": "Tren de Aragua",
+      "tipo": "crimen_transnacional",
+      "alias_busqueda": [
+        "Tren de Aragua"
+      ]
+    },
+    {
+      "codigo": "NO_IDENTIFICADO",
+      "nombre": "Actor no identificado",
+      "tipo": "sin_atribucion",
+      "alias_busqueda": [
+        "hombres armados",
+        "desconocidos"
+      ]
+    }
+  ],
+  "tipos_informacion": [
+    {
+      "codigo": "oficial",
+      "descripcion": "Publicada por una entidad estatal en canal oficial verificado."
+    },
+    {
+      "codigo": "periodistica",
+      "descripcion": "Publicada por un medio de comunicacion identificado."
+    },
+    {
+      "codigo": "red_social",
+      "descripcion": "Publicada en una cuenta publica de red social cuya titularidad fue verificada."
+    },
+    {
+      "codigo": "organismo_internacional",
+      "descripcion": "Publicada por ONU, OEA, CICR u organismo multilateral."
+    },
+    {
+      "codigo": "centro_investigacion",
+      "descripcion": "Publicada por ONG, academia o centro de pensamiento."
+    },
+    {
+      "codigo": "pendiente_corroboracion",
+      "descripcion": "Cualquier informacion aun no contrastada."
+    }
+  ],
+  "niveles_validacion_fuente": [
+    {
+      "codigo": "N1_fuente_primaria",
+      "nivel": 1,
+      "descripcion": "Comunicados institucionales y documentos oficiales."
+    },
+    {
+      "codigo": "N2_fuente_secundaria",
+      "nivel": 2,
+      "descripcion": "Medios de comunicacion reconocidos."
+    },
+    {
+      "codigo": "N3_fuente_digital_verificada",
+      "nivel": 3,
+      "descripcion": "Cuentas publicas con titularidad verificada."
+    },
+    {
+      "codigo": "N4_fuente_complementaria",
+      "nivel": 4,
+      "descripcion": "Medios locales, comunitarios y otras fuentes abiertas."
+    }
+  ],
+  "estados_corroboracion": [
+    {
+      "codigo": "confirmado_oficial",
+      "descripcion": "Hecho confirmado por al menos una fuente N1.",
+      "requiere": "1 fuente N1 que afirme el hecho (no solo lo mencione)."
+    },
+    {
+      "codigo": "reportado_medios",
+      "descripcion": "Hecho reportado por medios sin confirmacion oficial.",
+      "requiere": "al menos 1 fuente N2 o 2 fuentes N4 independientes."
+    },
+    {
+      "codigo": "declaracion_atribuida",
+      "descripcion": "Afirmacion de una persona o entidad; se registra la declaracion, no el hecho.",
+      "requiere": "cita textual y autor identificado."
+    },
+    {
+      "codigo": "en_desarrollo",
+      "descripcion": "Hecho en curso con informacion cambiante.",
+      "requiere": "revision obligatoria en la siguiente ventana de consulta."
+    },
+    {
+      "codigo": "no_corroborado",
+      "descripcion": "Una sola fuente N3/N4 o fuente de identidad no verificada.",
+      "requiere": "no se usa en productos analiticos como hecho."
+    },
+    {
+      "codigo": "desmentido_rectificado",
+      "descripcion": "Desmentido por fuente N1 o rectificado por el medio emisor.",
+      "requiere": "enlace al desmentido o rectificacion."
+    }
+  ],
+  "reglas_corroboracion": [
+    "Ninguna noticia, denuncia o publicacion se convierte en confirmado_oficial sin una fuente N1.",
+    "Las fuentes que replican a otra (misma nota sindicada, misma agencia) no cuentan como independientes.",
+    "Una cifra de victimas se registra con la fuente y la hora; si varias fuentes difieren se conservan todas.",
+    "Un desmentido N1 prevalece sobre reportes N2-N4 pero no borra el registro: cambia su estado y conserva la traza."
+  ],
+  "normalizacion_geografica": {
+    "fuente_codigos": "DIVIPOLA (DANE). Codigos de municipio se registran solo cuando se comprueban contra la tabla oficial del DANE.",
+    "regla": "Comparacion sin tildes, minusculas y sin signos (funcion normalizar_texto del verificador).",
+    "departamentos": [
+      {
+        "nombre_normalizado": "Antioquia",
+        "nombre_oficial": "Antioquia",
+        "codigo_divipola": "05",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Atlantico",
+        "nombre_oficial": "Atlántico",
+        "codigo_divipola": "08",
+        "region": "Caribe",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Bogota D.C.",
+        "nombre_oficial": "Bogotá, D.C.",
+        "codigo_divipola": "11",
+        "region": "Andina",
+        "alias": [
+          "Bogota",
+          "Bogotá",
+          "Distrito Capital"
+        ]
+      },
+      {
+        "nombre_normalizado": "Bolivar",
+        "nombre_oficial": "Bolívar",
+        "codigo_divipola": "13",
+        "region": "Caribe",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Boyaca",
+        "nombre_oficial": "Boyacá",
+        "codigo_divipola": "15",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Caldas",
+        "nombre_oficial": "Caldas",
+        "codigo_divipola": "17",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Caqueta",
+        "nombre_oficial": "Caquetá",
+        "codigo_divipola": "18",
+        "region": "Amazonia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Cauca",
+        "nombre_oficial": "Cauca",
+        "codigo_divipola": "19",
+        "region": "Pacifico",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Cesar",
+        "nombre_oficial": "Cesar",
+        "codigo_divipola": "20",
+        "region": "Caribe",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Cordoba",
+        "nombre_oficial": "Córdoba",
+        "codigo_divipola": "23",
+        "region": "Caribe",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Cundinamarca",
+        "nombre_oficial": "Cundinamarca",
+        "codigo_divipola": "25",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Choco",
+        "nombre_oficial": "Chocó",
+        "codigo_divipola": "27",
+        "region": "Pacifico",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Huila",
+        "nombre_oficial": "Huila",
+        "codigo_divipola": "41",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "La Guajira",
+        "nombre_oficial": "La Guajira",
+        "codigo_divipola": "44",
+        "region": "Caribe",
+        "alias": [
+          "Guajira"
+        ]
+      },
+      {
+        "nombre_normalizado": "Magdalena",
+        "nombre_oficial": "Magdalena",
+        "codigo_divipola": "47",
+        "region": "Caribe",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Meta",
+        "nombre_oficial": "Meta",
+        "codigo_divipola": "50",
+        "region": "Orinoquia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Narino",
+        "nombre_oficial": "Nariño",
+        "codigo_divipola": "52",
+        "region": "Pacifico",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Norte de Santander",
+        "nombre_oficial": "Norte de Santander",
+        "codigo_divipola": "54",
+        "region": "Andina",
+        "alias": [
+          "Norte"
+        ]
+      },
+      {
+        "nombre_normalizado": "Quindio",
+        "nombre_oficial": "Quindío",
+        "codigo_divipola": "63",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Risaralda",
+        "nombre_oficial": "Risaralda",
+        "codigo_divipola": "66",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Santander",
+        "nombre_oficial": "Santander",
+        "codigo_divipola": "68",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Sucre",
+        "nombre_oficial": "Sucre",
+        "codigo_divipola": "70",
+        "region": "Caribe",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Tolima",
+        "nombre_oficial": "Tolima",
+        "codigo_divipola": "73",
+        "region": "Andina",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Valle del Cauca",
+        "nombre_oficial": "Valle del Cauca",
+        "codigo_divipola": "76",
+        "region": "Pacifico",
+        "alias": [
+          "Valle"
+        ]
+      },
+      {
+        "nombre_normalizado": "Arauca",
+        "nombre_oficial": "Arauca",
+        "codigo_divipola": "81",
+        "region": "Orinoquia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Casanare",
+        "nombre_oficial": "Casanare",
+        "codigo_divipola": "85",
+        "region": "Orinoquia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Putumayo",
+        "nombre_oficial": "Putumayo",
+        "codigo_divipola": "86",
+        "region": "Amazonia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Archipielago de San Andres, Providencia y Santa Catalina",
+        "nombre_oficial": "Archipiélago de San Andrés, Providencia y Santa Catalina",
+        "codigo_divipola": "88",
+        "region": "Insular",
+        "alias": [
+          "San Andres",
+          "San Andrés",
+          "San Andres y Providencia"
+        ]
+      },
+      {
+        "nombre_normalizado": "Amazonas",
+        "nombre_oficial": "Amazonas",
+        "codigo_divipola": "91",
+        "region": "Amazonia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Guainia",
+        "nombre_oficial": "Guainía",
+        "codigo_divipola": "94",
+        "region": "Amazonia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Guaviare",
+        "nombre_oficial": "Guaviare",
+        "codigo_divipola": "95",
+        "region": "Amazonia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Vaupes",
+        "nombre_oficial": "Vaupés",
+        "codigo_divipola": "97",
+        "region": "Amazonia",
+        "alias": []
+      },
+      {
+        "nombre_normalizado": "Vichada",
+        "nombre_oficial": "Vichada",
+        "codigo_divipola": "99",
+        "region": "Orinoquia",
+        "alias": []
+      }
+    ],
+    "regiones": {
+      "Andina": [
+        "Antioquia",
+        "Bogota D.C.",
+        "Boyaca",
+        "Caldas",
+        "Cundinamarca",
+        "Huila",
+        "Norte de Santander",
+        "Quindio",
+        "Risaralda",
+        "Santander",
+        "Tolima"
+      ],
+      "Caribe": [
+        "Atlantico",
+        "Bolivar",
+        "Cesar",
+        "Cordoba",
+        "La Guajira",
+        "Magdalena",
+        "Sucre"
+      ],
+      "Pacifico": [
+        "Cauca",
+        "Choco",
+        "Narino",
+        "Valle del Cauca"
+      ],
+      "Orinoquia": [
+        "Arauca",
+        "Casanare",
+        "Meta",
+        "Vichada"
+      ],
+      "Amazonia": [
+        "Amazonas",
+        "Caqueta",
+        "Guainia",
+        "Guaviare",
+        "Putumayo",
+        "Vaupes"
+      ],
+      "Insular": [
+        "Archipielago de San Andres, Providencia y Santa Catalina"
+      ]
+    },
+    "subregiones_analiticas": {
+      "Catatumbo": [
+        "Norte de Santander"
+      ],
+      "Bajo Cauca antioqueno": [
+        "Antioquia"
+      ],
+      "Uraba": [
+        "Antioquia",
+        "Choco",
+        "Cordoba"
+      ],
+      "Nordeste antioqueno": [
+        "Antioquia"
+      ],
+      "Magdalena Medio": [
+        "Santander",
+        "Antioquia",
+        "Bolivar",
+        "Cesar",
+        "Boyaca"
+      ],
+      "Sur de Bolivar": [
+        "Bolivar"
+      ],
+      "Montes de Maria": [
+        "Bolivar",
+        "Sucre"
+      ],
+      "Norte del Cauca": [
+        "Cauca"
+      ],
+      "Pacifico narinense": [
+        "Narino"
+      ],
+      "Sur del Meta": [
+        "Meta"
+      ],
+      "Sierra Nevada de Santa Marta": [
+        "Magdalena",
+        "Cesar",
+        "La Guajira"
+      ],
+      "Pie de monte llanero": [
+        "Meta",
+        "Casanare",
+        "Arauca"
+      ],
+      "Bajo Putumayo": [
+        "Putumayo"
+      ],
+      "Alto Baudo y San Juan": [
+        "Choco"
+      ]
+    }
+  }
+}

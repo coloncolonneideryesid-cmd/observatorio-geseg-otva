@@ -1,0 +1,20 @@
+id: gdelt
+version: 1
+status: draft  # no integrar hasta verificar licencia y términos
+owner: "GDELT Project"
+access_method: "Descarga abierta cada 15 minutos"
+license: PENDIENTE de verificar
+license_status: PENDING
+terms_url: PENDIENTE
+public_redistribution: pending
+rate_limits: PENDIENTE de verificar
+robots_txt: PENDIENTE de verificar
+coverage: "Señal de descubrimiento, nunca evidencia única"
+temporal_coverage: PENDIENTE
+latency_expected: PENDIENTE
+known_biases: "Ruidoso; codificación automática; duplicados"
+admiralty_initial_source: D  # propuesta inicial, sin calibrar
+security_risks: "Contenido no confiable: parseo sin red; ver modelo de amenazas A2/A3"
+classification: INTERNO  # la lista de fuentes monitoreadas es sensible
+last_terms_check: null
+connector_allowed: false

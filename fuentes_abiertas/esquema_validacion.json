@@ -1,0 +1,587 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "otva/fuentes/esquema_validacion.json",
+  "title": "Esquema de validacion - Fuentes abiertas OTVA",
+  "description": "Define la estructura de fuentes, publicaciones y ejecuciones, y las reglas de integridad que aplica verificador_fuentes.py.",
+  "$defs": {
+    "fuente": {
+      "type": "object",
+      "required": [
+        "id_fuente",
+        "nombre",
+        "categoria",
+        "subcategoria",
+        "nivel_cobertura",
+        "pais",
+        "departamento",
+        "municipio",
+        "entidad_responsable",
+        "plataforma",
+        "url_principal",
+        "url_consulta",
+        "url_comunicados",
+        "url_rss",
+        "url_api",
+        "identificador_cuenta",
+        "estado",
+        "metodo_consulta",
+        "frecuencia_actualizacion",
+        "temas_monitoreados",
+        "palabras_clave",
+        "fecha_verificacion",
+        "fecha_ultima_consulta",
+        "confiabilidad_fuente",
+        "observaciones",
+        "restricciones_uso"
+      ],
+      "properties": {
+        "id_fuente": {
+          "type": "string",
+          "pattern": "^OTVA-(INS|MNA|MRE|RSO|INT)-[0-9]{3}$"
+        },
+        "nombre": {
+          "type": "string",
+          "minLength": 3
+        },
+        "categoria": {
+          "enum": [
+            "institucional",
+            "gubernamental",
+            "periodistica",
+            "red_social",
+            "organismo_internacional",
+            "centro_investigacion"
+          ]
+        },
+        "subcategoria": {
+          "type": "string"
+        },
+        "nivel_cobertura": {
+          "enum": [
+            "nacional",
+            "departamental",
+            "regional",
+            "municipal",
+            "internacional"
+          ]
+        },
+        "pais": {
+          "type": "string"
+        },
+        "departamento": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "municipio": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entidad_responsable": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "plataforma": {
+          "enum": [
+            "sitio_web",
+            "X",
+            "Facebook",
+            "Instagram",
+            "YouTube",
+            "TikTok",
+            "Threads",
+            "Telegram"
+          ]
+        },
+        "url_principal": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "url_consulta": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "url_comunicados": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "url_rss": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "url_api": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "identificador_cuenta": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "estado": {
+          "enum": [
+            "activa",
+            "inactiva",
+            "pendiente_verificacion"
+          ]
+        },
+        "metodo_consulta": {
+          "enum": [
+            "rss",
+            "api_publica",
+            "api_con_registro",
+            "api_con_registro_nombre_app",
+            "api_oficial_de_pago",
+            "html_publico",
+            "manual",
+            "no_automatizable"
+          ]
+        },
+        "frecuencia_actualizacion": {
+          "type": "string",
+          "pattern": "^P(T?[0-9]+[DHMW])+$"
+        },
+        "temas_monitoreados": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "terrorismo",
+              "violencia_armada",
+              "enfrentamientos_armados",
+              "grupos_armados_organizados",
+              "crimen_organizado",
+              "ataques_fuerza_publica",
+              "afectacion_poblacion_civil",
+              "masacres",
+              "homicidios_violencia_organizada",
+              "lideres_sociales",
+              "secuestro",
+              "extorsion",
+              "amenazas",
+              "desplazamiento_forzado",
+              "confinamiento",
+              "reclutamiento_forzado",
+              "minas_antipersonal",
+              "desaparicion_forzada",
+              "infraestructura_estrategica",
+              "orden_publico",
+              "pronunciamientos_oficiales",
+              "politica_seguridad",
+              "alertas_tempranas",
+              "victimas",
+              "despojo_tierras",
+              "narcotrafico",
+              "crimen_transnacional"
+            ]
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "palabras_clave": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "fecha_verificacion": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "fecha_ultima_consulta": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "confiabilidad_fuente": {
+          "enum": [
+            "N1_fuente_primaria",
+            "N2_fuente_secundaria",
+            "N3_fuente_digital_verificada",
+            "N4_fuente_complementaria"
+          ]
+        },
+        "observaciones": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "restricciones_uso": {
+          "type": "string"
+        },
+        "region": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "codigo_divipola": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9]{2}([0-9]{3})?$"
+        },
+        "fuente_relacionada": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fallos_consecutivos": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "resultado_ultima_comprobacion": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "archivo_origen": {
+          "type": "string"
+        },
+        "fecha_primer_fallo": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "categoria": {
+                "const": "red_social"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "plataforma": {
+                "not": {
+                  "const": "sitio_web"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "estado": {
+                "const": "activa"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "fecha_verificacion": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "archivo_fuentes": {
+      "type": "object",
+      "required": [
+        "metadata",
+        "fuentes"
+      ],
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "required": [
+            "producto",
+            "archivo",
+            "version_esquema"
+          ]
+        },
+        "fuentes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fuente"
+          }
+        }
+      }
+    },
+    "publicacion": {
+      "description": "Registro de una publicacion capturada (para el futuro modulo de monitoreo). Garantiza la trazabilidad.",
+      "type": "object",
+      "required": [
+        "id_publicacion",
+        "id_fuente",
+        "url",
+        "titulo",
+        "fecha_publicacion",
+        "fecha_captura",
+        "tipo_informacion",
+        "estado_corroboracion",
+        "hash_contenido"
+      ],
+      "properties": {
+        "id_publicacion": {
+          "type": "string"
+        },
+        "id_fuente": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "url_canonica": {
+          "type": "string"
+        },
+        "titulo": {
+          "type": "string"
+        },
+        "resumen": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fecha_publicacion": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "fecha_captura": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "fecha_ocurrencia": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "precision_fecha": {
+          "enum": [
+            "exacta",
+            "dia",
+            "mes",
+            "aproximada",
+            null
+          ]
+        },
+        "departamento": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "municipio": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "codigo_divipola": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "temas": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "terrorismo",
+              "violencia_armada",
+              "enfrentamientos_armados",
+              "grupos_armados_organizados",
+              "crimen_organizado",
+              "ataques_fuerza_publica",
+              "afectacion_poblacion_civil",
+              "masacres",
+              "homicidios_violencia_organizada",
+              "lideres_sociales",
+              "secuestro",
+              "extorsion",
+              "amenazas",
+              "desplazamiento_forzado",
+              "confinamiento",
+              "reclutamiento_forzado",
+              "minas_antipersonal",
+              "desaparicion_forzada",
+              "infraestructura_estrategica",
+              "orden_publico",
+              "pronunciamientos_oficiales",
+              "politica_seguridad",
+              "alertas_tempranas",
+              "victimas",
+              "despojo_tierras",
+              "narcotrafico",
+              "crimen_transnacional"
+            ]
+          }
+        },
+        "actores_mencionados": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tipo_informacion": {
+          "enum": [
+            "oficial",
+            "periodistica",
+            "red_social",
+            "organismo_internacional",
+            "centro_investigacion",
+            "pendiente_corroboracion"
+          ]
+        },
+        "estado_corroboracion": {
+          "enum": [
+            "confirmado_oficial",
+            "reportado_medios",
+            "declaracion_atribuida",
+            "en_desarrollo",
+            "no_corroborado",
+            "desmentido_rectificado"
+          ]
+        },
+        "fuentes_corroboran": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "id_evento": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duplicado_de": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relacionadas": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hash_contenido": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "historial_estado": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "fecha",
+              "estado",
+              "motivo"
+            ]
+          }
+        }
+      }
+    },
+    "ejecucion": {
+      "type": "object",
+      "required": [
+        "inicio",
+        "fin",
+        "modo",
+        "resultado"
+      ],
+      "properties": {
+        "inicio": {
+          "type": "string"
+        },
+        "fin": {
+          "type": "string"
+        },
+        "modo": {
+          "type": "object"
+        },
+        "resultado": {
+          "enum": [
+            "ok",
+            "con_errores_validacion",
+            "error"
+          ]
+        },
+        "resumen": {
+          "type": "object"
+        },
+        "error": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "x-reglas_integridad": {
+    "prefijo_por_archivo": {
+      "fuentes_institucionales.json": "OTVA-INS-",
+      "fuentes_medios_nacionales.json": "OTVA-MNA-",
+      "fuentes_medios_regionales.json": "OTVA-MRE-",
+      "fuentes_redes_sociales.json": "OTVA-RSO-",
+      "fuentes_internacionales_academicas.json": "OTVA-INT-"
+    },
+    "campos_lista_vacia_permitida": [
+      "palabras_clave"
+    ],
+    "reglas": [
+      "id_fuente unico en todo el repositorio y con prefijo del archivo.",
+      "Campos no aplicables = null; nunca cadena vacia ni valor inventado.",
+      "estado 'activa' exige fecha_verificacion (comprobacion real registrada).",
+      "estado 'inactiva' solo tras N fallos consecutivos que abarquen al menos horas_minimas_entre_primer_y_ultimo_fallo (parametros_consulta.json).",
+      "nivel departamental/municipal exige departamento; municipal exige municipio.",
+      "departamento debe existir en la tabla de normalizacion geografica.",
+      "temas_monitoreados deben pertenecer a la taxonomia.",
+      "fuente_relacionada debe apuntar a un id existente.",
+      "fuentes_maestras.json debe contener exactamente los ids de los archivos por categoria.",
+      "Cuentas de red social no pueden marcarse activas sin verificacion de titularidad."
+    ]
+  }
+}

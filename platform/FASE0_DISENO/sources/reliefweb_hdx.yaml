@@ -1,0 +1,20 @@
+id: reliefweb_hdx
+version: 1
+status: draft  # no integrar hasta verificar licencia y términos
+owner: "OCHA (ReliefWeb) / HDX"
+access_method: "API"
+license: PENDIENTE de verificar
+license_status: PENDING
+terms_url: PENDIENTE
+public_redistribution: pending
+rate_limits: PENDIENTE de verificar
+robots_txt: PENDIENTE de verificar
+coverage: "Situaciones humanitarias"
+temporal_coverage: PENDIENTE
+latency_expected: PENDIENTE
+known_biases: "Reportes a nivel agregado; términos por verificar"
+admiralty_initial_source: B  # propuesta inicial, sin calibrar
+security_risks: "Contenido no confiable: parseo sin red; ver modelo de amenazas A2/A3"
+classification: INTERNO  # la lista de fuentes monitoreadas es sensible
+last_terms_check: null
+connector_allowed: false

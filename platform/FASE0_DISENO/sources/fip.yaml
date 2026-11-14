@@ -1,0 +1,20 @@
+id: fip
+version: 1
+status: draft  # no integrar hasta verificar licencia y términos
+owner: "Fundación Ideas para la Paz"
+access_method: "Informes"
+license: PENDIENTE de verificar
+license_status: PENDING
+terms_url: PENDIENTE
+public_redistribution: pending
+rate_limits: PENDIENTE de verificar
+robots_txt: PENDIENTE de verificar
+coverage: "Análisis (fuente secundaria)"
+temporal_coverage: PENDIENTE
+latency_expected: PENDIENTE
+known_biases: "Secundaria"
+admiralty_initial_source: C  # propuesta inicial, sin calibrar
+security_risks: "Contenido no confiable: parseo sin red; ver modelo de amenazas A2/A3"
+classification: INTERNO  # la lista de fuentes monitoreadas es sensible
+last_terms_check: null
+connector_allowed: false

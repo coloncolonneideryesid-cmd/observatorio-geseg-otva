@@ -1,0 +1,20 @@
+id: acled
+version: 1
+status: draft  # no integrar hasta verificar licencia y términos
+owner: "ACLED"
+access_method: "API con registro"
+license: PENDIENTE de verificar
+license_status: PENDING
+terms_url: PENDIENTE
+public_redistribution: no
+rate_limits: PENDIENTE de verificar
+robots_txt: PENDIENTE de verificar
+coverage: "Eventos georreferenciados"
+temporal_coverage: PENDIENTE
+latency_expected: PENDIENTE
+known_biases: "Exige registro; restricciones de redistribución y uso comercial por verificar"
+admiralty_initial_source: B  # propuesta inicial, sin calibrar
+security_risks: "Contenido no confiable: parseo sin red; ver modelo de amenazas A2/A3"
+classification: INTERNO  # la lista de fuentes monitoreadas es sensible
+last_terms_check: null
+connector_allowed: false

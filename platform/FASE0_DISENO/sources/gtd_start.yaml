@@ -1,0 +1,20 @@
+id: gtd_start
+version: 1
+status: draft  # no integrar hasta verificar licencia y términos
+owner: "START (Univ. de Maryland)"
+access_method: "Descarga con solicitud"
+license: PENDIENTE de verificar
+license_status: PENDING
+terms_url: PENDIENTE
+public_redistribution: no
+rate_limits: PENDIENTE de verificar
+robots_txt: PENDIENTE de verificar
+coverage: "Terrorismo global"
+temporal_coverage: PENDIENTE
+latency_expected: PENDIENTE
+known_biases: "Rezago; definición de terrorismo propia"
+admiralty_initial_source: B  # propuesta inicial, sin calibrar
+security_risks: "Contenido no confiable: parseo sin red; ver modelo de amenazas A2/A3"
+classification: INTERNO  # la lista de fuentes monitoreadas es sensible
+last_terms_check: null
+connector_allowed: false

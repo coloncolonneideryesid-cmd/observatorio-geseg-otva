@@ -10,6 +10,10 @@ MODS = ["Dron con explosivos", "Vehículo con explosivos", "Explosivo / IED", "G
         "Paro armado", "Homicidio selectivo", "Ataque armado"]
 GRUPOS = ["ELN", "Disidencias FARC", "Clan del Golfo / EGC", "ACSN", "Autor individual (capturado)", "No determinado"]
 ESTADOS = ["Confirmado", "Preliminar", "En investigación"]
+# Clase analítica: lista controlada (14-nov-2026) para que los conteos no se partan por variantes de escritura
+CLASES = ["Presunto acto terrorista (clasificación analítica provisional)",
+          "Ataque armado contra Fuerza Pública (clasificación analítica provisional)",
+          "Incierto – autoría y finalidad no establecidas"]
 PREC = ["Municipal aproximada", "Departamental aproximada"]
 STR = ["id", "fecha", "hora", "depto", "mpio", "lugar", "prec_coord", "tipo", "mod", "objetivo", "clase", "autor", "grupo",
        "atrib", "evidencia", "h_nota", "danos", "eco", "desplaz", "servicios", "estado", "discrepancia", "actualizacion"]
@@ -61,6 +65,8 @@ def main():
             err.append(f"{i}: mod '{e['mod']}' fuera de la lista controlada")
         if e["grupo"] not in GRUPOS:
             err.append(f"{i}: grupo '{e['grupo']}' fuera de la lista")
+        if e["clase"] not in CLASES:
+            err.append(f"{i}: clase '{e['clase']}' fuera de la lista controlada; use exactamente una de: " + " | ".join(CLASES))
         if e["estado"] not in ESTADOS:
             err.append(f"{i}: estado inválido")
         if e["prec_coord"] not in PREC:

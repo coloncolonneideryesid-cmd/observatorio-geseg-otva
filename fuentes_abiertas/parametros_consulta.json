@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "producto": "07 OTVA",
+    "archivo": "parametros_consulta.json",
+    "version_esquema": "1.0.0",
+    "generado": "2026-11-13",
+    "descripcion": "Frecuencias, filtros, palabras clave, deduplicacion y parametros tecnicos de consulta. Las frecuencias son PROGRAMADAS; la ejecucion real se registra en reportes/registro_ejecuciones.jsonl y en fecha_ultima_consulta de cada fuente."
+  },
+  "frecuencias": {
+    "formato": "ISO 8601 duration (PT30M, PT1H, P1D...)",
+    "por_defecto_por_categoria": {
+      "institucional": "PT6H",
+      "gubernamental": "P1D",
+      "periodistica": "PT1H",
+      "red_social": "PT30M",
+      "organismo_internacional": "P1D",
+      "centro_investigacion": "P7D"
+    },
+    "modo_crisis": {
+      "descripcion": "Se activa manualmente ante un evento de alto impacto; reduce la frecuencia solo para las fuentes del departamento afectado.",
+      "activo": false,
+      "frecuencia": "PT15M",
+      "departamentos": []
+    },
+    "regla": "frecuencia_actualizacion de cada fuente prevalece sobre el valor por categoria."
+  },
+  "comprobacion_urls": {
+    "timeout_segundos": 20,
+    "reintentos": 1,
+    "espera_entre_reintentos_segundos": 2,
+    "concurrencia": 12,
+    "max_bytes_lectura": 600000,
+    "user_agent": "OTVA-VerificadorFuentes/1.0 (observatorio de fuentes abiertas; verificacion de enlaces)",
+    "fallos_consecutivos_para_inactiva": 3,
+    "respetar_robots_txt": true,
+    "nota": "Codigos 401/403/429 se clasifican como bloqueado_o_restringido: el sitio existe pero rechaza clientes automaticos. Requieren comprobacion manual en navegador, nunca evasion.",
+    "horas_minimas_entre_primer_y_ultimo_fallo": 72
+  },
+  "descubrimiento": {
+    "patron_enlaces_prensa": "(prensa|noticias|comunicad|boletin|sala-de-prensa|actualidad|alertas?-temprana)",
+    "aplicacion": "Los candidatos descubiertos se listan en el reporte; solo una persona los incorpora a los JSON tras revisarlos."
+  },
+  "palabras_clave": {
+    "descripcion": "Terminos generales de busqueda. Los terminos por tema y los alias de actores estan en categorias_monitoreo.json.",
+    "generales": [
+      "atentado",
+      "ataque",
+      "explosivo",
+      "hostigamiento",
+      "combates",
+      "enfrentamientos",
+      "masacre",
+      "homicidio",
+      "secuestro",
+      "extorsion",
+      "desplazamiento",
+      "confinamiento",
+      "amenaza",
+      "paro armado",
+      "reclutamiento",
+      "mina antipersonal",
+      "plan pistola",
+      "dron",
+      "oleoducto",
+      "torre de energia",
+      "alerta temprana",
+      "consejo de seguridad"
+    ],
+    "exclusion": [
+      "futbol",
+      "videojuego",
+      "pelicula",
+      "serie de television",
+      "simulacro"
+    ],
+    "operadores": {
+      "y": "AND",
+      "o": "OR",
+      "no": "NOT",
+      "frase_exacta": "\"...\""
+    }
+  },
+  "filtros_busqueda": {
+    "dimensiones": [
+      {
+        "campo": "departamento",
+        "fuente": "categorias_monitoreo.json#/normalizacion_geografica/departamentos",
+        "normalizado": true
+      },
+      {
+        "campo": "municipio",
+        "fuente": "tabla DIVIPOLA del DANE (codigo de 5 digitos)",
+        "normalizado": true
+      },
+      {
+        "campo": "region",
+        "fuente": "categorias_monitoreo.json#/normalizacion_geografica/regiones"
+      },
+      {
+        "campo": "subregion",
+        "fuente": "categorias_monitoreo.json#/normalizacion_geografica/subregiones_analiticas"
+      },
+      {
+        "campo": "institucion",
+        "aplica_a": "fuente.entidad_responsable"
+      },
+      {
+        "campo": "actor_armado",
+        "fuente": "categorias_monitoreo.json#/actores_armados"
+      },
+      {
+        "campo": "tipo_hecho",
+        "fuente": "categorias_monitoreo.json#/temas"
+      },
+      {
+        "campo": "fecha_publicacion",
+        "formato": "ISO 8601"
+      },
+      {
+        "campo": "fecha_ocurrencia",
+        "formato": "ISO 8601; puede ser aproximada (campo precision_fecha)"
+      },
+      {
+        "campo": "palabra_clave",
+        "busqueda": "texto completo normalizado"
+      },
+      {
+        "campo": "medio",
+        "aplica_a": "fuente.id_fuente con categoria periodistica"
+      },
+      {
+        "campo": "plataforma",
+        "aplica_a": "fuente.plataforma"
+      },
+      {
+        "campo": "categoria_informacion",
+        "fuente": "categorias_monitoreo.json#/tipos_informacion"
+      },
+      {
+        "campo": "estado_corroboracion",
+        "fuente": "categorias_monitoreo.json#/estados_corroboracion"
+      }
+    ],
+    "ventana_por_defecto_dias": 7
+  },
+  "deduplicacion": {
+    "url": "Canonicalizar (sin esquema, sin www, sin barra final, sin parametros utm_/fbclid/gclid). Coincidencia exacta = duplicado.",
+    "titulo": {
+      "metodo": "jaccard_sobre_shingles",
+      "tamano_shingle": 3,
+      "umbral_duplicado": 0.85,
+      "umbral_relacionado": 0.5,
+      "normalizacion": "normalizar_texto"
+    },
+    "ventana_temporal_horas": 72,
+    "agrupacion_evento": "Publicaciones relacionadas se agrupan en un id_evento cuando comparten municipio + tipo_hecho + fecha_ocurrencia (+/- 1 dia) y superan umbral_relacionado.",
+    "hash_contenido": "sha256 del texto normalizado para detectar cambios en la misma URL."
+  },
+  "deteccion_cambios": {
+    "metodo": "Comparar hash_contenido, ETag y Last-Modified entre ejecuciones.",
+    "registro": "reportes/registro_ejecuciones.jsonl"
+  },
+  "privacidad_y_seguridad": {
+    "datos_personales": "Solo nombres de victimas o personas cuando ya sean publicos en fuente N1/N2 y necesarios para el analisis; nunca documentos de identidad, direcciones ni telefonos.",
+    "detalles_operativos": "No registrar ubicaciones exactas de unidades, rutas ni vulnerabilidades. Nivel geografico maximo: municipio/vereda cuando sea publico y necesario.",
+    "vigilancia": "Prohibido el seguimiento individual de ciudadanos y el perfilamiento de personas no publicas.",
+    "cuentas": "Solo cuentas publicas; nunca credenciales personales ni cuentas privadas."
+  },
+  "integraciones_api": {
+    "datos_gov_co": {
+      "id_fuente": "OTVA-INS-019",
+      "plataforma": "Socrata SODA",
+      "endpoint_plantilla": "https://www.datos.gov.co/resource/{id}.json",
+      "parametros_ejemplo": {
+        "$limit": 1000,
+        "$order": "fecha_hecho DESC",
+        "$where": "fecha_hecho >= '2026-01-01'"
+      },
+      "autenticacion": "No requerida para lectura; un app token gratuito (X-App-Token) eleva el limite de solicitudes.",
+      "estado": "consultable_comprobado_manual",
+      "nota": "Cada conjunto respondio con datos el 2026-11-13 (consulta $limit=1). No hay ingesta automatica en produccion. Las columnas varian entre conjuntos (p. ej. 37p5-impc usa fecha_hecho dd/mm/aaaa).",
+      "conjuntos": [
+        {
+          "id": "m8fd-ahd9",
+          "nombre": "HOMICIDIO",
+          "entidad": "Ministerio de Defensa Nacional",
+          "tema": "homicidios_violencia_organizada",
+          "url": "https://www.datos.gov.co/resource/m8fd-ahd9.json",
+          "comprobado": "2026-11-13"
+        },
+        {
+          "id": "d7zw-hpf4",
+          "nombre": "SECUESTRO",
+          "entidad": "Ministerio de Defensa Nacional",
+          "tema": "secuestro",
+          "url": "https://www.datos.gov.co/resource/d7zw-hpf4.json",
+          "comprobado": "2026-11-13"
+        },
+        {
+          "id": "yi5j-5fe9",
+          "nombre": "TERRORISMO",
+          "entidad": "Ministerio de Defensa Nacional",
+          "tema": "terrorismo",
+          "url": "https://www.datos.gov.co/resource/yi5j-5fe9.json",
+          "comprobado": "2026-11-13"
+        },
+        {
+          "id": "m98b-cdys",
+          "nombre": "VOLADURA DE PUENTES Y VIAS",
+          "entidad": "Ministerio de Defensa Nacional",
+          "tema": "infraestructura_estrategica",
+          "url": "https://www.datos.gov.co/resource/m98b-cdys.json",
+          "comprobado": "2026-11-13"
+        },
+        {
+          "id": "u8eq-92tb",
+          "nombre": "MASACRES",
+          "entidad": "Ministerio de Defensa Nacional",
+          "tema": "masacres",
+          "url": "https://www.datos.gov.co/resource/u8eq-92tb.json",
+          "comprobado": "2026-11-13"
+        },
+        {
+          "id": "37p5-impc",
+          "nombre": "Reporte Delito Terrorismo Policia Nacional",
+          "entidad": "Direccion General de la Policia Nacional (DIPON)",
+          "tema": "terrorismo",
+          "url": "https://www.datos.gov.co/resource/37p5-impc.json",
+          "comprobado": "2026-11-13"
+        },
+        {
+          "id": "9r7i-ek3s",
+          "nombre": "Sistema de Informacion de Eventos de Violencia del Conflicto Armado (SIEVCAC)",
+          "entidad": "Centro Nacional de Memoria Historica",
+          "tema": "violencia_armada",
+          "url": "https://www.datos.gov.co/resource/9r7i-ek3s.json",
+          "comprobado": "2026-11-13"
+        },
+        {
+          "id": "vtub-3de2",
+          "nombre": "Presuntos Homicidios. Colombia, 2015 a 2024. Cifras definitivas",
+          "entidad": "Instituto Nacional de Medicina Legal y Ciencias Forenses",
+          "tema": "homicidios_violencia_organizada",
+          "url": "https://www.datos.gov.co/resource/vtub-3de2.json",
+          "comprobado": "2026-11-13"
+        },
+        {
+          "id": "sgp4-3e6k",
+          "nombre": "Eventos Minas Antipersonal en Colombia",
+          "entidad": "Presidencia de la Republica (Descontamina Colombia)",
+          "tema": "minas_antipersonal",
+          "url": "https://www.datos.gov.co/resource/sgp4-3e6k.json",
+          "comprobado": "2026-11-13"
+        }
+      ],
+      "no_identificado": "No se hallo un conjunto de extorsion atribuido a MinDefensa con la busqueda del catalogo; revisar manualmente."
+    },
+    "gdelt_doc": {
+      "id_fuente": "OTVA-INT-010",
+      "endpoint": "https://api.gdeltproject.org/api/v2/doc/doc",
+      "parametros_ejemplo": {
+        "query": "\"Colombia\" atentado sourcelang:spanish",
+        "mode": "artlist",
+        "format": "json",
+        "timespan": "1d",
+        "maxrecords": 75
+      },
+      "limite": "1 solicitud cada 5 s por IP",
+      "estado": "consultable_con_limite_no_probado_con_exito",
+      "nota": "En esta sesion respondio HTTP 429 (limite por IP compartida)."
+    },
+    "reliefweb": {
+      "id_fuente": "OTVA-INT-003",
+      "endpoint": "https://api.reliefweb.int/v2/reports",
+      "estado": "requiere_appname_aprobado",
+      "nota": "v1 dada de baja (410); v2 devuelve 403 sin appname aprobado."
+    },
+    "acled": {
+      "id_fuente": "OTVA-INT-009",
+      "estado": "requiere_registro",
+      "nota": "Requiere cuenta y aceptacion de terminos; no se probo."
+    },
+    "redes_sociales": {
+      "X": "API v2: lectura solo con plan de pago. Sin plan no hay consulta automatica autorizada.",
+      "Facebook_Instagram": "Graph API / Meta Content Library: requiere app aprobada o acceso de investigador.",
+      "YouTube": "Data API v3 con clave gratuita; ademas feed RSS publico por canal: https://www.youtube.com/feeds/videos.xml?channel_id={id}. Ningun channel_id registrado aun (pendiente de verificar).",
+      "TikTok": "Research API restringida a investigadores aprobados.",
+      "Threads": "API de Threads requiere app de Meta y autorizacion del titular; no apta para monitoreo de terceros.",
+      "Telegram": "Canales publicos: vista web https://t.me/s/{canal}. No se registraron canales por falta de verificacion de titularidad."
+    }
+  }
+}

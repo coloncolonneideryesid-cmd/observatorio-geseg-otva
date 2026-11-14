@@ -1,0 +1,16 @@
+# --- datos y credenciales: nunca al repositorio ---
+data/db/
+data/raw/
+data/processed/
+backups/
+*.db
+secret.key
+CREDENCIALES_INICIALES.txt
+# --- generados ---
+node_modules/
+__pycache__/
+*.pyc
+.env
+.venv/
+frontend/dist/
+*.log

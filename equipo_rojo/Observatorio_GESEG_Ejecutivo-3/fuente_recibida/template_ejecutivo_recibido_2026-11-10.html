@@ -1,0 +1,455 @@
+<title>Observatorio GESEG Ejecutivo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: hoja de situación para decisores — franja de cifras, "lo esencial", y tres bloques (dónde, tendencia, quién) que caben en dos hojas carta impresas */
+:root{
+  --bg:#f5f7fa; --paper:#ffffff; --ink:#0d1f3c; --text:#1f2b40; --muted:#5a6780; --line:#dbe2ec;
+  --brand:#0053bb; --sky:#4a9eff; --band:#0d1f3c; --band-ink:#ffffff; --tint:#e8f1fc;
+  --hi:#b42318; --hi-soft:#fbe9e7; --mid:#b26b00; --mid-soft:#fff3df; --lo:#2e7d4f; --lo-soft:#e5f4eb;
+  --eln:#b23a2e; --farc:#1f6f8b; --oth:#7a5c12; --nd:#9aa4b5; --land:#ffffff; --sea:#eaf0f7; --ctry:#e3e9f1;
+  --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1320; --paper:#141e30; --ink:#e8eef8; --text:#d3dbe8; --muted:#9aa7bc; --line:#26344c;
+  --brand:#5aa6ff; --sky:#4a9eff; --band:#08111f; --band-ink:#ffffff; --tint:#16294a;
+  --hi:#ff8a7a; --hi-soft:#3a1f22; --mid:#f0b45a; --mid-soft:#3a2c14; --lo:#74d09b; --lo-soft:#173326;
+  --eln:#ef7d6f; --farc:#62b8d6; --oth:#d9b562; --nd:#7d889b; --land:#1d2b44; --sea:#101a2a; --ctry:#172338; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1320; --paper:#141e30; --ink:#e8eef8; --text:#d3dbe8; --muted:#9aa7bc; --line:#26344c;
+  --brand:#5aa6ff; --sky:#4a9eff; --band:#08111f; --band-ink:#ffffff; --tint:#16294a;
+  --hi:#ff8a7a; --hi-soft:#3a1f22; --mid:#f0b45a; --mid-soft:#3a2c14; --lo:#74d09b; --lo-soft:#173326;
+  --eln:#ef7d6f; --farc:#62b8d6; --oth:#d9b562; --nd:#7d889b; --land:#1d2b44; --sea:#101a2a; --ctry:#172338; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.45}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{background:var(--band);color:var(--band-ink)}
+header .wrap{padding-block:22px 26px;display:grid;gap:14px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid rgba(74,158,255,.4);padding-bottom:12px}
+.logo{width:min(180px,46vw);color:#fff;display:block}.logo svg{width:100%;height:auto;display:block}
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#4a9eff;text-align:right}
+h1{font-weight:800;font-size:clamp(22px,3vw,32px);line-height:1.15;margin:0;text-wrap:balance;max-width:30ch}
+.sub{color:#c9d6ea;margin:0;max-width:75ch;font-size:14.5px}
+.ficha{display:grid;grid-template-columns:1.2fr 1fr 1.3fr;gap:10px 22px;margin:0;font-size:12.5px;border-top:1px solid rgba(74,158,255,.3);padding-top:10px}
+.ficha div{min-width:0}.ficha dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#4a9eff;margin-bottom:2px}.ficha dd{margin:0;color:#dbe5f3}
+.sh .part{flex-basis:100%;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:-4px}
+@media (max-width:760px){.ficha{grid-template-columns:1fr}}
+.cut{display:inline-flex;gap:8px;align-items:center;font-family:var(--mono);font-size:12px;color:#fff;background:rgba(74,158,255,.18);border:1px solid rgba(74,158,255,.5);border-radius:3px;padding:4px 9px;width:max-content;max-width:100%}
+main{display:grid;gap:26px;padding-block:24px 10px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.kpi{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--brand);padding:14px 16px;display:grid;gap:4px}
+.kpi.red{border-top-color:var(--hi)}
+.kpi .v{font-weight:900;font-size:clamp(30px,4.4vw,44px);line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.kpi .l{font-weight:700;font-size:14px;color:var(--ink)}
+.kpi .s{font-size:12.5px;color:var(--muted)}
+.delta{font-family:var(--mono);font-size:12px;font-weight:500;padding:1px 6px;border-radius:3px;width:max-content}
+.up{background:var(--hi-soft);color:var(--hi)} .down{background:var(--lo-soft);color:var(--lo)} .eq{background:var(--tint);color:var(--brand)}
+.sec{display:grid;gap:14px}
+.sh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.sh h2{margin:0;font-size:20px;font-weight:800;color:var(--ink)}
+.sh span{font-size:13px;color:var(--muted)}
+.ess{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--brand);padding:16px 20px}
+.ess ol{margin:0;padding-left:1.2em;display:grid;gap:9px}
+.ess li{max-width:95ch;font-size:15.5px}
+.ess b{color:var(--ink)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px}
+.box{background:var(--paper);border:1px solid var(--line);padding:14px 16px;min-width:0}
+.box h3{margin:0 0 10px;font-size:14px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.05em}
+svg{max-width:100%;display:block}
+#map{width:100%;height:auto;margin:0 auto}
+.rk{width:100%;border-collapse:collapse;font-size:14px}
+.rk th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);text-align:left;font-weight:600;padding:4px 6px;border-bottom:1px solid var(--line)}
+.rk td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.rk td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink)}
+.bar{height:8px;background:var(--line);border-radius:2px;min-width:50px}.bar i{display:block;height:100%;background:var(--brand);border-radius:2px}
+.pill{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.p-hi{background:var(--hi-soft);color:var(--hi)} .p-mid{background:var(--mid-soft);color:var(--mid)} .p-lo{background:var(--lo-soft);color:var(--lo)}
+.corr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cr{background:var(--paper);border:1px solid var(--line);padding:12px 14px;display:grid;gap:4px}
+.cr .t{font-weight:800;color:var(--ink)} .cr .v{font-size:26px;font-weight:900;color:var(--ink);line-height:1.1} .cr .s{font-size:12.5px;color:var(--muted)}
+.signals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sig{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center;padding:10px 12px;border:1px solid var(--line);background:var(--paper)}
+.sig .ar{font-size:22px;font-weight:900;line-height:1;grid-row:span 2}
+.sig .ar.up{background:none;color:var(--hi)} .sig .ar.down{background:none;color:var(--lo)} .sig .ar.eq{background:none;color:var(--brand)}
+.sig .t{font-weight:700;color:var(--ink);font-size:14px} .sig .s{font-size:12.5px;color:var(--muted)}
+.actors{display:grid;gap:10px}
+.act{display:grid;grid-template-columns:150px minmax(0,1fr) 46px;gap:10px;align-items:center;font-size:14px}
+.act .nm{font-weight:700;color:var(--ink)} .act .n{text-align:right;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums}
+.stk{display:flex;height:16px;border-radius:2px;overflow:hidden;background:var(--line)}
+.stk i{display:block;height:100%}
+.lg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted)}
+.lg i{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:-1px;border-radius:2px}
+.ev{display:grid;gap:0}
+.ev .it{display:grid;grid-template-columns:86px minmax(0,1fr) auto;gap:4px 14px;padding:10px 0;border-bottom:1px solid var(--line);align-items:start}
+.ev .d{font-family:var(--mono);font-size:12.5px;color:var(--muted);padding-top:2px}
+.ev .w{font-weight:700;color:var(--ink)} .ev .x{font-size:13.5px;color:var(--text)}
+.ev .vv{text-align:right;font-size:13px;white-space:nowrap}
+.ev .vv b{font-size:17px;color:var(--hi)}
+.foot{display:grid;gap:8px;font-size:12.5px;color:var(--muted);padding-block:16px 34px;border-top:1px solid var(--line)}
+.foot a{color:var(--brand)}
+.flogo{width:120px;color:var(--brand)}.flogo svg{width:100%;height:auto}
+a:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+.thr{background:var(--paper);border:2px solid var(--hi);display:grid;gap:0}
+.thr-hd{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;background:var(--hi-soft);padding:14px 18px;border-bottom:1px solid var(--hi)}
+.thr-hd .q{display:grid;gap:3px;min-width:0;max-width:70ch}
+.thr-hd .q b{font-size:18px;color:var(--ink);font-weight:800}
+.thr-hd .q span{font-size:13.5px;color:var(--text)}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--hi);color:#fff;font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:15px;padding:8px 14px;border-radius:3px;white-space:nowrap}
+:root[data-theme="dark"] .badge{color:#1a0c0c}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .badge{color:#1a0c0c}}
+.scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;padding:12px 18px 4px}
+.scale span{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;text-align:center;padding:5px 2px;border-radius:2px;background:var(--line);color:var(--muted)}
+.scale span.on{background:var(--hi);color:#fff;outline:2px solid var(--hi);outline-offset:2px}
+.scale-n{font-size:11.5px;color:var(--muted);padding:2px 18px 8px}
+.thr-k{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.thr-k div{background:var(--paper);padding:12px 16px;display:grid;gap:3px}
+.thr-k .v{font-size:30px;font-weight:900;color:var(--hi);line-height:1;font-variant-numeric:tabular-nums}
+.thr-k .l{font-size:13px;font-weight:700;color:var(--ink)} .thr-k .s{font-size:12px;color:var(--muted)}
+.thr-b{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;padding:14px 18px 16px}
+.thr-b h3{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--ink);text-transform:uppercase;letter-spacing:.05em}
+.crit{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.crit li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;font-size:14px}
+.crit li::before{content:"!";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--hi);color:#fff;font-weight:900;font-size:12px}
+.crit b{color:var(--ink)}
+.dbar{display:grid;grid-template-columns:130px minmax(0,1fr) 30px;gap:8px;align-items:center;font-size:13px;margin-bottom:5px}
+.dbar .bar i{background:var(--hi)}
+.dbar .n{text-align:right;font-weight:800;color:var(--ink)}
+.ctx{font-size:12.5px;color:var(--muted);margin:10px 0 0;padding-left:1em;display:grid;gap:4px}
+.watch{background:var(--tint);padding:10px 14px;font-size:13.5px;margin-top:10px}
+.watch b{color:var(--ink)}
+.pair{display:grid;grid-template-columns:118px minmax(0,1fr) auto;gap:4px 10px;align-items:center;font-size:13px;padding:5px 0;border-bottom:1px solid var(--line)}
+.pair .nm{font-weight:700;color:var(--ink)}
+.pair .bars{display:grid;gap:3px}
+.pair .bars span{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.pair .bars i{display:block;height:9px;border-radius:2px;min-width:2px}
+.gp{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;padding:2px 7px;border-radius:999px;white-space:nowrap}
+.g-hi{background:var(--hi-soft);color:var(--hi)} .g-mid{background:var(--mid-soft);color:var(--mid)} .g-lo{background:var(--lo-soft);color:var(--lo)} .g-pr{background:var(--tint);color:var(--brand)}
+.opk{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.opk .kpi{border-top-color:var(--brand)}
+.agg{font-size:12.5px;color:var(--muted);display:grid;gap:5px;margin:0;padding-left:1em}
+@media (max-width:860px){.opk{grid-template-columns:repeat(2,minmax(0,1fr))}.pair{grid-template-columns:96px minmax(0,1fr)}.pair .gp{grid-column:2}}
+@media (max-width:860px){.thr-b{grid-template-columns:1fr}.thr-k{grid-template-columns:repeat(2,minmax(0,1fr))}.scale span{font-size:9.5px}}
+@media (max-width:860px){.grid2{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.corr{grid-template-columns:1fr}.signals{grid-template-columns:1fr}.act{grid-template-columns:110px minmax(0,1fr) 40px}}
+@media (max-width:480px){.ev .it{grid-template-columns:1fr auto}.ev .d{grid-column:1/-1}}
+@media print{
+  :root,:root[data-theme="dark"]{--bg:#fff;--paper:#fff;--ink:#0d1f3c;--text:#1f2b40;--muted:#5a6780;--line:#d5dce7;--brand:#0053bb;--tint:#e8f1fc;--hi:#b42318;--hi-soft:#fbe9e7;--mid:#b26b00;--mid-soft:#fff3df;--lo:#2e7d4f;--lo-soft:#e5f4eb;--eln:#b23a2e;--farc:#1f6f8b;--oth:#7a5c12;--nd:#9aa4b5;--land:#fff;--sea:#eef3f8;--ctry:#e6ebf2;color-scheme:light}
+  @page{size:letter;margin:10mm 11mm}
+  body{font-size:12px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;padding-left:0;padding-right:0}
+  header .wrap{padding:14px 16px 16px}
+  main{gap:14px;padding-block:12px 0}
+  .kpi .v{font-size:30px}
+  .box,.kpis,.ess,.corr,.corrw,.cr,.sig,.ev .it{break-inside:avoid}
+  #pgD{break-before:page}
+  #pgO{break-before:page}
+  .opk{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .pair{grid-template-columns:118px minmax(0,1fr) auto!important;padding:3px 0}
+  .thr-b{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)!important}
+  .thr-k{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .thr-k .v{font-size:26px}
+  .crit li{font-size:12.5px}
+  .ess li{font-size:12px}
+  .grid2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:12px}
+  .kpis{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .corr{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .signals{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .act{grid-template-columns:120px minmax(0,1fr) 34px!important}
+  #map{max-height:190px}
+  .ficha{font-size:10.5px;gap:6px 16px;padding-top:6px}
+  .ficha dt{font-size:9.5px}
+  header .wrap{gap:8px;padding:10px 14px 12px}
+  .top{padding-bottom:8px}
+  .ess li{font-size:11.5px}
+  .rk tbody tr:nth-child(n+7){display:none}
+  .corr .cr{padding:8px 12px}
+  .cr .v{font-size:20px}
+  .rk td{padding:3px 6px}
+  .ev .it{padding:6px 0}
+  .sub{font-size:12px}
+  .ess{padding:10px 14px}
+  .ess ol{gap:5px}
+  .kpi{padding:10px 12px}
+  .foot{padding-block:8px 0}
+  .sh{break-after:avoid}
+  .delta{white-space:normal;width:auto}
+  .box{padding:10px 12px}
+  h1{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header><div class="wrap">
+  <div class="top"><span class="logo" role="img" aria-label="GESEG – Gestión de la Seguridad S.A.S.">__LOGO__</span><span class="tag">Hoja ejecutiva · Uso institucional · Fuentes abiertas</span></div>
+  <h1>Terrorismo y violencia armada en Colombia: situación al <span id="hCut"></span></h1>
+  <p class="sub">Lectura breve dirigida a analistas, líderes políticos y empresariales y tanques de pensamiento. Sigue un orden fijo: resumen, la amenaza (dónde, cómo evoluciona y quién), la amenaza prioritaria de drones y la respuesta del Estado. Las cifras salen de la misma base verificada del tablero completo del Observatorio GESEG.</p>
+  <dl class="ficha">
+    <div><dt>Alcance</dt><dd>Atentados, explosivos, drones, ataques a Fuerza Pública e infraestructura y paros armados; resultados operacionales del Estado</dd></div>
+    <div><dt>Fuentes</dt><dd>Abiertas y verificables: autoridades, medios nacionales y regionales, agencias</dd></div>
+    <div><dt>Contenido</dt><dd>Resumen · I. La amenaza (1 Dónde · 2 Evolución · 3 Actores) · II. Drones (4) · III. Respuesta del Estado (5)</dd></div>
+  </dl>
+  <span class="cut" id="hPer"></span>
+</div></header>
+
+<main class="wrap">
+  <div class="kpis" id="kpis"></div>
+
+  <section class="sec">
+    <div class="sh"><h2>Resumen · Lo esencial</h2><span>Juicios calculados sobre la base verificada; no son estadística oficial</span></div>
+    <div class="ess"><ol id="ess"></ol></div>
+  </section>
+
+  <section class="sec">
+    <div class="sh"><span class="part">I · La amenaza</span><h2>1 · Dónde se concentra</h2><span>Departamentos y corredores con más hechos</span></div>
+    <div class="grid2">
+      <div class="box"><h3>Mapa de concentración</h3><svg id="map" role="img" aria-label="Mapa de Colombia con círculos por departamento según número de hechos"></svg>
+        <div class="lg" style="margin-top:6px"><span>Cifra y tamaño del círculo = número de hechos por departamento · color = nivel de actividad en los últimos 30 días (<b style="color:var(--hi)">alto</b>, <b style="color:var(--mid)">medio</b>, <b style="color:var(--lo)">bajo</b>)</span></div></div>
+      <div class="box"><h3>Departamentos más afectados</h3><table class="rk" id="rk"></table>
+        <p style="font-size:12px;color:var(--muted);margin:8px 0 0">Nivel por hechos en los últimos 30 días: <b>alto</b> 5 o más · <b>medio</b> 2 a 4 · <b>bajo</b> 0 a 1.</p></div>
+    </div>
+    <div class="corrw"><h3 style="margin:0 0 8px;font-size:14px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.05em">1 · Corredores críticos</h3>
+    <div class="corr" id="corr"></div></div>
+  </section>
+
+  <section class="sec" id="pg2">
+    <div class="sh"><span class="part">I · La amenaza</span><h2>2 · Cómo evoluciona</h2><span>Hechos por semana y señales de alerta, contados hacia atrás desde el corte</span></div>
+    <div class="grid2">
+      <div class="box"><h3>Hechos y víctimas por semana</h3><svg id="trend" role="img" aria-label="Gráfico de barras de hechos por semana con línea de víctimas"></svg>
+        <div class="lg" style="margin-top:6px"><span><i style="background:var(--brand)"></i>Hechos</span><span><i style="background:var(--hi)"></i>Víctimas (muertos + heridos)</span></div></div>
+      <div class="box"><h3>Señales: últimos 14 días frente a los 14 anteriores</h3><div class="signals" id="sig"></div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sh"><span class="part">I · La amenaza</span><h2>3 · Quién aparece señalado</h2><span>Señalamiento no equivale a responsabilidad judicial</span></div>
+    <div class="grid2">
+      <div class="box"><h3>Hechos por actor y solidez del señalamiento</h3><div class="actors" id="act"></div>
+        <div class="lg" style="margin-top:10px"><span><i style="background:var(--brand)"></i>Oficial (autoridad)</span><span><i style="background:var(--mid)"></i>Reivindicado</span><span><i style="background:var(--sky)"></i>Hipótesis de medios o terceros</span><span><i style="background:var(--nd)"></i>Sin autor identificado</span></div></div>
+      <div class="box"><h3>Hechos más graves de los últimos 7 días</h3><div class="ev" id="ev"></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="pgD">
+    <div class="sh"><span class="part">II · Amenaza prioritaria</span><h2>4 · Drones con explosivos</h2><span>Valoración analítica de GESEG sobre la base verificada</span></div>
+    <div class="thr">
+      <div class="thr-hd"><div class="q"><b id="dHead"></b><span id="dSub"></span></div><span class="badge">● Riesgo extremo</span></div>
+      <div class="scale" aria-label="Escala de riesgo GESEG"><span>Bajo</span><span>Medio</span><span>Alto</span><span>Muy alto</span><span class="on">Extremo</span></div>
+      <div class="scale-n">Escala GESEG de cinco niveles. «Extremo»: amenaza dominante, letal, en expansión territorial y con afectación a civiles.</div>
+      <div class="thr-k" id="dK"></div>
+      <div class="thr-b">
+        <div><h3>Por qué se califica como riesgo extremo</h3><ul class="crit" id="dCrit"></ul>
+          <div class="watch" id="dWatch"></div></div>
+        <div><h3>Departamentos con más ataques con drones</h3><div id="dDep"></div>
+          <h3 style="margin-top:12px">Ataques con drones más letales del periodo</h3><div class="ev" id="dTop"></div>
+          <ul class="ctx" id="dCtx"></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="pgO">
+    <div class="sh"><span class="part">III · La respuesta</span><h2>5 · Cómo responde el Estado</h2><span>Resultados operacionales de Fuerzas Militares, Policía y Fiscalía desde el 7 de agosto, frente a los atentados</span></div>
+    <div class="opk" id="oK"></div>
+    <div class="grid2">
+      <div class="box"><h3>Dónde golpean los grupos y dónde actúa el Estado</h3><div id="oDep"></div>
+        <div class="lg" style="margin-top:8px"><span><i style="background:var(--hi)"></i>Atentados</span><span><i style="background:var(--brand)"></i>Operaciones del Estado</span></div>
+        <p style="font-size:11.5px;color:var(--muted);margin:6px 0 0">Brecha <b>alta</b>: 5 o más atentados y menos de 4 operaciones por cada 10. <b>Media</b>: menos de 8 por cada 10. <b>Proporcional</b>: 8 o más por cada 10.</p></div>
+      <div class="box"><h3>Lectura estratégica</h3><div class="ess" style="border:0;padding:0"><ol id="oRead"></ol></div>
+        <h3 style="margin-top:12px">Contra quién se actúa</h3><div id="oAct"></div></div>
+    </div>
+    <div class="box"><h3>Balances oficiales (universo mayor que la muestra)</h3><ul class="agg" id="oAgg"></ul></div>
+  </section>
+
+  <div class="foot">
+    <div class="flogo" aria-hidden="true">__LOGO__</div>
+    <div>Elaborado por GESEG – Gestión de la Seguridad S.A.S. con fuentes abiertas verificables. La base es una muestra documentada de hechos de alta visibilidad (atentados, explosivos, drones, ataques a Fuerza Pública e infraestructura, paros armados); excluye combates y atentados frustrados. Las fuentes oficiales agregadas registran volúmenes mayores. Ningún hecho tiene aún responsabilidad judicialmente establecida. No se publican nombres de víctimas.</div>
+    <div>Detalle completo, fuentes por hecho y discrepancias: <a href="https://claude.ai/artifact/A1CsBRUHx8UHHgzNGgrFNh" target="_blank" rel="noopener">tablero completo del Observatorio GESEG</a>.</div>
+  </div>
+</main>
+
+<script>
+const DATA = __DATA__;
+const GEO = __GEO__;
+const EV = DATA.events.map(e=>({...e,m:e.m_civ+e.m_fp,h:e.h_civ+e.h_fp,civ:e.m_civ+e.h_civ}));
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const MES=["","ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const MESL=["","enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const fmtD = s => { const [y,m,d]=s.split("-"); return `${+d}-${MES[+m]}`; };
+const fmtL = s => { const [y,m,d]=s.split("-"); return `${+d} de ${MESL[+m]} de ${y}`; };
+const DAY=864e5, T=s=>new Date(s+"T12:00:00").getTime();
+const CUT=DATA.updated, START="2026-08-07";
+const ago = n => new Date(T(CUT)-n*DAY).toISOString().slice(0,10);
+const inWin = (e,a,b) => e.fecha>=a && e.fecha<=b;   // a,b inclusive
+const sum = (a,k) => a.reduce((s,e)=>s+e[k],0);
+const sev = e => e.m*3+e.h;
+const pct = (a,b) => b? Math.round(a*100/b):0;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+const W7 = EV.filter(e=>inWin(e,ago(6),CUT)), P7 = EV.filter(e=>inWin(e,ago(13),ago(7)));
+const W14 = EV.filter(e=>inWin(e,ago(13),CUT)), P14 = EV.filter(e=>inWin(e,ago(27),ago(14)));
+const W30 = EV.filter(e=>inWin(e,ago(29),CUT));
+function delta(a,b,unit){ const d=a-b; if(d>0) return `<span class="delta up">▲ ${d} ${unit} vs 7 días previos</span>`; if(d<0) return `<span class="delta down">▼ ${-d} ${unit} vs 7 días previos</span>`; return `<span class="delta eq">= igual a los 7 días previos</span>`; }
+
+$("hCut").textContent = fmtL(CUT);
+$("hPer").textContent = `Periodo: 7-ago-2026 → ${fmtD(CUT)}-${CUT.slice(0,4)} (UTC−5) · ${EV.length} hechos verificados`;
+
+/* KPIs */
+$("kpis").innerHTML = [
+  [EV.length,"Hechos violentos","desde el 7 de agosto",delta(W7.length,P7.length,"hechos"),""],
+  [sum(EV,"m"),"Personas fallecidas",`${sum(EV,"m_fp")} Fuerza Pública · ${sum(EV,"m_civ")} civiles`,delta(sum(W7,"m"),sum(P7,"m"),"muertos"),"red"],
+  [sum(EV,"h"),"Personas heridas",`${sum(EV,"h_fp")} Fuerza Pública · ${sum(EV,"h_civ")} civiles`,delta(sum(W7,"h"),sum(P7,"h"),"heridos"),"red"],
+  [sum(EV,"civ"),"Civiles afectados","muertos y heridos civiles",delta(sum(W7,"civ"),sum(P7,"civ"),"civiles"),""],
+].map(([v,l,s,d,c])=>`<div class="kpi ${c}"><div class="v">${v}</div><div class="l">${l}</div><div class="s">${s}</div>${d}</div>`).join("");
+
+/* Departments */
+const deps={}; EV.forEach(e=>{const d=deps[e.depto]||(deps[e.depto]={n:0,m:0,h:0,n30:0,lat:0,lon:0}); d.n++; d.m+=e.m; d.h+=e.h; d.lat+=e.lat; d.lon+=e.lon; if(inWin(e,ago(29),CUT)) d.n30++;});
+const DL=Object.entries(deps).map(([k,v])=>({k,...v,lat:v.lat/v.n,lon:v.lon/v.n})).sort((a,b)=>b.n-a.n||b.m*3+b.h-(a.m*3+a.h));
+const lvl = n => n>=5?["hi","Alto"]:n>=2?["mid","Medio"]:["lo","Bajo"];
+const mx=DL[0].n;
+$("rk").innerHTML = `<thead><tr><th>Departamento</th><th></th><th style="text-align:right">Hechos</th><th style="text-align:right">Víctimas</th><th>Nivel 30 d</th></tr></thead><tbody>${DL.slice(0,8).map(d=>{const [c,t]=lvl(d.n30);return `<tr><td><b>${esc(d.k)}</b></td><td style="width:28%"><div class="bar"><i style="width:${d.n/mx*100}%"></i></div></td><td class="n">${d.n}</td><td class="n">${d.m+d.h}</td><td><span class="pill p-${c}">${t} · ${d.n30}</span></td></tr>`;}).join("")}</tbody>`;
+
+/* Map */
+(function(){
+  const X0=-79.2,X1=-66.8,Y0=-4.3,Y1=12.5, svg=$("map");
+  svg.setAttribute("viewBox",`${X0} ${-Y1} ${X1-X0} ${Y1-Y0}`);
+  let h=`<rect x="${X0}" y="${-Y1}" width="${X1-X0}" height="${Y1-Y0}" fill="var(--sea)"/>`;
+  GEO.forEach(c=>{const d=c.p.map(r=>"M"+r.map(([x,y])=>`${x},${-y}`).join("L")+"Z").join(""); h+=`<path d="${d}" fill="${c.c==="COL"?"var(--land)":"var(--ctry)"}" stroke="${c.c==="COL"?"var(--brand)":"var(--line)"}" stroke-width="${c.c==="COL"?.06:.03}"/>`;});
+  const col={hi:"var(--hi)",mid:"var(--mid)",lo:"var(--lo)"};
+  [...DL].sort((a,b)=>b.n-a.n).forEach(d=>{const r=0.18+Math.sqrt(d.n)*0.17; const [c]=lvl(d.n30); h+=`<circle cx="${d.lon.toFixed(2)}" cy="${(-d.lat).toFixed(2)}" r="${r.toFixed(2)}" fill="${col[c]}" fill-opacity=".55" stroke="${col[c]}" stroke-width=".05"><title>${esc(d.k)}: ${d.n} hechos, ${d.m} muertos, ${d.h} heridos</title></circle>`;});
+  DL.filter(d=>d.n>=4).forEach(d=>{ h+=`<text x="${d.lon.toFixed(2)}" y="${(-d.lat+0.15).toFixed(2)}" font-size="${d.n>=10?0.5:0.4}" font-weight="800" text-anchor="middle" fill="var(--ink)" font-family="Libre Franklin, Arial, sans-serif">${d.n}</text>`;});
+  svg.innerHTML=h;
+})();
+
+/* Corridors */
+const CAT=["El Tarra","Tibú","El Carmen","Ábrego","Ocaña","Convención","Sardinata","San Calixto","Teorama","Hacarí","La Playa","Ábrego"];
+const SBOL=["Santa Rosa del Sur","Montecristo","Norosí","Río Viejo","Arenal","Morales","Simití","San Pablo","Cantagallo","Tiquisio","Santa Rosa"];
+const CORR=[
+  ["Vía Panamericana (Cauca, Valle, Nariño)", e=>/Panamericana/i.test(e.lugar+" "+e.servicios+" "+e.danos)],
+  ["Catatumbo y área de Cúcuta", e=>e.depto==="Norte de Santander"],
+  ["Sur de Bolívar y sur del Cesar", e=>(e.depto==="Bolívar"&&SBOL.some(m=>e.mpio.includes(m)))||e.depto==="Cesar"],
+];
+$("corr").innerHTML = CORR.map(([t,f])=>{const a=EV.filter(f), r=a.filter(e=>inWin(e,ago(13),CUT)); return `<div class="cr"><div class="t">${t}</div><div class="v">${a.length} hechos</div><div class="s">${sum(a,"m")} muertos · ${sum(a,"h")} heridos · <b style="color:var(--ink)">${r.length} en los últimos 14 días</b></div></div>`;}).join("");
+
+/* Trend: 7-day windows back from cut */
+(function(){
+  const B=[]; for(let k=0;;k++){ const b=ago(7*k), a=ago(7*k+6); if(b<START) break; B.unshift({a:a<START?START:a,b,part:a<START}); }
+  const rows=B.map(w=>{const s=EV.filter(e=>inWin(e,w.a,w.b)); return {...w,n:s.length,v:sum(s,"m")+sum(s,"h")};});
+  const Wd=560,Hd=230,L=30,R=34,Tp=14,Bt=34, iw=Wd-L-R, ih=Hd-Tp-Bt, bw=iw/rows.length;
+  const mN=Math.max(4,...rows.map(r=>r.n)), mV=Math.max(10,...rows.map(r=>r.v));
+  const nT=Math.ceil(mN/2)*2, vT=Math.ceil(mV/10)*10;
+  let h=""; for(let i=0;i<=4;i++){const y=Tp+ih-ih*i/4; h+=`<line x1="${L}" x2="${Wd-R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-width="1"/><text x="${L-6}" y="${y+4}" font-size="10" text-anchor="end" fill="var(--muted)">${Math.round(nT*i/4)}</text><text x="${Wd-R+6}" y="${y+4}" font-size="10" fill="var(--hi)">${Math.round(vT*i/4)}</text>`;}
+  rows.forEach((r,i)=>{const x=L+i*bw, bh=ih*r.n/nT; h+=`<rect x="${(x+bw*.18).toFixed(1)}" y="${(Tp+ih-bh).toFixed(1)}" width="${(bw*.64).toFixed(1)}" height="${bh.toFixed(1)}" fill="var(--brand)" opacity="${i===rows.length-1?1:.72}"><title>${fmtD(r.a)} a ${fmtD(r.b)}: ${r.n} hechos, ${r.v} víctimas</title></rect>`;
+    if(i%2===rows.length%2||i===rows.length-1) h+=`<text x="${(x+bw/2).toFixed(1)}" y="${Hd-Bt+15}" font-size="10" text-anchor="middle" fill="var(--muted)">${fmtD(r.b)}</text>`;});
+  const pts=rows.map((r,i)=>`${(L+i*bw+bw/2).toFixed(1)},${(Tp+ih-ih*r.v/vT).toFixed(1)}`);
+  h+=`<polyline points="${pts.join(" ")}" fill="none" stroke="var(--hi)" stroke-width="2.2" stroke-linejoin="round"/>`;
+  const lp=pts[pts.length-1].split(","); h+=`<circle cx="${lp[0]}" cy="${lp[1]}" r="4" fill="var(--hi)"/>`;
+  h+=`<text x="${L}" y="${Hd-4}" font-size="10" fill="var(--muted)">Cada barra = 7 días que terminan en la fecha indicada · la última es la semana al corte${rows[0].part?" · la primera es parcial":""}</text>`;
+  const s=$("trend"); s.setAttribute("viewBox",`0 0 ${Wd} ${Hd}`); s.innerHTML=h;
+})();
+
+/* Signals */
+const SIG=[
+  ["Ataques con drones", e=>e.mod==="Dron con explosivos","hechos"],
+  ["Vehículos con explosivos", e=>e.mod==="Vehículo con explosivos","hechos"],
+  ["Ataques a peajes y vías", e=>/Infraestructura vial/.test(e.objetivo)||/Peaje/i.test(e.lugar),"hechos"],
+  ["Ataques a estaciones y bases", e=>/Fuerza Pública/.test(e.objetivo)&&/Estación|Subestación|Base|Batallón|cantón|Cantón/i.test(e.lugar),"hechos"],
+  ["Civiles muertos o heridos", null,"personas"],
+  ["Uniformados muertos o heridos", null,"personas","fp"],
+];
+$("sig").innerHTML = SIG.map(([t,f,u,k])=>{let a,b; if(f){a=W14.filter(f).length;b=P14.filter(f).length;} else if(k){a=sum(W14,"m_fp")+sum(W14,"h_fp");b=sum(P14,"m_fp")+sum(P14,"h_fp");} else {a=sum(W14,"civ");b=sum(P14,"civ");}
+  const c=a>b?"up":a<b?"down":"eq", ar=a>b?"▲":a<b?"▼":"=";
+  return `<div class="sig"><span class="ar ${c}">${ar}</span><span class="t">${t}</span><span class="s">${a} ${u} (antes ${b})</span></div>`;}).join("");
+
+/* Actors */
+const GR=[["ELN",e=>e.grupo==="ELN","var(--eln)"],["Disidencias FARC",e=>e.grupo==="Disidencias FARC","var(--farc)"],["Otros actores",e=>!["ELN","Disidencias FARC","No determinado"].includes(e.grupo),"var(--oth)"],["Sin autor identificado",e=>e.grupo==="No determinado","var(--nd)"]];
+const AC={B:"var(--brand)",C:"var(--mid)",D:"var(--sky)",E:"var(--nd)",A:"var(--lo)"};
+const amax=Math.max(...GR.map(([,f])=>EV.filter(f).length));
+$("act").innerHTML = GR.map(([n,f])=>{const a=EV.filter(f); const seg=["A","B","C","D","E"].map(x=>{const c=a.filter(e=>e.atrib===x).length; return c?`<i style="width:${c/amax*100}%;background:${AC[x]}" title="${c}"></i>`:"";}).join(""); return `<div class="act"><span class="nm">${n}</span><span class="stk" style="background:transparent">${seg}</span><span class="n">${a.length}</span></div>`;}).join("");
+
+/* Recent grave events */
+const RE=[...W7].sort((a,b)=>sev(b)-sev(a)||b.fecha.localeCompare(a.fecha)).slice(0,6).sort((a,b)=>b.fecha.localeCompare(a.fecha));
+const shortAut = e => e.atrib==="E" ? "Sin autor identificado" : (e.grupo==="Disidencias FARC"?"Disidencias FARC":e.grupo) + (e.atrib==="B"?" (señalamiento oficial)":e.atrib==="C"?" (reivindicado)":" (hipótesis, sin confirmación oficial)");
+$("ev").innerHTML = RE.length ? RE.map(e=>`<div class="it"><span class="d">${fmtD(e.fecha)}</span><div><div class="w">${esc(e.mpio)} (${esc(e.depto)})</div><div class="x">${esc(e.mod)} contra ${esc(e.objetivo.split(" / ")[0].replace(/\s*\(.*\)/,"").toLowerCase())} · ${esc(shortAut(e))}</div></div><div class="vv">${e.m?`<b>${e.m}</b> muertos<br>`:""}${e.h?`<b>${e.h}</b> heridos`:(e.m?"":"sin víctimas")}</div></div>`).join("") : `<p class="x">No hay hechos registrados en los últimos 7 días.</p>`;
+
+/* Amenaza drones */
+(function(){
+  const isD=e=>e.mod==="Dron con explosivos", D=EV.filter(isD), D14=W14.filter(isD), P=P14.filter(isD);
+  const vD=sum(D,"m")+sum(D,"h"), vA=sum(EV,"m")+sum(EV,"h"), fpD=sum(D,"m_fp")+sum(D,"h_fp"), fpA=sum(EV,"m_fp")+sum(EV,"h_fp");
+  const deps=[...new Set(D.map(e=>e.depto))], mun=new Set(D.map(e=>e.depto+"|"+e.mpio)).size;
+  const days=Math.round((T(CUT)-T(START))/DAY)+1, freq=(days/D.length);
+  $("dHead").textContent=`Los drones con explosivos son la primera amenaza para la Fuerza Pública y una amenaza directa para la población civil.`;
+  $("dSub").textContent=`${D.length} ataques verificados desde el 7 de agosto: en promedio uno cada ${freq.toFixed(1).replace(".",",")} días, en ${deps.length} departamentos y ${mun} municipios.`;
+  $("dK").innerHTML=[
+    [pct(D.length,EV.length)+"%","de todos los hechos",`${D.length} de ${EV.length}; primera modalidad`],
+    [vD,"víctimas",`${sum(D,"m")} muertos · ${sum(D,"h")} heridos (${pct(vD,vA)}% del total)`],
+    [pct(fpD,fpA)+"%","de los uniformados afectados",`${fpD} muertos o heridos de la Fuerza Pública`],
+    [sum(D,"civ"),"civiles muertos o heridos",`en ${D.filter(e=>e.civ>0).length} ataques con drones`],
+  ].map(([v,l,s])=>`<div><span class="v">${v}</span><span class="l">${l}</span><span class="s">${s}</span></div>`).join("");
+  const top=[...D].sort((a,b)=>sev(b)-sev(a))[0];
+  const grp=g=>D.filter(e=>e.grupo===g).length;
+  const crit=[
+    `<b>Dominante.</b> Es la modalidad más usada: ${pct(D.length,EV.length)}% de los hechos${D.length>EV.length-D.length?", más que todas las demás modalidades juntas":""}.`,
+    `<b>Letal.</b> ${(()=>{const fpTop=[...EV].sort((a,b)=>(b.m_fp*3+b.h_fp)-(a.m_fp*3+a.h_fp))[0];return fpTop.id===top.id?"El ataque más grave contra la Fuerza Pública del periodo fue con drones":"El ataque con drones más grave del periodo"})()}: ${esc(top.mpio)} (${esc(top.depto)}), ${fmtD(top.fecha)}, ${top.m} muertos y ${top.h} heridos.`,
+    `<b>Extendido.</b> Hay ataques en ${deps.length} departamentos y ${mun} municipios, del Catatumbo y el sur de Bolívar al Cauca, Huila, Tolima y el Chocó.`,
+    `<b>Alcanza a civiles.</b> ${sum(D,"civ")} civiles muertos o heridos por drones, entre ellos menores de edad, en cascos urbanos, zonas comerciales y viviendas.`,
+    `<b>Varios actores.</b> El ELN aparece señalado en ${grp("ELN")} ataques y las disidencias de las FARC en ${grp("Disidencias FARC")}; en ${grp("No determinado")} no hay autor identificado, lo que dificulta la respuesta.`,
+  ];
+  $("dCrit").innerHTML=crit.map(x=>`<li><span>${x}</span></li>`).join("");
+  const tr=D14.length>P.length?`subió (${D14.length} frente a ${P.length})`:D14.length<P.length?`bajó (${D14.length} frente a ${P.length})`:`se mantuvo en ${D14.length}`;
+  $("dWatch").innerHTML=`<b>Tendencia reciente:</b> en los últimos 14 días el número de ataques con drones ${tr} frente a los 14 anteriores. La calificación de riesgo extremo descansa en la escala, la letalidad y la expansión de la amenaza, no en una variación de corto plazo.`;
+  const dc={}; D.forEach(e=>dc[e.depto]=(dc[e.depto]||0)+1); const dl=Object.entries(dc).sort((a,b)=>b[1]-a[1]).slice(0,6), mx=dl[0][1];
+  $("dDep").innerHTML=dl.map(([k,n])=>`<div class="dbar"><span>${esc(k)}</span><span class="bar"><i style="width:${n/mx*100}%"></i></span><span class="n">${n}</span></div>`).join("");
+  $("dTop").innerHTML=[...D].sort((a,b)=>sev(b)-sev(a)).slice(0,3).map(e=>`<div class="it"><span class="d">${fmtD(e.fecha)}</span><div><div class="w">${esc(e.mpio)} (${esc(e.depto)})</div><div class="x">${esc(shortAut(e))}</div></div><div class="vv">${e.m?`<b>${e.m}</b> muertos<br>`:""}<b>${e.h}</b> heridos</div></div>`).join("");
+  const C=(DATA.context||[]).filter(([s,t])=>/drones/i.test(t)&&/Ideas para la Paz|Defensor/i.test(s)).slice(0,3);
+  $("dCtx").innerHTML=C.map(([s,t])=>`<li><b>${esc(s)}:</b> ${esc(t)}.</li>`).join("") + (C.length?`<li>Cifras nacionales de terceros; no se suman a la base del observatorio.</li>`:"");
+})();
+
+/* Respuesta del Estado */
+const OPS=(DATA.ops||[]);
+const GAPC=(a,o)=>a===0&&o>0?["pr","Sin atentados en la base"]:a>=5&&o<a*0.4?["hi","Brecha alta"]:a>=2&&o<a*0.8?["mid","Brecha media"]:a>0&&o>=a*0.8?["lo","Proporcional"]:["mid","Sin operaciones"];
+(function(){
+  const O=OPS, s=k=>O.reduce((a,o)=>a+o[k],0), bomb=O.filter(o=>o.tipo==="Bombardeo"), hv=O.filter(o=>o.alto_valor), link=O.filter(o=>o.vinculo_atentado);
+  $("oK").innerHTML=[[O.length,"Operaciones registradas",`muestra verificada · ${O.filter(o=>inWin(o,ago(29),CUT)).length} en los últimos 30 días`],[bomb.length,"Bombardeos",`${bomb.reduce((a,o)=>a+o.muertos,0)} muertos reportados`],[s("capturados"),"Capturados",`${s("muertos")} muertos en operación · ${s("entregas")} sometidos`],[hv.length,"Golpes a cabecillas y mandos",`${link.length} operaciones vinculadas a un atentado`]].map(([v,l,x])=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div><div class="s">${x}</div></div>`).join("");
+  const deps=[...new Set([...EV.map(e=>e.depto),...O.map(o=>o.depto)])];
+  const R=deps.map(d=>({d,a:EV.filter(e=>e.depto===d).length,o:O.filter(x=>x.depto===d).length})).sort((x,y)=>y.a-x.a||y.o-x.o);
+  const mx=Math.max(...R.map(r=>Math.max(r.a,r.o)));
+  const row=(n,a,o,g)=>`<div class="pair"><span class="nm">${esc(n)}</span><span class="bars"><span><i style="width:${a/mx*100}%;background:var(--hi)"></i>${a}</span><span><i style="width:${o/mx*100}%;background:var(--brand)"></i>${o}</span></span>${g?`<span class="gp g-${g[0]}">${g[1]}</span>`:""}</div>`;
+  const show=[...R.filter(r=>r.a>0).slice(0,8),...R.filter(r=>r.a===0).sort((x,y)=>y.o-x.o).slice(0,2)];
+  $("oDep").innerHTML=show.map(r=>row(r.d,r.a,r.o,GAPC(r.a,r.o))).join("");
+  const GA=["ELN","Disidencias FARC","Clan del Golfo","ACSN","Segunda Marquetalia"];
+  const mxa=Math.max(...GA.map(g=>Math.max(EV.filter(e=>e.grupo===g).length,O.filter(o=>o.grupo===g).length)));
+  $("oAct").innerHTML=GA.map(g=>{const a=EV.filter(e=>e.grupo===g).length,o=O.filter(x=>x.grupo===g).length;return `<div class="pair"><span class="nm">${g}</span><span class="bars"><span><i style="width:${a/mxa*100}%;background:var(--hi)"></i>${a}</span><span><i style="width:${o/mxa*100}%;background:var(--brand)"></i>${o}</span></span><span></span></div>`;}).join("");
+  const br=R.filter(r=>GAPC(r.a,r.o)[0]==="hi"), pr=R.filter(r=>GAPC(r.a,r.o)[0]==="pr");
+  const L=[];
+  const t3=[...R].sort((x,y)=>y.o-x.o).slice(0,3), so=t3.reduce((a,r)=>a+r.o,0);
+  L.push(`<b>La respuesta se concentra en ${t3.map(r=>r.d).join(", ")}</b>, que reúnen el ${pct(so,O.length)}% de las operaciones registradas.`);
+  if(br.length) L.push(`<b>Brecha alta en ${br.map(r=>`${r.d} (${r.a} atentados, ${r.o} ${r.o===1?"operación":"operaciones"})`).join("; ")}.</b> Son territorios donde la presión armada supera la respuesta visible.`);
+  if(pr.length) L.push(`<b>El Estado también golpea fuera de las zonas de ataque</b> (${pr.map(r=>r.d).join(", ")}): finanzas, cabecillas y narcotráfico.`);
+  L.push(`<b>Disidencias FARC</b>: ${EV.filter(e=>e.grupo==="Disidencias FARC").length} atentados señalados y ${O.filter(o=>o.grupo==="Disidencias FARC").length} operaciones en su contra; <b>ELN</b>: ${EV.filter(e=>e.grupo==="ELN").length} atentados y ${O.filter(o=>o.grupo==="ELN").length} operaciones.`);
+  L.push(`<b>Bombardeos bajo escrutinio:</b> ${bomb.length} bombardeos con ${bomb.reduce((a,o)=>a+o.muertos,0)} muertos reportados; Medicina Legal reportó menores de edad muertos en operaciones y un juez ordenó abstenerse de bombardear donde haya información de menores.`);
+  L.push(`<b>Poca judicialización de los atentados:</b> solo ${link.length} operaciones se vinculan a un atentado concreto; la mayoría de los atentados más graves de la base no registra capturas ni judicialización conocidas.`);
+  $("oRead").innerHTML=L.map(x=>`<li>${x}</li>`).join("");
+  const AG=(DATA.ops_agregados||[]).filter(a=>/capturas/i.test(a.texto)&&!/Contexto|Medicina|Juez/i.test(a.fuente)).sort((a,b)=>String(b.fecha_corte).localeCompare(String(a.fecha_corte))).slice(0,3);
+  $("oAgg").innerHTML=AG.map(a=>`<li><b>${esc(a.fuente.split(" (")[0])}</b>${a.fecha_corte?` (${esc(a.fecha_corte)})`:""}: ${esc(a.texto.length>230?a.texto.slice(0,227)+"…":a.texto)}</li>`).join("")+`<li>La muestra del observatorio recoge resultados de alta visibilidad con fuente verificable; no es el total oficial.</li>`;
+})();
+
+/* Lo esencial */
+(function(){
+  const L=[];
+  const t7=W7.length,p7=P7.length, v7=sum(W7,"m")+sum(W7,"h"), pv7=sum(P7,"m")+sum(P7,"h");
+  const dir = (a,b)=> a>b*1.2&&a-b>=2 ? "sube" : a<b*0.8&&b-a>=2 ? "baja" : "se mantiene estable";
+  L.push(`<b>La actividad ${dir(t7,p7)}.</b> En los últimos 7 días (${fmtD(ago(6))} a ${fmtD(CUT)}) se registraron ${t7} hechos y ${v7} víctimas, frente a ${p7} hechos y ${pv7} víctimas en los 7 días previos.`);
+  const top3=DL.slice(0,3), s3=top3.reduce((s,d)=>s+d.n,0);
+  L.push(`<b>El riesgo está concentrado.</b> ${top3.map(d=>`${d.k} (${d.n})`).join(", ")} reúnen el ${pct(s3,EV.length)}% de los hechos. ${DL.filter(d=>lvl(d.n30)[0]==="hi").length?`Con nivel alto en los últimos 30 días: ${DL.filter(d=>lvl(d.n30)[0]==="hi").map(d=>d.k).join(", ")}.`:""}`);
+  const dr=EV.filter(e=>e.mod==="Dron con explosivos").length, dr14=W14.filter(e=>e.mod==="Dron con explosivos").length;
+  L.push(`<b>Los drones con explosivos son la amenaza prioritaria y GESEG la califica de riesgo extremo.</b> Están en ${dr} de los ${EV.length} hechos (${pct(dr,EV.length)}%) y en ${dr14} de los ${W14.length} de las últimas dos semanas.`);
+  const g=[...W7].sort((a,b)=>sev(b)-sev(a))[0];
+  if(g && sev(g)>0) L.push(`<b>Hecho más grave de la semana:</b> ${esc(g.mod.toLowerCase())} en ${esc(g.mpio)} (${esc(g.depto)}) el ${fmtD(g.fecha)}, con ${g.m} muertos y ${g.h} heridos; ${esc(shortAut(g).toLowerCase().replace("eln","ELN").replace("disidencias farc","disidencias FARC"))}.`);
+  const fp=EV.filter(e=>/Fuerza Pública/.test(e.objetivo)).length;
+  L.push(`<b>La Fuerza Pública es el blanco principal</b> (${pct(fp,EV.length)}% de los hechos), pero ${sum(EV,"civ")} civiles han resultado muertos o heridos.`);
+  const E=EV.filter(e=>e.atrib==="E").length, eln=EV.filter(e=>e.grupo==="ELN").length, df=EV.filter(e=>e.grupo==="Disidencias FARC").length;
+  L.push(`<b>Autoría:</b> el ELN aparece señalado en ${eln} hechos y las disidencias de las FARC en ${df}; en ${E} (${pct(E,EV.length)}%) no hay autor identificado y ninguno tiene decisión judicial.`);
+  if(OPS.length){ const R2=[...new Set(EV.map(e=>e.depto))].map(d=>({d,a:EV.filter(e=>e.depto===d).length,o:OPS.filter(o=>o.depto===d).length})).filter(r=>r.a>=5&&r.o<r.a*0.4); L.push(`<b>Respuesta del Estado:</b> ${OPS.length} operaciones registradas (${OPS.filter(o=>o.tipo==="Bombardeo").length} bombardeos, ${OPS.reduce((s,o)=>s+o.capturados,0)} capturados)${R2.length?`; la respuesta visible es baja frente a los atentados en ${R2.map(r=>r.d).join(", ")}`:""}.`); }
+  $("ess").innerHTML=L.map(x=>`<li>${x}</li>`).join("");
+})();
+</script>

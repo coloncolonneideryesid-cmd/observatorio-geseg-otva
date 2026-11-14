@@ -1,0 +1,20 @@
+id: defensoria_sat
+version: 1
+status: draft  # no integrar hasta verificar licencia y términos
+owner: "Defensoría del Pueblo (SAT)"
+access_method: "Descarga de PDF + extracción manual"
+license: PENDIENTE de verificar
+license_status: PENDING
+terms_url: PENDIENTE
+public_redistribution: pending
+rate_limits: PENDIENTE de verificar
+robots_txt: PENDIENTE de verificar
+coverage: "Alertas tempranas publicadas"
+temporal_coverage: PENDIENTE
+latency_expected: PENDIENTE
+known_biases: "Publicación espaciada; PDF, validación manual"
+admiralty_initial_source: A  # propuesta inicial, sin calibrar
+security_risks: "Contenido no confiable: parseo sin red; ver modelo de amenazas A2/A3"
+classification: INTERNO  # la lista de fuentes monitoreadas es sensible
+last_terms_check: null
+connector_allowed: false

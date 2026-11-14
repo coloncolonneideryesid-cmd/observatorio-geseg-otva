@@ -1,0 +1,856 @@
+{
+  "generado": "2026-11-14T18:04:14+00:00",
+  "inicio": "2026-11-14T18:04:14+00:00",
+  "modo": {
+    "construir_maestro": false,
+    "comprobar_urls": false,
+    "descubrir": false,
+    "actualizar": false,
+    "solo": null
+  },
+  "resumen": {
+    "total_fuentes": 197,
+    "por_estado": {
+      "activa": 146,
+      "pendiente_verificacion": 51
+    },
+    "por_categoria": {
+      "institucional": 18,
+      "gubernamental": 49,
+      "periodistica": 91,
+      "red_social": 21,
+      "organismo_internacional": 10,
+      "centro_investigacion": 8
+    },
+    "errores_validacion": 0,
+    "avisos_validacion": 3,
+    "urls_comprobadas": 32,
+    "resultado_urls": {
+      "ok": 32
+    },
+    "origen_comprobacion_urls": "2026-11-14T18:03:42+00:00"
+  },
+  "origen_comprobacion_urls": "2026-11-14T18:03:42+00:00",
+  "hallazgos_validacion": [
+    {
+      "nivel": "aviso",
+      "codigo": "REGISTRO_INCOMPLETO",
+      "archivo": "fuentes_redes_sociales.json",
+      "id_fuente": "OTVA-RSO-031",
+      "detalle": "Sin URL ni identificador de cuenta"
+    },
+    {
+      "nivel": "aviso",
+      "codigo": "REGISTRO_INCOMPLETO",
+      "archivo": "fuentes_redes_sociales.json",
+      "id_fuente": "OTVA-RSO-032",
+      "detalle": "Sin URL ni identificador de cuenta"
+    },
+    {
+      "nivel": "aviso",
+      "codigo": "REGISTRO_INCOMPLETO",
+      "archivo": "fuentes_redes_sociales.json",
+      "id_fuente": "OTVA-RSO-033",
+      "detalle": "Sin URL ni identificador de cuenta"
+    },
+    {
+      "nivel": "info",
+      "codigo": "URL_COMPARTIDA",
+      "archivo": null,
+      "id_fuente": "OTVA-INS-001,OTVA-INS-002,OTVA-INS-003",
+      "detalle": "policia.gov.co"
+    }
+  ],
+  "comprobacion_urls": [
+    {
+      "url": "https://diariodelcaqueta.com",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://diariodelcaqueta.com",
+      "error": null,
+      "tiempo_ms": 648,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-052",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://diariodelcaqueta.com/feed/",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://diariodelcaqueta.com/feed/",
+      "error": null,
+      "tiempo_ms": 610,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-052",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://lenteregional.com",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://lenteregional.com",
+      "error": null,
+      "tiempo_ms": 2414,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-053",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://lenteregional.com/feed/",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://lenteregional.com/feed/",
+      "error": null,
+      "tiempo_ms": 2230,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-053",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://consonante.org/cat/caqueta/",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://consonante.org/cat/caqueta/",
+      "error": null,
+      "tiempo_ms": 1078,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-054",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://consonante.org/cat/caqueta/feed/",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://consonante.org/cat/caqueta/feed/",
+      "error": null,
+      "tiempo_ms": 1403,
+      "tipo_contenido": "application/rss+xml",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-054",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://extrategiamedios.com",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://extrategiamedios.com",
+      "error": null,
+      "tiempo_ms": 587,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-055",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://extrategiamedios.com/feed/",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://extrategiamedios.com/feed/",
+      "error": null,
+      "tiempo_ms": 5108,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-055",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://lavilla.com.co",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://lavilla.com.co",
+      "error": null,
+      "tiempo_ms": 592,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-056",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://lavilla.com.co/feed/",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://lavilla.com.co/feed/",
+      "error": null,
+      "tiempo_ms": 723,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-056",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://www.periodicoadrenalina.com.co",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://www.periodicoadrenalina.com.co",
+      "error": null,
+      "tiempo_ms": 838,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-057",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://www.periodicoadrenalina.com.co/feeds/posts/default?alt=rss",
+      "fecha": "2026-11-14T18:03:42+00:00",
+      "codigo_http": 200,
+      "url_final": "https://www.periodicoadrenalina.com.co/feeds/posts/default?alt=rss",
+      "error": null,
+      "tiempo_ms": 716,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-057",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://sabanasn.com",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://sabanasn.com",
+      "error": null,
+      "tiempo_ms": 485,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-058",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://sabanasn.com/feed/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://sabanasn.com/feed/",
+      "error": null,
+      "tiempo_ms": 279,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-058",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://eldoradoradio.cundinamarca.gov.co",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://eldoradoradio.cundinamarca.gov.co",
+      "error": null,
+      "tiempo_ms": 805,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-059",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://eldoradoradio.cundinamarca.gov.co/feed/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://eldoradoradio.cundinamarca.gov.co/feed/",
+      "error": null,
+      "tiempo_ms": 460,
+      "tipo_contenido": "application/rss+xml",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-059",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://amazonasnewsradio.com",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://amazonasnewsradio.com",
+      "error": null,
+      "tiempo_ms": 477,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-060",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://amazonasnewsradio.com/feed/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://amazonasnewsradio.com/feed/",
+      "error": null,
+      "tiempo_ms": 1917,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-060",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://consonante.org/cat/amazonas/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://consonante.org/cat/amazonas/",
+      "error": null,
+      "tiempo_ms": 884,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-061",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://consonante.org/cat/amazonas/feed/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://consonante.org/cat/amazonas/feed/",
+      "error": null,
+      "tiempo_ms": 1238,
+      "tipo_contenido": "application/rss+xml",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-061",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://www.radionacional.co/noticias-relacionadas/amazonas",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://www.radionacional.co/noticias-relacionadas/amazonas",
+      "error": null,
+      "tiempo_ms": 156,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-062",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://elmorichal.com",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://elmorichal.com",
+      "error": null,
+      "tiempo_ms": 465,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-063",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://elmorichal.com/feed/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://elmorichal.com/feed/",
+      "error": null,
+      "tiempo_ms": 403,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-063",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://elmorichal.com/category/guainia/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://elmorichal.com/category/guainia/",
+      "error": null,
+      "tiempo_ms": 408,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-064",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://consonante.org/cat/guainia/inirida/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://consonante.org/cat/guainia/inirida/",
+      "error": null,
+      "tiempo_ms": 843,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-065",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://consonante.org/cat/guainia/inirida/feed/",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://consonante.org/cat/guainia/inirida/feed/",
+      "error": null,
+      "tiempo_ms": 812,
+      "tipo_contenido": "application/rss+xml",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-065",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://guaviareestereo.com",
+      "fecha": "2026-11-14T18:03:43+00:00",
+      "codigo_http": 200,
+      "url_final": "https://guaviareestereo.com",
+      "error": null,
+      "tiempo_ms": 965,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-066",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://guaviareestereo.com/feed/",
+      "fecha": "2026-11-14T18:03:44+00:00",
+      "codigo_http": 200,
+      "url_final": "https://guaviareestereo.com/feed/",
+      "error": null,
+      "tiempo_ms": 847,
+      "tipo_contenido": "application/rss+xml; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-066",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    },
+    {
+      "url": "https://radionacional.co/noticias-relacionadas/guaviare",
+      "fecha": "2026-11-14T18:03:44+00:00",
+      "codigo_http": 200,
+      "url_final": "https://radionacional.co/noticias-relacionadas/guaviare",
+      "error": null,
+      "tiempo_ms": 152,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-067",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://www.radionacional.co/noticias-relacionadas/vaupes",
+      "fecha": "2026-11-14T18:03:44+00:00",
+      "codigo_http": 200,
+      "url_final": "https://www.radionacional.co/noticias-relacionadas/vaupes",
+      "error": null,
+      "tiempo_ms": 409,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-068",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://consonante.org/cat/vaupes/",
+      "fecha": "2026-11-14T18:03:44+00:00",
+      "codigo_http": 200,
+      "url_final": "https://consonante.org/cat/vaupes/",
+      "error": null,
+      "tiempo_ms": 1025,
+      "tipo_contenido": "text/html; charset=UTF-8",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-069",
+      "campo": "url_principal",
+      "clasificacion": "ok"
+    },
+    {
+      "url": "https://consonante.org/cat/vaupes/feed/",
+      "fecha": "2026-11-14T18:03:44+00:00",
+      "codigo_http": 200,
+      "url_final": "https://consonante.org/cat/vaupes/feed/",
+      "error": null,
+      "tiempo_ms": 739,
+      "tipo_contenido": "application/rss+xml",
+      "archivo": "fuentes_medios_regionales.json",
+      "id_fuente": "OTVA-MRE-069",
+      "campo": "url_rss",
+      "clasificacion": "ok",
+      "feed_valido": true
+    }
+  ],
+  "pendientes_verificacion": [
+    {
+      "id_fuente": "OTVA-INS-005",
+      "nombre": "Ejercito Nacional de Colombia",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INS-006",
+      "nombre": "Armada de Colombia",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INS-009",
+      "nombre": "Fiscalia General de la Nacion",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INS-016",
+      "nombre": "Unidad de Restitucion de Tierras",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INS-017",
+      "nombre": "Instituto Nacional de Medicina Legal y Ciencias Forenses",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "Publica boletines estadisticos de lesiones fatales; usar solo cifras agregadas."
+    },
+    {
+      "id_fuente": "OTVA-INS-020",
+      "nombre": "Jurisdiccion Especial para la Paz (JEP)",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "error_servidor",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INS-022",
+      "nombre": "Ministerio de Relaciones Exteriores (Cancilleria)",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INS-024",
+      "nombre": "Ministerio de Hacienda y Credito Publico",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "El sitio redirige a un reto anti-bots (Radware/perfdrive) ante clientes automaticos; requiere verificacion manual en navegador. No evadir."
+    },
+    {
+      "id_fuente": "OTVA-INS-025",
+      "nombre": "Vicepresidencia de la Republica",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INS-103",
+      "nombre": "Gobernacion de Bolivar",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "URL candidata construida con el patron oficial <departamento>.gov.co; requiere comprobacion tecnica e institucional."
+    },
+    {
+      "id_fuente": "OTVA-INS-104",
+      "nombre": "Gobernacion de Boyaca",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "URL candidata construida con el patron oficial <departamento>.gov.co; requiere comprobacion tecnica e institucional."
+    },
+    {
+      "id_fuente": "OTVA-INS-110",
+      "nombre": "Gobernacion de Cundinamarca",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "URL candidata construida con el patron oficial <departamento>.gov.co; requiere comprobacion tecnica e institucional."
+    },
+    {
+      "id_fuente": "OTVA-INS-114",
+      "nombre": "Gobernacion de Magdalena",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "URL candidata construida con el patron oficial <departamento>.gov.co; requiere comprobacion tecnica e institucional."
+    },
+    {
+      "id_fuente": "OTVA-INS-115",
+      "nombre": "Gobernacion de Meta",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": "URL candidata construida con el patron oficial <departamento>.gov.co; requiere comprobacion tecnica e institucional."
+    },
+    {
+      "id_fuente": "OTVA-INS-116",
+      "nombre": "Gobernacion de Narino",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": "URL candidata construida con el patron oficial <departamento>.gov.co; requiere comprobacion tecnica e institucional."
+    },
+    {
+      "id_fuente": "OTVA-INS-118",
+      "nombre": "Gobernacion de Quindio",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "URL candidata construida con el patron oficial <departamento>.gov.co; requiere comprobacion tecnica e institucional."
+    },
+    {
+      "id_fuente": "OTVA-INS-204",
+      "nombre": "Alcaldia de Barranquilla",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "URL candidata (patron <municipio>.gov.co); requiere comprobacion."
+    },
+    {
+      "id_fuente": "OTVA-INS-205",
+      "nombre": "Alcaldia de Cartagena de Indias",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "URL candidata (patron <municipio>.gov.co); requiere comprobacion."
+    },
+    {
+      "id_fuente": "OTVA-INS-206",
+      "nombre": "Alcaldia de San Jose de Cucuta",
+      "archivo": "fuentes_institucionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": "URL candidata (patron <municipio>.gov.co); requiere comprobacion."
+    },
+    {
+      "id_fuente": "OTVA-MNA-017",
+      "nombre": "La Silla Vacia",
+      "archivo": "fuentes_medios_nacionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-MNA-021",
+      "nombre": "Contagio Radio",
+      "archivo": "fuentes_medios_nacionales.json",
+      "motivo": "error_servidor",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-MRE-041",
+      "nombre": "El Pilon",
+      "archivo": "fuentes_medios_regionales.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-MRE-045",
+      "nombre": "Telecafe",
+      "archivo": "fuentes_medios_regionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": "Canal regional del Eje Cafetero (Caldas, Risaralda, Quindio)."
+    },
+    {
+      "id_fuente": "OTVA-MRE-050",
+      "nombre": "El Isleno",
+      "archivo": "fuentes_medios_regionales.json",
+      "motivo": "sin_respuesta",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-RSO-001",
+      "nombre": "Policia Nacional de Colombia - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-002",
+      "nombre": "Comando General Fuerzas Militares - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-003",
+      "nombre": "Ejercito Nacional - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-004",
+      "nombre": "Armada de Colombia - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-005",
+      "nombre": "Fuerza Aeroespacial Colombiana - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Cuenta historica de la Fuerza Aerea; comprobar si cambio de nombre tras la denominacion 'Fuerza Aeroespacial'. Titularidad pendiente de comprobar."
+    },
+    {
+      "id_fuente": "OTVA-RSO-006",
+      "nombre": "Ministerio de Defensa - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-007",
+      "nombre": "Fiscalia General de la Nacion - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-008",
+      "nombre": "Ministerio del Interior - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-009",
+      "nombre": "Presidencia de la Republica - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-010",
+      "nombre": "Defensoria del Pueblo - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-011",
+      "nombre": "Procuraduria General - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-012",
+      "nombre": "Unidad para las Victimas - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-013",
+      "nombre": "Unidad Nacional de Proteccion - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-014",
+      "nombre": "Migracion Colombia - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-015",
+      "nombre": "Cancilleria - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-016",
+      "nombre": "Ministerio de Justicia - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-017",
+      "nombre": "Ministerio de Hacienda - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Titularidad pendiente de comprobar (insignia de verificacion gubernamental y enlace desde el sitio oficial de la entidad)."
+    },
+    {
+      "id_fuente": "OTVA-RSO-030",
+      "nombre": "Abelardo de la Espriella - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Actor politico de alto perfil publico. Ni el handle, ni la titularidad, ni un eventual cargo publico se dan por confirmados: verificar en fuentes oficiales (Registraduria/Presidencia) y en la propia cuenta. Monitorear solo pronunciamientos publicos sobre seguridad y defensa; no perfilar su vida privada."
+    },
+    {
+      "id_fuente": "OTVA-RSO-031",
+      "nombre": "Vicepresidencia de la Republica - X",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Cuenta no identificada con certeza; obtenerla del enlace oficial en vicepresidencia.gov.co."
+    },
+    {
+      "id_fuente": "OTVA-RSO-032",
+      "nombre": "Embajadas de Colombia en el exterior",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Registrar cada embajada solo a partir del directorio oficial de Cancilleria; no se listan cuentas sin comprobar."
+    },
+    {
+      "id_fuente": "OTVA-RSO-033",
+      "nombre": "Ministros y altos funcionarios competentes",
+      "archivo": "fuentes_redes_sociales.json",
+      "motivo": "plataforma_no_comprobable_sin_api",
+      "observaciones": "Los titulares cambian; registrar cuentas personales de funcionarios solo tras confirmar el nombramiento en fuentes oficiales y mientras ejerzan el cargo."
+    },
+    {
+      "id_fuente": "OTVA-INT-002",
+      "nombre": "Oficina en Colombia del Alto Comisionado de la ONU para los DDHH",
+      "archivo": "fuentes_internacionales_academicas.json",
+      "motivo": "sin_respuesta",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INT-005",
+      "nombre": "Comite Internacional de la Cruz Roja (CICR)",
+      "archivo": "fuentes_internacionales_academicas.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": "Identificar la seccion de Colombia con --descubrir."
+    },
+    {
+      "id_fuente": "OTVA-INT-006",
+      "nombre": "ACNUR (UNHCR)",
+      "archivo": "fuentes_internacionales_academicas.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INT-011",
+      "nombre": "InSight Crime",
+      "archivo": "fuentes_internacionales_academicas.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INT-012",
+      "nombre": "International Crisis Group",
+      "archivo": "fuentes_internacionales_academicas.json",
+      "motivo": "bloqueado_o_restringido",
+      "observaciones": null
+    },
+    {
+      "id_fuente": "OTVA-INT-014",
+      "nombre": "Global Terrorism Database (START)",
+      "archivo": "fuentes_internacionales_academicas.json",
+      "motivo": "sin_respuesta",
+      "observaciones": "Comprobar condiciones de acceso vigentes a los datos."
+    }
+  ],
+  "error_ejecucion": null
+}

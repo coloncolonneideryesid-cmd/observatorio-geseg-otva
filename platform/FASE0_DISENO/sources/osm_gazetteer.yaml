@@ -1,0 +1,20 @@
+id: osm_gazetteer
+version: 1
+status: draft  # no integrar hasta verificar licencia y términos
+owner: "OpenStreetMap + gazetteer propio"
+access_method: "Descarga + construcción propia"
+license: PENDIENTE de verificar
+license_status: PENDING
+terms_url: PENDIENTE
+public_redistribution: pending
+rate_limits: PENDIENTE de verificar
+robots_txt: PENDIENTE de verificar
+coverage: "Geocodificación de lugares"
+temporal_coverage: PENDIENTE
+latency_expected: PENDIENTE
+known_biases: "Licencia ODbL implica atribución y condiciones de redistribución: por verificar; gazetteer propio versionado"
+admiralty_initial_source: B  # propuesta inicial, sin calibrar
+security_risks: "Contenido no confiable: parseo sin red; ver modelo de amenazas A2/A3"
+classification: INTERNO  # la lista de fuentes monitoreadas es sensible
+last_terms_check: null
+connector_allowed: false
