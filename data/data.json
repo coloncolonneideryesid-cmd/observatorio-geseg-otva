@@ -419,10 +419,9 @@
    "estado": "Preliminar",
    "discrepancia": "",
    "fuentes": [
-    "https://minuto60.com/judicial/estacion-policia-fue-atacada-drones-explosivos-cesar/16594",
     "https://www.teleamazonas.com/actualidad/noticias/internacional/cronologia-violencia-colombia-atentados-seguridad-129149/"
    ],
-   "actualizacion": "2026-10-21"
+   "actualizacion": "2026-11-17"
   },
   {
    "id": "CO-2026-013",
@@ -595,9 +594,10 @@
    "discrepancia": "",
    "fuentes": [
     "https://www.vanguardia.com/colombia/2026/10/05/nueva-noche-de-tension-en-aguachica-tras-ataque-con-explosivos-a-estacion-de-policia/",
-    "https://www.elpais.com.co/judicial/asointermedias-rechaza-nuevo-ataque-con-drones-contra-la-estacion-de-policia-de-aguachica-cesar-0506.html"
+    "https://www.elpais.com.co/judicial/asointermedias-rechaza-nuevo-ataque-con-drones-contra-la-estacion-de-policia-de-aguachica-cesar-0506.html",
+    "https://minuto60.com/judicial/estacion-policia-fue-atacada-drones-explosivos-cesar/16594"
    ],
-   "actualizacion": "2026-10-21"
+   "actualizacion": "2026-11-17"
   },
   {
    "id": "CO-2026-018",
@@ -1373,8 +1373,8 @@
   },
   {
    "prec_coord": "Municipal aproximada",
-   "atrib": "E",
-   "grupo": "No determinado",
+   "atrib": "B",
+   "grupo": "Disidencias FARC",
    "eco": "No cuantificado",
    "desplaz": "No documentado",
    "servicios": "No documentado",
@@ -1392,8 +1392,8 @@
    "mod": "Dron con explosivos",
    "objetivo": "Fuerza Pública",
    "clase": "Presunto acto terrorista (clasificación analítica provisional)",
-   "autor": "No atribuido oficialmente: información preliminar de autoridades departamentales apunta a disidencias de las Farc, sin identificar estructura",
-   "evidencia": "Infobae recoge una atribución preliminar a disidencias, sin funcionario identificado ni estructura nombrada; se mantiene sin atribución.",
+   "autor": "Disidencias de las FARC, según atribución preliminar de las autoridades departamentales de Nariño (sin estructura identificada)",
+   "evidencia": "El Subsecretario de Seguridad de Nariño atribuyó de forma preliminar el ataque a disidencias de las FARC; la atribución oficial no equivale a decisión judicial.",
    "m_civ": 0,
    "h_civ": 0,
    "h_nota": "No se reportan heridos.",
@@ -1403,7 +1403,7 @@
     "https://www.infobae.com/colombia/2026/11/03/disidencias-de-las-farc-atacaron-con-drones-una-estacion-de-policia-en-narino-no-se-reportan-heridos/"
    ],
    "id": "CO-2026-040",
-   "actualizacion": "2026-11-05"
+   "actualizacion": "2026-11-17"
   },
   {
    "prec_coord": "Municipal aproximada",
@@ -1441,8 +1441,8 @@
   },
   {
    "prec_coord": "Municipal aproximada",
-   "atrib": "E",
-   "grupo": "No determinado",
+   "atrib": "D",
+   "grupo": "ELN",
    "eco": "No cuantificado",
    "desplaz": "No documentado",
    "servicios": "No documentado",
@@ -1460,8 +1460,8 @@
    "mod": "Dron con explosivos",
    "objetivo": "Fuerza Pública",
    "clase": "Presunto acto terrorista (clasificación analítica provisional)",
-   "autor": "No atribuido: ninguna organización se ha atribuido el hecho; el Ministerio de Defensa planteó como hipótesis (\"sería\") una represalia del ELN",
-   "evidencia": "La atribución al ELN es una hipótesis del Ministerio de Defensa expresada en condicional; no hay identificación oficial confirmada del autor.",
+   "autor": "ELN como hipótesis del Ministerio de Defensa (represalia por una captura), no confirmada",
+   "evidencia": "El Ministerio de Defensa planteó en condicional («sería») una represalia del ELN; ninguna autoridad ha confirmado la autoría.",
    "m_civ": 0,
    "h_civ": 0,
    "h_nota": "Tres militares muertos y 16 heridos de gravedad, según el Ministerio de Defensa; otros 31 afectados sin precisar.",
@@ -1472,7 +1472,7 @@
     "https://www.elheraldo.co/colombia/2026/11/08/estos-son-los-soldados-que-murieron-en-el-ataque-con-explosivos-en-el-canton-militar-de-santa-rosa-sur-de-bolivar/"
    ],
    "id": "CO-2026-042",
-   "actualizacion": "2026-11-08"
+   "actualizacion": "2026-11-17"
   },
   {
    "fecha": "2026-11-11",
