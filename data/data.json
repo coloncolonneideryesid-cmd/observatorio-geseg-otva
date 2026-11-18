@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17",
+ "updated": "2026-11-18",
  "events": [
   {
    "id": "CO-2026-001",
@@ -1971,10 +1971,10 @@
    "mod": "Explosivo / IED",
    "objetivo": "Infraestructura vial",
    "clase": "Presunto acto terrorista (clasificación analítica provisional)",
-   "autor": "No atribuido: las autoridades investigan a los responsables",
-   "grupo": "No determinado",
-   "atrib": "E",
-   "evidencia": "La Policía Metropolitana de Neiva abrió la investigación; ninguna autoridad ha nombrado a los responsables.",
+   "autor": "Frente Ismael Ruiz de las disidencias de Iván Mordisco, bajo alias 'El Enfermero' (atribución preliminar de organismos de seguridad sin precisar; sin confirmación oficial)",
+   "grupo": "Disidencias FARC",
+   "atrib": "D",
+   "evidencia": "Según La Nación, organismos de seguridad y fuentes oficiales no identificadas señalan al cabecilla del frente Ismael Ruiz; ninguna autoridad lo ha confirmado públicamente y la atribución no equivale a decisión judicial.",
    "m_civ": 0,
    "m_fp": 0,
    "h_civ": 0,
@@ -1986,13 +1986,13 @@
    "estado": "Preliminar",
    "fuentes": [
     "https://diariodelnorte.net/nacion/explosion-en-peaje-de-neiva-provoca-cierre-de-la-via-hacia-bogota/",
-    "https://www.eldiario.com.co/actualidad/alerta-por-posible-carro-bomba-obligo-a-cerrar-otro-peaje-en-huila/",
-    "https://www.lanacion.com.co/en-imagenes-los-danos-que-dejo-el-atentado-contra-el-peaje-neiva/"
+    "https://www.lanacion.com.co/en-imagenes-los-danos-que-dejo-el-atentado-contra-el-peaje-neiva/",
+    "https://www.lanacion.com.co/alias-el-enfermero-estaria-detras-de-atentados-a-peajes-el-huila-no-esta-solo/"
    ],
    "id": "CO-2026-057",
    "discrepancia": "",
    "eco": "No cuantificado",
-   "actualizacion": "2026-11-16"
+   "actualizacion": "2026-11-18"
   },
   {
    "fecha": "2026-11-15",
@@ -2150,10 +2150,10 @@
    "mod": "Dron con explosivos",
    "objetivo": "Fuerza Pública",
    "clase": "Ataque armado contra Fuerza Pública (clasificación analítica provisional)",
-   "autor": "No atribuido: la Policía no ha identificado responsables",
-   "grupo": "No determinado",
-   "atrib": "E",
-   "evidencia": "La Policía Nacional informó que investiga; no ha nombrado a los responsables.",
+   "autor": "Frente Hernando González Acosta de las disidencias de las FARC (atribución preliminar de organismos de seguridad sin precisar, según medios; sin confirmación oficial)",
+   "grupo": "Disidencias FARC",
+   "atrib": "D",
+   "evidencia": "Diario del Huila y Publimetro citan información preliminar de organismos de seguridad que señala a disidencias de las FARC; la Policía Nacional no ha nombrado a los responsables.",
    "m_civ": 0,
    "m_fp": 0,
    "h_civ": 0,
@@ -2165,13 +2165,13 @@
    "estado": "Preliminar",
    "fuentes": [
     "https://www.lafm.com.co/orden-publico/atentado-dron-policia-herido-huila-417371",
-    "https://diariodelhuila.com/ataque-con-dron-a-la-estacion-de-policia-de-el-pital-deja-dos-personas-heridas/",
-    "https://www.elnuevodia.com.co/colombia/nuevo-ataque-con-explosivos-destruyeron-la-imagen-la-virgen-541404"
+    "https://diariodelhuila.com/nuevo-ataque-con-dron-contra-estacion-de-policia-de-el-pital-deja-dos-heridos/",
+    "https://www.publimetro.co/noticias/2026/11/17/nuevo-ataque-desde-el-aire-lanzaron-explosivos-con-un-dron-contra-otra-estacion-de-policia-en-colombia/"
    ],
    "discrepancia": "",
    "eco": "No cuantificado",
    "id": "CO-2026-062",
-   "actualizacion": "2026-11-17"
+   "actualizacion": "2026-11-18"
   }
  ],
  "excluded": [
