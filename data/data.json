@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18",
+ "updated": "2026-11-22",
  "events": [
   {
    "id": "CO-2026-001",
@@ -2172,6 +2172,76 @@
    "eco": "No cuantificado",
    "id": "CO-2026-062",
    "actualizacion": "2026-11-18"
+  },
+  {
+   "fecha": "2026-11-22",
+   "hora": "Madrugada",
+   "depto": "Cesar",
+   "mpio": "La Jagua de Ibirico",
+   "lugar": "Batallón Especial Energético y Vial N.º 2",
+   "lat": 9.56,
+   "lon": -73.33,
+   "prec_coord": "Municipal aproximada",
+   "tipo": "Ataque con dispositivos explosivos improvisados lanzados desde rampas adaptadas contra las instalaciones del batallón",
+   "mod": "Explosivo / IED",
+   "objetivo": "Fuerza Pública",
+   "clase": "Ataque armado contra Fuerza Pública (clasificación analítica provisional)",
+   "autor": "No atribuido: el Ejército no ha señalado responsables",
+   "grupo": "No determinado",
+   "atrib": "E",
+   "evidencia": "La Décima Brigada y la Primera División rechazaron el hecho y describieron el uso de rampas para lanzar explosivos improvisados; ninguna autoridad ha nombrado a los autores. Reportes preliminares de drones y de un presunto carro bomba no han sido confirmados oficialmente.",
+   "m_civ": 0,
+   "m_fp": 1,
+   "h_civ": 0,
+   "h_fp": 12,
+   "h_nota": "Un soldado muerto y 12 militares heridos, según la Décima Brigada.",
+   "danos": "Instalaciones de la unidad militar afectadas, sin cuantificación oficial.",
+   "desplaz": "No documentado",
+   "servicios": "Toque de queda de 24 horas decretado por la Alcaldía como medida preventiva",
+   "estado": "Preliminar",
+   "fuentes": [
+    "https://www.infobae.com/colombia/2026/11/22/ataque-contra-batallon-del-ejercito-en-la-jagua-de-ibirico-cesar-termino-con-la-muerte-de-un-soldado-y-12-mas-heridos/",
+    "https://www.elnuevodia.com.co/colombia/ataque-armado-contra-el-ejercito-sacudio-al-departamento-del-cesar-541558",
+    "https://diariodelnorte.net/caribe/de-la-espriella-advierte-represalias-tras-atentado-contra-batallon-en-cesar-que-dejo-un-soldado-muerto-y-12-heridos/"
+   ],
+   "id": "CO-2026-063",
+   "discrepancia": "",
+   "eco": "No cuantificado",
+   "actualizacion": "2026-11-22"
+  },
+  {
+   "fecha": "2026-11-19",
+   "hora": "Noche",
+   "depto": "Valle del Cauca",
+   "mpio": "Cali",
+   "lugar": "Cercanías del CAI del Jardín Botánico, oeste de la ciudad",
+   "lat": 3.45,
+   "lon": -76.53,
+   "prec_coord": "Municipal aproximada",
+   "tipo": "Artefacto explosivo lanzado cerca de un CAI de la Policía",
+   "mod": "Granada / artefacto lanzado",
+   "objetivo": "Fuerza Pública",
+   "clase": "Ataque armado contra Fuerza Pública (clasificación analítica provisional)",
+   "autor": "No atribuido: la Policía Metropolitana investiga",
+   "grupo": "No determinado",
+   "atrib": "E",
+   "evidencia": "La Policía Metropolitana revisa cámaras para establecer los responsables; no hay atribución oficial.",
+   "m_civ": 0,
+   "m_fp": 0,
+   "h_civ": 0,
+   "h_fp": 0,
+   "h_nota": "Sin lesionados, según el reporte preliminar de las autoridades.",
+   "danos": "Daños menores en la infraestructura blindada del CAI.",
+   "desplaz": "No documentado",
+   "servicios": "No documentado",
+   "estado": "Preliminar",
+   "fuentes": [
+    "https://www.chicanoticias.com/2026/11/20/ataque-con-explosivos-en-cali/"
+   ],
+   "id": "CO-2026-064",
+   "discrepancia": "",
+   "eco": "No cuantificado",
+   "actualizacion": "2026-11-22"
   }
  ],
  "excluded": [
@@ -2377,6 +2447,20 @@
    "San Pedro",
    "Hombres armados dispararon contra asistentes a una celebración y dejaron gravemente herido a un ganadero",
    "Sin vínculo documentado con terrorismo o violencia armada organizada; la Policía no se ha pronunciado sobre móviles ni autores."
+  ],
+  [
+   "2026-11-20",
+   "Valle del Cauca",
+   "Jamundí",
+   "Hombres armados irrumpieron en una finca, intimidaron a trabajadores y quemaron un tractor, según Asocaña",
+   "Sin víctimas ni explosivos documentados; sin responsables ni vínculo con violencia armada organizada informados por autoridades."
+  ],
+  [
+   "2026-11-18",
+   "Huila",
+   "El Pital",
+   "Incautación de unos 180 kilos de explosivos en un vehículo interceptado por la Policía",
+   "Atentado frustrado sin detonación."
   ]
  ],
  "context": [
